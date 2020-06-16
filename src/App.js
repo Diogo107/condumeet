@@ -1,16 +1,20 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route, Redirect, Link } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.scss';
 //importing Components and Views
-import NavBar from './Components/NavBar/index.jsx';
+import NavBar from './Components/NavBar';
 import LandingPage from './Views/LandingPage';
+import SignUp from './Views/SignUp';
 
-function App() {
+function App(props) {
 	return (
 		<div className="App">
 			<BrowserRouter>
-				<Route path="*" render={(props) => <NavBar {...props} />} />
-				<Route path="/" render={(props) => <LandingPage {...props} />} />
+				<Switch>
+					<Route path="/signup" render={(props) => <SignUp {...props} />} />
+					<Route path="*" render={(props) => <NavBar {...props} />} />
+				</Switch>
+				<Route path="/" exact render={(props) => <LandingPage {...props} />} />
 			</BrowserRouter>
 		</div>
 	);

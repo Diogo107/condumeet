@@ -1,5 +1,4 @@
-import React, { useContext, useState } from 'react';
-import { UserContext } from '../../Context/UserContext';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import './style.scss';
 //import images

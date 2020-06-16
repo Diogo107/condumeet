@@ -3,13 +3,17 @@
 	box-sizing: border-box;
 }
 
+//Default Stylling
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6,
-p {
+p,
+button,
+input {
 	color: #8997b1;
 	font-family: Roboto;
 	font-style: normal;
@@ -21,12 +25,24 @@ a {
 	text-decoration: none;
 }
 
+button {
+	outline: none;
+	transition-duration: 0.3s;
+	&:active {
+		outline: none;
+	}
+	&:hover {
+		cursor: pointer;
+		transform: scale(1.1);
+	}
+}
+
 .color-lightpurple {
 	color: #805fb3;
 }
 
 .background-lightpurple {
-	color: #805fb3;
+	background-color: #b787ff;
 }
 
 .background-lightgreen {

@@ -2,7 +2,6 @@ import React from 'react';
 import './style.scss';
 //import images
 import LandingPageBuilding from './../../assets/images/LandingPageBuilding.png';
-import ListBullet from './../../assets/images/ListBullet.png';
 
 function index(props) {
 	return (
@@ -18,8 +17,7 @@ function index(props) {
 					</p>
 					<button className="background-lightgreen">JOIN FOR FREE</button>
 				</div>
-
-				<img src={LandingPageBuilding} alt="Landing Page Building Image" />
+				<img src={LandingPageBuilding} alt="Landing Page Building" />
 			</section>
 			<section>
 				<h1 className="color-lightpurple">What you can get!</h1>
@@ -35,6 +33,7 @@ function index(props) {
 						<li>Neighbors Chat</li>
 						<li>PDF Archive</li>
 					</ul>
+					<button className="background-lightpurple">Choose</button>
 				</div>
 				<div>
 					<h1>Premium</h1>
@@ -49,6 +48,7 @@ function index(props) {
 						<li>PDF Archive</li>
 						<li>Video Archive</li>
 					</ul>
+					<button className="background-lightpurple">Choose</button>
 				</div>
 			</section>
 		</div>
