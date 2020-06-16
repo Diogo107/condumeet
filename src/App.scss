@@ -1,8 +1,38 @@
 .App {
 	text-align: center;
+	box-sizing: border-box;
 }
 
-.App-logo {
-	height: 40vmin;
-	pointer-events: none;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	color: #8997b1;
+	font-family: Roboto;
+	font-style: normal;
+	letter-spacing: 0.25px;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.color-lightpurple {
+	color: #805fb3;
+}
+
+.background-lightpurple {
+	color: #805fb3;
+}
+
+.background-lightgreen {
+	background-color: #42e097;
+}
+
+.color-lightgreen {
+	color: #42e097;
 }

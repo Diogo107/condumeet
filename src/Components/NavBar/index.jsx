@@ -1,21 +1,30 @@
 import React, { useContext, useState } from 'react';
-import './style.scss';
 import { UserContext } from '../../Context/UserContext';
+import { Link } from 'react-router-dom';
+import './style.scss';
 //import images
-import Logo from '../../images/Logo.png';
+import Logo from '../../assets/images/Logo.png';
 
 const index = (props) => {
-	//let a = useContext(UserContext);
-	//const [user, setUser] = useState(null);
 	return (
 		<div className="NavBar">
 			<nav className="NavBar__NotLogged">
-				<img src={Logo} alt="logo" />
+				<Link to="/">
+					<img src={Logo} alt="logo" />
+				</Link>
 				<ul>
-					<li>Feactures</li>
-					<li>Pricing</li>
-					<li>Login</li>
-					<li>Sign Up</li>
+					<Link to="#feactures">
+						<li>Feactures</li>
+					</Link>
+					<Link to="#pricing">
+						<li>Pricing</li>
+					</Link>
+					<Link to="/login">
+						<li>Login</li>
+					</Link>
+					<Link to="/signup">
+						<li>Sign Up</li>
+					</Link>
 				</ul>
 			</nav>
 			{/* <div className="NavBar__Logged"></div> */}
