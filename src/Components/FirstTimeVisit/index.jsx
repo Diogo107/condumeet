@@ -14,7 +14,7 @@ function index(props) {
 				<div className="card">
 					<h1>Create your condominium</h1>
 					<img src={BuildingCircleIcon} alt="Building" />
-					<button>Create</button>
+					<button onClick={props.nextPage}>Create</button>
 				</div>
 				<div className="card">
 					<h1>Find your condominium</h1>
