@@ -9,6 +9,9 @@ import FirstTimeVisit from './../../Components/FirstTimeVisit';
 import ProgressBar from './../../Components/ProgressBar';
 import NameOfCondominium from './../../Components/NameOfCondominium';
 import LocationOfCondominium from './../../Components/LocationOfCondominium';
+import CaracterizationOfCondominium from './../../Components/CaracterizationOfCondominium';
+import FeacturesOfCondominium from './../../Components/FeacturesOfCondominium';
+import InvitesForCondominium from './../../Components/InvitesForCondominium';
 
 class index extends Component {
 	constructor(props) {
@@ -48,8 +51,24 @@ class index extends Component {
 											render={(props) => <NameOfCondominium />}
 										/>
 										<Route
-											path="/signup/welcome/create/name"
+											path="/signup/welcome/create/location"
 											render={(props) => <LocationOfCondominium />}
+										/>
+										<Route
+											path="/signup/welcome/create/caracterization"
+											render={(props) => <CaracterizationOfCondominium />}
+										/>
+										<Route
+											path="/signup/welcome/create/feactures"
+											render={(props) => <FeacturesOfCondominium />}
+										/>
+										<Route
+											path="/signup/welcome/create/invites"
+											render={(props) => <InvitesForCondominium />}
+										/>
+										<Route
+											path="/signup/welcome/create/finish"
+											render={(props) => <InvitesForCondominium />}
 										/>
 									</Switch>
 								</>
