@@ -14,7 +14,7 @@ class index extends Component {
 	render() {
 		return (
 			<div className="Sign-Up">
-				<div>
+				<div className="left-side">
 					<img src={Logo} alt="Logo" />
 					<h1>Create Account</h1>
 					<div>
@@ -34,16 +34,50 @@ class index extends Component {
 					</span>
 					<form>
 						<div className="form-group">
-							<label>Name</label>
-							<input name="name" type="name" />
+							<div>
+								<label>
+									NAME
+									<input name="name" type="text" />
+								</label>
+							</div>
+							<div>
+								<label>
+									USER NAME
+									<input name="username" type="text" />
+								</label>
+							</div>
 						</div>
 						<div className="form-group">
-							<label>Email</label>
-							<input name="email" type="email" />
+							<label>
+								EMAIL
+								<input name="email" type="email" />
+							</label>
 						</div>
+						<div className="form-group">
+							<label>
+								PASSWORD
+								<input
+									name="password"
+									type="password"
+									placeholder="6+ Characters"
+								/>
+							</label>
+						</div>
+						<div className="checkbox">
+							<input type="checkbox" name="terms" />
+							<label for="terms">
+								Creating an account means you’re okay with our{' '}
+								<a href="#">Terms of Service, Privacy Policy</a>, and our
+								<a href="#">default Notification Settings</a>.
+							</label>
+						</div>
+						<button>CREATE ACCOUNT</button>
 					</form>
+					<h5>
+						Already have account? <a href="#">Sign In</a>.
+					</h5>
 				</div>
-				<div>
+				<div className="right-side">
 					<img src={GroupTalking} alt="People Talking" />
 					<h2>Connect and manage with your neighbors!</h2>
 					<p>
