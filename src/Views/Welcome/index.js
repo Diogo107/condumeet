@@ -12,6 +12,7 @@ import LocationOfCondominium from './../../Components/LocationOfCondominium';
 import CaracterizationOfCondominium from './../../Components/CaracterizationOfCondominium';
 import FeacturesOfCondominium from './../../Components/FeacturesOfCondominium';
 import InvitesForCondominium from './../../Components/InvitesForCondominium';
+import FinishCreatingCondominium from './../../Components/FinishCreatingCondominium';
 
 class index extends Component {
 	constructor(props) {
@@ -41,6 +42,10 @@ class index extends Component {
 					</button>
 					<Switch>
 						<Route
+							path="/signup/welcome/created"
+							render={(props) => <FinishCreatingCondominium />}
+						/>
+						<Route
 							path="/signup/welcome/create"
 							render={(props) => (
 								<>
@@ -64,10 +69,6 @@ class index extends Component {
 										/>
 										<Route
 											path="/signup/welcome/create/invites"
-											render={(props) => <InvitesForCondominium />}
-										/>
-										<Route
-											path="/signup/welcome/create/finish"
 											render={(props) => <InvitesForCondominium />}
 										/>
 									</Switch>
