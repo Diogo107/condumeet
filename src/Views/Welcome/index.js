@@ -6,7 +6,6 @@ import Logo from './../../assets/images/LogoWhite.png';
 import Arrow from './../../assets/images/Arrow.png';
 //Import Components and Views
 import FirstTimeVisit from './../../Components/FirstTimeVisit';
-import ProgressBar from './../../Components/ProgressBar';
 import NameOfCondominium from './../../Components/NameOfCondominium';
 import LocationOfCondominium from './../../Components/LocationOfCondominium';
 import CaracterizationOfCondominium from './../../Components/CaracterizationOfCondominium';
@@ -20,6 +19,10 @@ class index extends Component {
 		this.state = {
 			page: 0,
 		};
+	}
+
+	componentDidMount() {
+		console.log('welcome', this.props);
 	}
 
 	nextPage = () => {
@@ -37,9 +40,6 @@ class index extends Component {
 			<div className="welcome">
 				<img src={Logo} alt="Logo" />
 				<div className="container">
-					<button onClick={this.previousPage}>
-						<img src={Arrow} alt="Arrow" />
-					</button>
 					<Switch>
 						<Route
 							path="/signup/welcome/created"
@@ -49,27 +49,34 @@ class index extends Component {
 							path="/signup/welcome/create"
 							render={(props) => (
 								<>
-									<ProgressBar />
 									<Switch>
 										<Route
 											path="/signup/welcome/create/name"
-											render={(props) => <NameOfCondominium />}
+											render={(props) => <NameOfCondominium {...this.props} />}
 										/>
 										<Route
 											path="/signup/welcome/create/location"
-											render={(props) => <LocationOfCondominium />}
+											render={(props) => (
+												<LocationOfCondominium {...this.props} />
+											)}
 										/>
 										<Route
 											path="/signup/welcome/create/caracterization"
-											render={(props) => <CaracterizationOfCondominium />}
+											render={(props) => (
+												<CaracterizationOfCondominium {...this.props} />
+											)}
 										/>
 										<Route
 											path="/signup/welcome/create/feactures"
-											render={(props) => <FeacturesOfCondominium />}
+											render={(props) => (
+												<FeacturesOfCondominium {...this.props} />
+											)}
 										/>
 										<Route
 											path="/signup/welcome/create/invites"
-											render={(props) => <InvitesForCondominium />}
+											render={(props) => (
+												<InvitesForCondominium {...this.props} />
+											)}
 										/>
 									</Switch>
 								</>
@@ -77,7 +84,7 @@ class index extends Component {
 						/>
 						<Route
 							path="/signup/welcome"
-							render={(props) => <FirstTimeVisit nextPage={this.nextPage} />}
+							render={(props) => <FirstTimeVisit {...this.props} />}
 						/>
 					</Switch>
 				</div>

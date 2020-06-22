@@ -14,7 +14,13 @@ function index(props) {
 				<div className="card">
 					<h1>Create your condominium</h1>
 					<img src={BuildingCircleIcon} alt="Building" />
-					<button onClick={props.nextPage}>Create</button>
+					<button
+						onClick={() => {
+							props.history.push('/signup/welcome/create/name');
+						}}
+					>
+						Create
+					</button>
 				</div>
 				<div className="card">
 					<h1>Find your condominium</h1>
