@@ -47,7 +47,13 @@ function index(props) {
 				<h1>Getting to know your Condominium</h1>
 				<h5>What’s the name of this condominium?</h5>
 				<p>A short name that people caracterizes your condominium.</p>
-				<input />
+				<input
+					name="condominiumName"
+					type="text"
+					placeholder="Name of the building"
+					value={props.condominiumName}
+					onChange={props.handleInputChange}
+				/>
 				<Link to="/signup/welcome/create/location"></Link>
 				<button
 					onClick={() => {

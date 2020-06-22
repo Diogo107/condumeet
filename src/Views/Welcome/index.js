@@ -17,22 +17,20 @@ class index extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			page: 0,
+			condominiumName: '',
+			condominiumLocation: '',
+			condominiumNeighbors: [],
+			condominiumPaidFeactures: false,
 		};
 	}
 
-	componentDidMount() {
-		console.log('welcome', this.props);
-	}
-
-	nextPage = () => {
-		console.log('Next Page');
-		this.setState({ page: this.state.page + 1 });
-	};
-
-	previousPage = () => {
-		console.log('Previous Page');
-		this.setState({ page: this.state.page - 1 });
+	handleInputChange = (event) => {
+		const value = event.target.value;
+		const inputName = event.target.name;
+		console.log(value);
+		this.setState({
+			[inputName]: value,
+		});
 	};
 
 	render() {
@@ -52,7 +50,13 @@ class index extends Component {
 									<Switch>
 										<Route
 											path="/signup/welcome/create/name"
-											render={(props) => <NameOfCondominium {...this.props} />}
+											render={(props) => (
+												<NameOfCondominium
+													handleInputChange={this.handleInputChange}
+													condominiumName={this.state.condominiumName}
+													{...this.props}
+												/>
+											)}
 										/>
 										<Route
 											path="/signup/welcome/create/location"

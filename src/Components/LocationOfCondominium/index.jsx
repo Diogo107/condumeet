@@ -4,6 +4,7 @@ import './style.scss';
 import Arrow from './../../assets/images/Arrow.png';
 
 function index(props) {
+	console.log(props);
 	return (
 		<div>
 			<button

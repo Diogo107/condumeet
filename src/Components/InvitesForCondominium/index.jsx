@@ -13,7 +13,7 @@ class index extends Component {
 		this.state = {
 			list: [
 				{ email: 'diogo@diogo' },
-				{ email: 'Dina@dina' },
+				{ email: 'Bernardo@bernardo' },
 				{ email: 'joão@joão' },
 			],
 		};
