@@ -25,7 +25,7 @@ class index extends Component {
 			country: '',
 			map: {},
 			condominiumNeighbors: [],
-			condominiumPaidFeactures: false,
+			condominiumPaidFeactures: '',
 		};
 	}
 
@@ -48,6 +48,10 @@ class index extends Component {
 			country: data.country,
 			map: { center: data.center, zoom: data.zoom },
 		});
+	};
+
+	selectPremiumVersion = (option) => {
+		console.log(option);
 	};
 
 	render() {
@@ -96,7 +100,10 @@ class index extends Component {
 										<Route
 											path="/signup/welcome/create/feactures"
 											render={(props) => (
-												<FeacturesOfCondominium {...this.props} />
+												<FeacturesOfCondominium
+													selectPremiumVersion={this.selectPremiumVersion}
+													{...this.props}
+												/>
 											)}
 										/>
 										<Route

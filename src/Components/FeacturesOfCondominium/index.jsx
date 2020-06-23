@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './style.scss';
 //Import Images
 import Arrow from './../../assets/images/Arrow.png';
 
-function index(props) {
+function Index(props) {
+	const [option, setOption] = useState();
 	return (
 		<div>
 			<button
@@ -43,7 +44,7 @@ function index(props) {
 				</ul>
 			</div>
 			<div className="welcome__feactures">
-				<div>
+				<div id="freemium__card">
 					<h1>Free</h1>
 					<h1 className="color-lightgreen">0 €</h1>
 					<ul>
@@ -55,13 +56,17 @@ function index(props) {
 					<button
 						className="background-lightpurple"
 						onClick={() => {
-							props.history.push('/signup/welcome/create/invites');
+							setOption('Freemium');
+							document.getElementById('freemium__card').style.opacity = '1';
+							document.getElementById('premium__card').style.opacity = '0.5';
+
+							//props.history.push('/signup/welcome/create/invites');
 						}}
 					>
 						Choose
 					</button>
 				</div>
-				<div>
+				<div id="premium__card">
 					<h1>Premium</h1>
 					<h1 className="color-lightgreen">
 						35 €<small> /year</small>
@@ -77,15 +82,29 @@ function index(props) {
 					<button
 						className="background-lightpurple"
 						onClick={() => {
-							props.history.push('/signup/welcome/create/invites');
+							setOption('Premium');
+							document.getElementById('freemium__card').style.opacity = '0.5';
+							document.getElementById('premium__card').style.opacity = '1';
+							//props.history.push('/signup/welcome/create/invites');
 						}}
 					>
 						Choose
 					</button>
 				</div>
 			</div>
+			{option && (
+				<button
+					className="background-lightpurple"
+					onClick={() => {
+						props.history.push('/signup/welcome/create/invites');
+						props.selectPremiumVersion(option);
+					}}
+				>
+					Choose
+				</button>
+			)}
 		</div>
 	);
 }
 
-export default index;
+export default Index;
