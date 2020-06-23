@@ -18,7 +18,12 @@ class index extends Component {
 		super(props);
 		this.state = {
 			condominiumName: '',
-			condominiumLocation: '',
+			address: '',
+			geocode: '',
+			postal_code: '',
+			place_id: '',
+			country: '',
+			map: {},
 			condominiumNeighbors: [],
 			condominiumPaidFeactures: false,
 		};
@@ -30,6 +35,18 @@ class index extends Component {
 		console.log(value);
 		this.setState({
 			[inputName]: value,
+		});
+	};
+
+	updateBuildingInformation = (data) => {
+		console.log(data);
+		this.setState({
+			address: data.address,
+			geocode: data.geocode,
+			postal_code: data.postal_code,
+			place_id: data.place_id,
+			country: data.country,
+			map: { center: data.center, zoom: data.zoom },
 		});
 	};
 
@@ -61,7 +78,13 @@ class index extends Component {
 										<Route
 											path="/signup/welcome/create/location"
 											render={(props) => (
-												<LocationOfCondominium {...this.props} />
+												<LocationOfCondominium
+													updateBuildingInformation={
+														this.updateBuildingInformation
+													}
+													address={this.state}
+													{...this.props}
+												/>
 											)}
 										/>
 										<Route
