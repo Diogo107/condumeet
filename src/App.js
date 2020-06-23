@@ -20,6 +20,7 @@ function App(props) {
 					<Route path="*" render={(props) => <NavBar {...props} />} />
 				</Switch>
 				<Route path="/" exact render={(props) => <LandingPage {...props} />} />
+				<Route path="/" exact render={(props) => <LandingPage {...props} />} />
 			</BrowserRouter>
 		</div>
 	);

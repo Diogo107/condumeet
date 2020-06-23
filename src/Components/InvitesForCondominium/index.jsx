@@ -6,10 +6,13 @@ import FacePurple from './../../assets/images/FacePurple.png';
 import AddUser from './../../assets/images/AddUser.png';
 import CloseButton from './../../assets/images/CloseButton.png';
 import ShareIcon from './../../assets/images/ShareIcon.png';
+//Import Services
+import * as EmailValidator from 'email-validator';
 
 function Index(props) {
 	const [neighborsList, setNeighborsList] = useState([]);
 	const [neighbor, setNeighbor] = useState();
+
 	return (
 		<div>
 			<button
@@ -70,10 +73,12 @@ function Index(props) {
 						onSubmit={(event) => {
 							event.preventDefault();
 							console.log(event.target[0].value);
-							setNeighborsList([...neighborsList, event.target[0].value]);
-							//neighborsList.push(event.target[0].value);
-							console.log(neighborsList);
-							setNeighbor('');
+							if (EmailValidator.validate(event.target[0].value)) {
+								setNeighborsList([...neighborsList, event.target[0].value]);
+								//neighborsList.push(event.target[0].value);
+								console.log(neighborsList);
+								setNeighbor('');
+							}
 						}}
 					>
 						<input

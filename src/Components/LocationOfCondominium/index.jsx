@@ -61,7 +61,6 @@ class index extends Component {
 
 	handleSelect = async (address) => {
 		let results = await geocodeByAddress(address);
-		console.log(results);
 		if (results[0].types.includes('route')) {
 			this.setState({
 				address: results[0].formatted_address,
@@ -72,7 +71,6 @@ class index extends Component {
 			});
 			let latLng = await getLatLng(results[0]);
 			this.setState({ loaded: false });
-			console.log('Success', latLng);
 			let center = { lat: latLng.lat, lng: latLng.lng };
 			this.setState({
 				coordinates: latLng,
@@ -81,7 +79,6 @@ class index extends Component {
 				loaded: true,
 			});
 			this.props.updateBuildingInformation(this.state);
-			console.log('Success', this.state);
 		} else {
 			this.setState({
 				address: results[0].formatted_address,
@@ -90,15 +87,10 @@ class index extends Component {
 	};
 
 	render() {
-		console.log(this.props);
-		console.warn('result', this.state);
-		const API_KEY = 'AIzaSyBq-7kvinymrRvift2zkUHTPqh6n9gsz_A';
-
 		return (
 			<div>
 				<button
 					onClick={() => {
-						console.log(this.props);
 						this.props.history.push('/signup/welcome/create/name');
 					}}
 				>
@@ -198,7 +190,7 @@ class index extends Component {
 						{this.state.loaded && (
 							<GoogleMapReact
 								bootstrapURLKeys={{
-									key: 'AIzaSyBq-7kvinymrRvift2zkUHTPqh6n9gsz_A',
+									key: process.env.GOOGLE_API_KEY,
 								}}
 								defaultCenter={this.state.center}
 								defaultZoom={this.state.zoom}
