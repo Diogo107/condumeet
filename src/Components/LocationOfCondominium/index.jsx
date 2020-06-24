@@ -110,13 +110,7 @@ function Index(props) {
 			</div>
 			<div className="welcome__location">
 				<h1>Find your home</h1>
-				<button
-					onClick={() => {
-						console.log(signUpForm);
-					}}
-				>
-					Information
-				</button>
+
 				<div className="input__autocomplete">
 					<PlacesAutocomplete
 						value={signUpForm.address}

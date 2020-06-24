@@ -59,7 +59,10 @@ function Index(props) {
 					<button
 						className="background-lightpurple"
 						onClick={() => {
-							setOption('Freemium');
+							setSignUpForm({
+								...setSignUpForm,
+								condominiumFeactures: 'Freemium',
+							});
 							document.getElementById('freemium__card').style.opacity = '1';
 							document.getElementById('premium__card').style.opacity = '0.5';
 
@@ -85,7 +88,11 @@ function Index(props) {
 					<button
 						className="background-lightpurple"
 						onClick={() => {
-							setOption('Premium');
+							console.log(signUpForm);
+							setSignUpForm((previousState) => ({
+								...previousState,
+								condominiumFeactures: 'Premium',
+							}));
 							document.getElementById('freemium__card').style.opacity = '0.5';
 							document.getElementById('premium__card').style.opacity = '1';
 							//props.history.push('/signup/welcome/create/invites');
@@ -95,10 +102,11 @@ function Index(props) {
 					</button>
 				</div>
 			</div>
-			{option && (
+			{signUpForm.condominiumFeactures && (
 				<button
 					className="background-lightpurple"
 					onClick={() => {
+						console.log(signUpForm);
 						props.history.push('/signup/welcome/create/invites');
 						props.selectPremiumVersion(option);
 					}}

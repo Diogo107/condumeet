@@ -14,7 +14,7 @@ import { SignUpContext } from './../../Context/SignUpContext.js';
 function Index(props) {
 	const [neighborsList, setNeighborsList] = useState([]);
 	const [neighbor, setNeighbor] = useState();
-	const [signUpForm, setSignUpForm] = useState(useContext(SignUpContext));
+	const [signUpForm, setSignUpForm] = useContext(SignUpContext);
 	console.log(signUpForm);
 
 	return (
@@ -56,6 +56,13 @@ function Index(props) {
 			</div>
 			<div className="welcome__invites">
 				<h1>Call your Neightbors</h1>
+				<button
+					onClick={() => {
+						console.log(signUpForm);
+					}}
+				>
+					Information
+				</button>
 				<h4>Your condominium code.</h4>
 				<p>Share the code with your neighbours or send them a invite.</p>
 				<div className="condomium-code">
@@ -76,19 +83,25 @@ function Index(props) {
 					<form
 						onSubmit={async (event) => {
 							event.preventDefault();
-							console.log(event.target[0].value);
-							const email = event.target[0].value;
-							const result = await validateEmail(email);
-							console.log(result);
+							console.log(neighbor);
+							const result = await validateEmail(neighbor);
 							if (result == 'valid') {
 								console.log('inside');
-								setNeighborsList([...neighborsList, email]);
+								setSignUpForm((previousState) => ({
+									...signUpForm,
+									condominiumNeighbors: [
+										...signUpForm.condominiumNeighbors,
+										neighbor,
+									],
+								}));
+
 								setNeighbor('');
 							}
 						}}
 					>
 						<input
 							placeholder="Your neighbor email"
+							type="email"
 							value={neighbor}
 							onChange={(event) => {
 								console.log(event.target.value);
@@ -100,7 +113,7 @@ function Index(props) {
 						</button>
 					</form>
 				</div>
-				{neighborsList.map((single) => (
+				{signUpForm.condominiumNeighbors.map((single) => (
 					<div className="neighbor-email">
 						<img
 							src={FacePurple}
@@ -111,10 +124,15 @@ function Index(props) {
 							<p>{single}</p>
 							<button
 								onClick={() => {
-									let list = neighborsList.filter((selected) => {
-										return selected !== single;
-									});
-									setNeighborsList(list);
+									let list = signUpForm.condominiumNeighbors.filter(
+										(selected) => {
+											return selected !== single;
+										}
+									);
+									setSignUpForm((previousState) => ({
+										...signUpForm,
+										condominiumNeighbors: list,
+									}));
 								}}
 							>
 								<img
@@ -126,7 +144,11 @@ function Index(props) {
 						</div>
 					</div>
 				))}
-				<button id="button__invite-all" className="background-lightpurple">
+				<button
+					id="button__invite-all"
+					className="background-lightpurple"
+					onClick={() => {}}
+				>
 					Invite All
 				</button>
 				<button
