@@ -40,24 +40,29 @@ function Index(props) {
 		let results = await geocodeByAddress(address);
 		let latLng = await getLatLng(results[0]);
 		let center = { lat: latLng.lat, lng: latLng.lng };
-		console.log(results[0].formatted_address);
+		console.log(results[0]);
 		await setSignUpForm({
 			...signUpForm,
 			address: results[0].formatted_address,
-			geocode: getLatLng(results[0]),
-			postal_code: results[0],
+			geocode: latLng,
+			postal_code: results[0].address_components[4].long_name,
 			place_id: results[0].place_id,
-			country: results[0].address_components[2].long_name,
+			country: results[0].address_components[3].long_name,
 			map: {
 				center: center,
 				zoom: 18,
 				loaded: false,
 			},
 		});
-		setSignUpForm({
+		setSignUpForm((previousState) => ({
+			...previousState,
+			map: { ...previousState.map, loaded: true },
+		}));
+		/* setSignUpForm({
 			...signUpForm,
 			map: { ...signUpForm.map, loaded: true },
-		});
+		}); */
+
 		setAnyReactComponentCoordinates({ lat: latLng.lat, lng: latLng.lng });
 	};
 
