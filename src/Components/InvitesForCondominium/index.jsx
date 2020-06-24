@@ -6,8 +6,11 @@ import FacePurple from './../../assets/images/FacePurple.png';
 import AddUser from './../../assets/images/AddUser.png';
 import CloseButton from './../../assets/images/CloseButton.png';
 import ShareIcon from './../../assets/images/ShareIcon.png';
+import { validateEmail } from './../../Sevices/APIs.js';
 //Import Services
-import * as EmailValidator from 'email-validator';
+var quickemailverification = require('quickemailverification')
+	.client(process.env.QUICK_EMAIL_VERIFICATION_API_KEY)
+	.quickemailverification();
 
 function Index(props) {
 	const [neighborsList, setNeighborsList] = useState([]);
@@ -70,13 +73,15 @@ function Index(props) {
 						style={{ width: '40px', height: '40px' }}
 					/>
 					<form
-						onSubmit={(event) => {
+						onSubmit={async (event) => {
 							event.preventDefault();
 							console.log(event.target[0].value);
-							if (EmailValidator.validate(event.target[0].value)) {
-								setNeighborsList([...neighborsList, event.target[0].value]);
-								//neighborsList.push(event.target[0].value);
-								console.log(neighborsList);
+							const email = event.target[0].value;
+							const result = await validateEmail(email);
+							console.log(result);
+							if (result == 'valid') {
+								console.log('inside');
+								setNeighborsList([...neighborsList, email]);
 								setNeighbor('');
 							}
 						}}
