@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { Component, useState, useContext } from 'react';
 import './style.scss';
 //Import Images
 import Arrow from './../../assets/images/Arrow.png';
@@ -6,15 +6,16 @@ import FacePurple from './../../assets/images/FacePurple.png';
 import AddUser from './../../assets/images/AddUser.png';
 import CloseButton from './../../assets/images/CloseButton.png';
 import ShareIcon from './../../assets/images/ShareIcon.png';
-import { validateEmail } from './../../Sevices/APIs.js';
 //Import Services
-var quickemailverification = require('quickemailverification')
-	.client(process.env.QUICK_EMAIL_VERIFICATION_API_KEY)
-	.quickemailverification();
+import { validateEmail } from './../../Sevices/APIs.js';
+//Import Context
+import { SignUpContext } from './../../Context/SignUpContext.js';
 
 function Index(props) {
 	const [neighborsList, setNeighborsList] = useState([]);
 	const [neighbor, setNeighbor] = useState();
+	const [signUpForm, setSignUpForm] = useState(useContext(SignUpContext));
+	console.log(signUpForm);
 
 	return (
 		<div>

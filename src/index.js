@@ -4,12 +4,15 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { UserProvider } from './Context/UserContext.js';
+import { SignUpProvider } from './Context/SignUpContext.js';
 
 ReactDOM.render(
 	<React.StrictMode>
-		<UserProvider>
-			<App />
-		</UserProvider>
+		<SignUpProvider>
+			<UserProvider>
+				<App />
+			</UserProvider>
+		</SignUpProvider>
 	</React.StrictMode>,
 	document.getElementById('root')
 );

@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './style.scss';
 import { Link } from 'react-router-dom';
 //Import Images
 import Arrow from './../../assets/images/Arrow.png';
+//Import Context
+import { SignUpContext } from './../../Context/SignUpContext.js';
 
-function index(props) {
+function Index(props) {
+	const [signUpForm, setSignUpForm] = useContext(SignUpContext);
+	console.log(signUpForm);
 	return (
 		<div>
 			<button
@@ -51,10 +55,11 @@ function index(props) {
 					name="condominiumName"
 					type="text"
 					placeholder="Name of the building"
-					value={props.condominiumName}
-					onChange={props.handleInputChange}
+					value={signUpForm.condominiumName}
+					onChange={(e) => {
+						setSignUpForm({ ...signUpForm, condominiumName: e.target.value });
+					}}
 				/>
-				<Link to="/signup/welcome/create/location"></Link>
 				<button
 					onClick={() => {
 						props.history.push('/signup/welcome/create/location');
@@ -67,4 +72,4 @@ function index(props) {
 	);
 }
 
-export default index;
+export default Index;
