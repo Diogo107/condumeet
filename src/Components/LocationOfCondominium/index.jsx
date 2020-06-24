@@ -1,4 +1,4 @@
-import React, { Component, useContext, useState } from 'react';
+import React, { Component, useContext, useState, useEffect } from 'react';
 import './style.scss';
 //Import Images
 import Arrow from './../../assets/images/Arrow.png';
@@ -32,9 +32,14 @@ function Index(props) {
 	] = useState({ lat: '', lng: '' });
 	console.log(signUpForm);
 
-	const handleChange = (address) => {
-		this.setState({ address });
-	};
+	useEffect(() => {
+		if (signUpForm.map.zoom == 18) {
+			setAnyReactComponentCoordinates({
+				lat: signUpForm.map.center.lat,
+				lng: signUpForm.map.center.lng,
+			});
+		}
+	}, []);
 
 	const handleSelect = async (address) => {
 		let results = await geocodeByAddress(address);
@@ -187,7 +192,7 @@ function Index(props) {
 				</div>
 				<button
 					onClick={() => {
-						this.props.history.push('/signup/welcome/create/caracterization');
+						props.history.push('/signup/welcome/create/caracterization');
 					}}
 				>
 					Continue

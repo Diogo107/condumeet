@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import './style.scss';
 //Import Images
 import Arrow from './../../assets/images/Arrow.png';
+//Import Context
+import { SignUpContext } from './../../Context/SignUpContext.js';
 
 function Index(props) {
 	const [option, setOption] = useState();
+	const [signUpForm, setSignUpForm] = useContext(SignUpContext);
 	return (
 		<div>
 			<button
