@@ -6,6 +6,7 @@ import NavBar from './Components/NavBar';
 import LandingPage from './Views/LandingPage';
 import SignUp from './Views/SignUp';
 import Welcome from './Views/Welcome';
+import Dashboard from './Views/Dashboard';
 
 function App(props) {
 	return (
@@ -19,7 +20,8 @@ function App(props) {
 					<Route path="/signup" render={(props) => <SignUp {...props} />} />
 					<Route path="*" render={(props) => <NavBar {...props} />} />
 				</Switch>
-				<Route path="/" exact render={(props) => <LandingPage {...props} />} />
+				<Route path="/dashboard" render={(props) => <Dashboard {...props} />} />
+
 				<Route path="/" exact render={(props) => <LandingPage {...props} />} />
 			</BrowserRouter>
 		</div>
