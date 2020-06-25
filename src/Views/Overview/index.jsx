@@ -30,17 +30,22 @@ function Index(props) {
 							'rgba(98,0,234, 1)',
 						],
 						borderWidth: 1,
+						hoverBorderWidth: 8,
+						weight: 0.1,
 					},
 				],
 			},
 			options: {
+				cutoutPercentage: 70,
 				legend: {
+					display: false,
 					position: 'bottom',
+					align: 'start',
 				},
 				scales: {},
 			},
 		});
-	}, 1000);
+	}, 10);
 	return (
 		<div className="Overview__View">
 			<section className="Comunication__Overview">
@@ -82,13 +87,20 @@ function Index(props) {
 			</section>
 			<section className="PieChartAndNeighbors__Section">
 				<div>
-					<div>
+					<div id="Title__Card--Overview">
 						<h5>Expenses by Category</h5>
 						<p>This Month</p>
 					</div>
 					<canvas id="myChart"></canvas>
+					<div id="Legend__Card--Overview">
+						<ul>
+							<li>Maintance</li>
+							<li>Ensurance</li>
+							<li>Bills</li>
+						</ul>
+					</div>
 				</div>
-				<div></div>
+				<div>Legend</div>
 			</section>
 
 			<h1>THIS IS THE OVERVIEW</h1>
