@@ -5,7 +5,10 @@ import NeighborsIcon from './../../assets/images/overview__cads/NeighborsIcon.pn
 import NotificationIcon from './../../assets/images/overview__cads/NotificationIcon.png';
 import ServicesIcon from './../../assets/images/overview__cads/ServicesIcon.png';
 import WalletIcon from './../../assets/images/overview__cads/WalletIcon.png';
-
+import ArrowGrow from './../../assets/images/ArrowGrow.svg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
+//Import Services
 import Chart from './../../../node_modules/chart.js';
 
 function Index(props) {
@@ -94,15 +97,37 @@ function Index(props) {
 					<canvas id="myChart"></canvas>
 					<div id="Legend__Card--Overview">
 						<ul>
-							<li>Maintance</li>
-							<li>Ensurance</li>
-							<li>Bills</li>
+							<li>
+								<div style={{ backgroundColor: '#311b92' }}></div>
+								Maintance
+							</li>
+							<li>
+								<div style={{ backgroundColor: '#be96ec' }}></div>Ensurance
+							</li>
+							<li>
+								<div style={{ backgroundColor: '#5a49a8' }}></div>Bills
+							</li>
 						</ul>
 					</div>
 				</div>
-				<div>Legend</div>
+				<div></div>
 			</section>
-
+			<section className="Change__Card--Overview">
+				<div>
+					<div>
+						<h5>Bank</h5>
+						<h6>This Month</h6>
+						<h1>555 €</h1>
+						<p>
+							+8% <FontAwesomeIcon icon={faAngleDown} />
+						</p>
+						<img src={ArrowGrow} alt="Arrow" />
+					</div>
+					<div>Gráfico</div>
+				</div>
+				<div>dasd</div>
+				<div>fasd</div>
+			</section>
 			<h1>THIS IS THE OVERVIEW</h1>
 		</div>
 	);

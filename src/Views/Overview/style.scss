@@ -94,6 +94,7 @@
 	.PieChartAndNeighbors__Section {
 		display: flex;
 		justify-content: space-between;
+		margin-bottom: 34px;
 		> div {
 			width: 530px;
 			height: 484px;
@@ -145,6 +146,41 @@
 					list-style: none;
 					text-align: start;
 				}
+				li {
+					display: flex;
+					align-items: center;
+				}
+				ul {
+					padding-left: 20px;
+				}
+				li > div {
+					border-radius: 4px;
+					width: 15px;
+					height: 15px;
+					margin-right: 10px;
+				}
+			}
+		}
+	}
+	.Change__Card--Overview {
+		display: flex;
+		justify-content: space-between;
+		> div {
+			display: flex;
+			width: 340.02px;
+			height: 163px;
+			background: #ffffff;
+			border: 1px solid #e5e5e5;
+			color: black;
+			h5,
+			h6,
+			h1,
+			p {
+				margin: 0;
+			}
+			> div:first-child {
+				width: 40%;
+				height: 100%;
 			}
 		}
 	}

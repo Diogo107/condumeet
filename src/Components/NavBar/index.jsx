@@ -3,14 +3,15 @@ import { Link } from 'react-router-dom';
 import './style.scss';
 //import images
 import Logo from '../../assets/images/Logo.png';
-import ArrowDown from '../../assets/images/ArrowDown.png';
+import ArrowDown from '../../assets/images/ArrowDown.svg';
 import NotificationIcon from '../../assets/images/NotificationIcon.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 //Import Context
 import { UserContext } from './../../Context/UserContext.js';
 
 const Index = (props) => {
 	const [user, setUser] = useContext(UserContext);
-	console.log(user);
 	return (
 		<div className="NavBar">
 			{(!user && (
@@ -46,11 +47,7 @@ const Index = (props) => {
 							<p>{user.name}</p>
 							<img src={user.avatar} alt="User Avatar" />
 							<button>
-								<img
-									src={ArrowDown}
-									alt="Arrow Down"
-									style={{ width: '15px' }}
-								/>
+								<FontAwesomeIcon icon={faAngleDown} size="2x" />
 							</button>
 						</div>
 					</div>
