@@ -15,7 +15,13 @@ function index(props) {
 				<h1> Welcome to "name of the building"</h1>
 				<p>Condominium code</p>
 				<h5>1234</h5>
-				<button>Enter Condominium</button>
+				<button
+					onClick={() => {
+						props.history.push('/dashboard/overview');
+					}}
+				>
+					Enter Condominium
+				</button>
 			</div>
 		</div>
 	);

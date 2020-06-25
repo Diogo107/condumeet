@@ -5,7 +5,7 @@ import NeighborsIcon from './../../assets/images/overview__cads/NeighborsIcon.pn
 import NotificationIcon from './../../assets/images/overview__cads/NotificationIcon.png';
 import ServicesIcon from './../../assets/images/overview__cads/ServicesIcon.png';
 import WalletIcon from './../../assets/images/overview__cads/WalletIcon.png';
-import ArrowGrow from './../../assets/images/ArrowGrow.svg';
+import ArrowGreen from './../../assets/images/ArrowGreen.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 //Import Services
@@ -46,6 +46,58 @@ function Index(props) {
 					align: 'start',
 				},
 				scales: {},
+			},
+		});
+	}, 10);
+	setTimeout(() => {
+		var ctx = document.getElementById('Bank__Chart--Overview').getContext('2d');
+		var myChart = new Chart(ctx, {
+			type: 'line',
+			data: {
+				labels: ['Red', 'Blue', 'Yellow', 'Red', 'Blue', 'Yellow'],
+				datasets: [
+					{
+						label: '# of Votes',
+						data: [12, 19, 3, 4, 12, 5, 5, 6, 26, 1, 5],
+						backgroundColor: [
+							'rgba(179,136,255, 0.8)',
+							'rgba(49,27,146, 0.8)',
+							'rgba(98,0,234, 0.8)',
+						],
+						borderColor: [
+							'rgba(179,136,255, 1)',
+							'rgba(49,27,146, 1)',
+							'rgba(98,0,234, 1)',
+						],
+						borderWidth: 1,
+						hoverBorderWidth: 8,
+					},
+				],
+			},
+			options: {
+				scales: {
+					yAxes: [
+						{
+							display: false,
+							stacked: false,
+						},
+					],
+					xAxes: [
+						{
+							display: false,
+							stacked: false,
+						},
+					],
+					gridLines: {
+						drawTicks: false,
+						display: false,
+					},
+				},
+				legend: {
+					display: false,
+					position: 'bottom',
+					align: 'start',
+				},
 			},
 		});
 	}, 10);
@@ -118,12 +170,14 @@ function Index(props) {
 						<h5>Bank</h5>
 						<h6>This Month</h6>
 						<h1>555 €</h1>
-						<p>
-							+8% <FontAwesomeIcon icon={faAngleDown} />
-						</p>
-						<img src={ArrowGrow} alt="Arrow" />
+						<div>
+							<p style={{ color: '#00C853' }}>+8%</p>
+							<img src={ArrowGreen} alt="Arrow" />
+						</div>
 					</div>
-					<div>Gráfico</div>
+					<div>
+						<canvas id="Bank__Chart--Overview"></canvas>
+					</div>
 				</div>
 				<div>dasd</div>
 				<div>fasd</div>

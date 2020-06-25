@@ -75,7 +75,7 @@ function Index(props) {
 		<div>
 			<button
 				onClick={() => {
-					this.props.history.push('/signup/welcome/create/name');
+					props.history.push('/signup/welcome/create/name');
 				}}
 			>
 				<img src={Arrow} alt="Arrow" />
