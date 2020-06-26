@@ -50,7 +50,6 @@ function Index(props) {
 							display: true,
 							gridLines: false,
 							stacked: true,
-							offset: true,
 						},
 					],
 				},

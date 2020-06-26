@@ -14,6 +14,13 @@ import ExpensesDoughnut from '../../Components/Charts/ExpensesDoughnut';
 import BalanceLineChart from './../../Components/Charts/BalanceLineChart';
 
 function index(props) {
+	setTimeout(() => {
+		var x = document.getElementsByClassName(
+			'BankIncomeExpenses__Cards--Wallet'
+		);
+		let final = x[0].offsetWidth - 340 - (x[0].offsetWidth - 340 * 3) / 2;
+		document.getElementById('Balance__Card--Width').style.width = `${final}px`;
+	}, 5);
 	return (
 		<div className="Wallet__View">
 			<section className="BankIncomeExpenses__Cards--Wallet">
@@ -56,11 +63,15 @@ function index(props) {
 				</div>
 			</section>
 			<section className="Charts__Balance--Wallet">
-				<div>
+				<div id="Balance__Card--Width">
 					<h1>Balance</h1>
 					<BalanceLineChart />
 				</div>
 				<div>
+					<div id="Title__Card--Overview">
+						<h5>Expenses by Category</h5>
+						<p>This Month</p>
+					</div>
 					<ExpensesDoughnut />
 					<div id="Legend__Card--Overview">
 						<ul>
@@ -90,8 +101,8 @@ function index(props) {
 						<input type="date" placeholder="SELECT A DATE" />
 						<select>
 							<option>CATEGORY</option>
-							<option>Diogo</option>
-							<option>Dina</option>
+							<option>Option 1</option>
+							<option>Option 2</option>
 						</select>
 					</form>
 				</div>

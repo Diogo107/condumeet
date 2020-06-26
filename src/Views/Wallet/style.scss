@@ -5,7 +5,7 @@
 		margin-bottom: 37px;
 		> div {
 			display: flex;
-			width: 340.02px;
+			width: 340px;
 			height: 163px;
 			background: #ffffff;
 			border: 1px solid #e5e5e5;
@@ -87,7 +87,40 @@
 			}
 		}
 		> div:nth-child(2) {
-			width: 30%;
+			width: 340px;
+		}
+		#Title__Card--Overview {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-evenly;
+			height: 116px;
+			top: 0;
+			h5,
+			p {
+				margin: 0;
+			}
+			h5 {
+				font-family: Roboto;
+				font-style: normal;
+				font-weight: 500;
+				font-size: 20px;
+				line-height: 30px;
+				text-align: center;
+				letter-spacing: 0.15px;
+				color: #2b3648;
+				mix-blend-mode: normal;
+			}
+			p {
+				font-family: Roboto;
+				font-style: normal;
+				font-weight: normal;
+				font-size: 14px;
+				line-height: 21px;
+				text-align: center;
+				letter-spacing: 0.25px;
+				color: #9e9e9e;
+				mix-blend-mode: normal;
+			}
 		}
 		#Legend__Card--Overview {
 			display: flex;
