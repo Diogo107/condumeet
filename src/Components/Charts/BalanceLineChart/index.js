@@ -42,6 +42,7 @@ function Index(props) {
 							position: 'right',
 							display: true,
 							stacked: false,
+							offset: true,
 						},
 					],
 					xAxes: [
@@ -49,6 +50,7 @@ function Index(props) {
 							display: true,
 							gridLines: false,
 							stacked: true,
+							offset: true,
 						},
 					],
 				},

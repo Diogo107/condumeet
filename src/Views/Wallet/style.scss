@@ -81,6 +81,10 @@
 		> div:first-child {
 			width: 60%;
 			padding: 1em;
+			box-sizing: border-box;
+			canvas {
+				width: 100%;
+			}
 		}
 		> div:nth-child(2) {
 			width: 30%;
