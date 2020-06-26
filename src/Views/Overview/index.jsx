@@ -156,7 +156,6 @@ function Index(props) {
 					<ExpensesChart />
 				</div>
 			</section>
-			<h1>THIS IS THE OVERVIEW</h1>
 		</div>
 	);
 }

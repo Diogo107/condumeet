@@ -1,0 +1,73 @@
+.Wallet__View {
+	.BankIncomeExpenses__Cards--Wallet {
+		display: flex;
+		justify-content: space-between;
+		> div {
+			display: flex;
+			width: 340.02px;
+			height: 163px;
+			background: #ffffff;
+			border: 1px solid #e5e5e5;
+			color: black;
+			h5,
+			h6,
+			h1,
+			p {
+				margin: 0;
+			}
+			h5 {
+				font-family: Roboto;
+				font-style: normal;
+				font-weight: 500;
+				font-size: 20px;
+				line-height: 30px;
+				letter-spacing: 0.15px;
+				color: #2b3648;
+				mix-blend-mode: normal;
+			}
+			h1 {
+				font-family: Roboto;
+				font-style: normal;
+				font-weight: 500;
+				font-size: 34px;
+				line-height: 51px;
+				letter-spacing: 0.25px;
+				color: #56657f;
+			}
+			h6 {
+				font-family: Roboto;
+				font-style: normal;
+				font-weight: normal;
+				font-size: 14px;
+				line-height: 21px;
+				letter-spacing: 0.25px;
+				color: #8997b1;
+				mix-blend-mode: normal;
+			}
+			> div:first-child {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-evenly;
+				width: 40%;
+				height: 100%;
+				> div {
+					display: flex;
+					justify-content: inherit;
+				}
+			}
+			> div:nth-child(2) {
+				width: 55%;
+				display: flex;
+				align-items: center;
+				-webkit-mask-image: -webkit-gradient(
+					linear,
+					left top,
+					left bottom,
+					from(rgba(64, 92, 177, 1)),
+					to(rgba(64, 92, 177, 0))
+				);
+			}
+			/* Next here */
+		}
+	}
+}
