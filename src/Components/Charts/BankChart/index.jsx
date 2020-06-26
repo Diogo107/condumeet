@@ -1,6 +1,6 @@
 import React from 'react';
 //Import Services
-import Chart from './../../../../node_modules/chart.js';
+import Chart from 'chart.js';
 
 function Index(props) {
 	setTimeout(() => {

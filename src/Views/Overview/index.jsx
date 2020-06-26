@@ -11,7 +11,9 @@ import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 //Import Services
 import Chart from './../../../node_modules/chart.js';
 //Import Components and Views
-import BankIncomeExpensesChart from './../../Components/Charts/BankIncomeExpenses';
+import BankChart from '../../Components/Charts/BankChart';
+import IncomeChart from '../../Components/Charts/IncomeChart';
+import ExpensesChart from '../../Components/Charts/ExpensesChart';
 
 function Index(props) {
 	setTimeout(() => {
@@ -126,10 +128,33 @@ function Index(props) {
 							<img src={ArrowGreen} alt="Arrow" />
 						</div>
 					</div>
-					<BankIncomeExpensesChart />
+
+					<BankChart />
 				</div>
-				<div>dasd</div>
-				<div>fasd</div>
+				<div>
+					<div>
+						<h5>Income</h5>
+						<h6>This Month</h6>
+						<h1>555 €</h1>
+						<div>
+							<p style={{ color: '#00C853' }}>-2%</p>
+							<img src={ArrowGreen} alt="Arrow" />
+						</div>
+					</div>
+					<IncomeChart />
+				</div>
+				<div>
+					<div>
+						<h5>Expenses</h5>
+						<h6>This Month</h6>
+						<h1>555 €</h1>
+						<div>
+							<p style={{ color: '#00C853' }}>+5%</p>
+							<img src={ArrowGreen} alt="Arrow" />
+						</div>
+					</div>
+					<ExpensesChart />
+				</div>
 			</section>
 			<h1>THIS IS THE OVERVIEW</h1>
 		</div>
