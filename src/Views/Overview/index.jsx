@@ -8,52 +8,13 @@ import WalletIcon from './../../assets/images/overview__cads/WalletIcon.png';
 import ArrowGreen from './../../assets/images/ArrowGreen.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
-//Import Services
-import Chart from './../../../node_modules/chart.js';
 //Import Components and Views
+import ExpensesDoughnut from '../../Components/Charts/ExpensesDoughnut';
 import BankChart from '../../Components/Charts/BankChart';
 import IncomeChart from '../../Components/Charts/IncomeChart';
 import ExpensesChart from '../../Components/Charts/ExpensesChart';
 
 function Index(props) {
-	setTimeout(() => {
-		var ctx = document.getElementById('myChart').getContext('2d');
-		var myChart = new Chart(ctx, {
-			type: 'doughnut',
-			data: {
-				labels: ['Red', 'Blue', 'Yellow'],
-				datasets: [
-					{
-						label: '# of Votes',
-						data: [12, 19, 3],
-						backgroundColor: [
-							'rgba(179,136,255, 0.8)',
-							'rgba(49,27,146, 0.8)',
-							'rgba(98,0,234, 0.8)',
-						],
-						borderColor: [
-							'rgba(179,136,255, 1)',
-							'rgba(49,27,146, 1)',
-							'rgba(98,0,234, 1)',
-						],
-						borderWidth: 1,
-						hoverBorderWidth: 8,
-						weight: 0.1,
-					},
-				],
-			},
-			options: {
-				cutoutPercentage: 70,
-				legend: {
-					display: false,
-					position: 'bottom',
-					align: 'start',
-				},
-				scales: {},
-			},
-		});
-	}, 10);
-
 	return (
 		<div className="Overview__View">
 			<section className="Comunication__Overview">
@@ -99,7 +60,7 @@ function Index(props) {
 						<h5>Expenses by Category</h5>
 						<p>This Month</p>
 					</div>
-					<canvas id="myChart"></canvas>
+					<ExpensesDoughnut />
 					<div id="Legend__Card--Overview">
 						<ul>
 							<li>
