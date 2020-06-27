@@ -6,6 +6,7 @@ import { Switch, Route } from 'react-router-dom';
 import Sidebar from './../../Components/Sidebar';
 import Overview from './../Overview';
 import Wallet from './../Wallet';
+import Archive from './../Archive';
 
 function Index(props) {
 	return (
@@ -22,6 +23,10 @@ function Index(props) {
 					<Route
 						path="/dashboard/wallet"
 						render={(props) => <Wallet {...props} />}
+					/>
+					<Route
+						path="/dashboard/archive"
+						render={(props) => <Archive {...props} />}
 					/>
 				</Switch>
 			</div>
