@@ -8,6 +8,7 @@ import Overview from './../Overview';
 import Wallet from './../Wallet';
 import Archive from './../Archive';
 import Activity from './../Activity';
+import Neighbors from './../Neighbors';
 
 function Index(props) {
 	return (
@@ -32,6 +33,10 @@ function Index(props) {
 					<Route
 						path="/dashboard/activity"
 						render={(props) => <Activity {...props} />}
+					/>
+					<Route
+						path="/dashboard/neighbors"
+						render={(props) => <Neighbors {...props} />}
 					/>
 				</Switch>
 			</div>
