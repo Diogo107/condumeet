@@ -7,6 +7,7 @@ import Sidebar from './../../Components/Sidebar';
 import Overview from './../Overview';
 import Wallet from './../Wallet';
 import Archive from './../Archive';
+import Activity from './../Activity';
 
 function Index(props) {
 	return (
@@ -27,6 +28,10 @@ function Index(props) {
 					<Route
 						path="/dashboard/archive"
 						render={(props) => <Archive {...props} />}
+					/>
+					<Route
+						path="/dashboard/activity"
+						render={(props) => <Activity {...props} />}
 					/>
 				</Switch>
 			</div>

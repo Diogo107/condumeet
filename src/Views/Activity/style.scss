@@ -1,0 +1,21 @@
+.Activity__View {
+	display: flex;
+	justify-content: space-between;
+	> div:first-child {
+		width: 100%;
+		height: 100%;
+		background: #ffffff;
+		border: 1px solid #e5e5e5;
+		box-sizing: border-box;
+		border-radius: 4px;
+		margin-right: 21px;
+	}
+	> div:nth-child(2) {
+		width: 368px;
+		height: 528px;
+		background: #ffffff;
+		border: 1px solid #e5e5e5;
+		box-sizing: border-box;
+		border-radius: 4px;
+	}
+}
