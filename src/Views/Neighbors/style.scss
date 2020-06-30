@@ -10,13 +10,16 @@
 		height: 100%;
 
 		span {
+			width: 100%;
+		}
+		input {
 			width: 312px;
 			height: 36px;
 			margin: 24px;
 		}
 		span::after {
 			background-image: url('https://image.flaticon.com/icons/svg/483/483356.svg');
-			background-size: 10px 20px;
+			background-size: 24px 24px;
 			display: inline-block;
 			width: 24px;
 			height: 24px;
