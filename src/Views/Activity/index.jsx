@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './style.scss';
 //Import Images
 import PdfIcon from './../../assets/images/PdfIcon.png';
 import OptionsIcon from './../../assets/images/OptionsIcon.png';
+//Import Services
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
+import moment from 'moment';
 
 function Index(props) {
+	const [date, setDate] = useState(new Date());
 	return (
 		<div className="Activity__View">
 			<div className="Single__Activity--Activity">
-				<h3>May 20, 2020</h3>
+				<h5>May 20, 2020</h5>
 				<div>
 					<p>4 min ago</p>
 					<div>
@@ -54,7 +59,14 @@ function Index(props) {
 					</button>
 				</div>
 			</div>
-			<div>calendar</div>
+			<div className="Calendar__Component--Activity">
+				{console.log(moment(date).format('YYYY'))}
+				<div>
+					<p>{moment(date).format('YYYY')}</p>
+					<h3>{moment(date).format('ddd, D MMM')}</h3>
+				</div>
+				<Calendar onChange={setDate} value={date} />
+			</div>
 		</div>
 	);
 }
