@@ -117,6 +117,8 @@
 	}
 	.Conversation__Active--Neighbors {
 		width: 100%;
+		display: flex;
+		flex-direction: column;
 		.Current__Chat--Top {
 			display: flex;
 			justify-content: space-between;
@@ -172,17 +174,85 @@
 				}
 			}
 		}
-	}
-	.Message__Input--Neighbors {
-		height: 57px;
-		background-color: yellow;
-		display: flex;
-		input {
-			width: 90%;
-			padding: 0;
+		.Message__Input--Neighbors {
+			height: 57px;
+			display: flex;
+			border-top: 1px solid #e5e5e5;
+
+			input {
+				width: 100%;
+				padding: 0;
+				height: 100%;
+				border: none;
+			}
+			button {
+				height: 57px;
+				width: 57px;
+				background-color: transparent;
+				border: none;
+			}
+		}
+		.Current__Chat--Displaying {
 			height: 100%;
-			border: none;
-			background-color: wheat;
+		}
+		.Single__Message--Balloon {
+			width: 298.57px;
+			height: fit-content;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			//background-color: wheat;
+			> div {
+				display: flex;
+			}
+			img {
+				width: 40px;
+				height: 40px;
+				border-radius: 50px;
+				object-fit: cover;
+				margin: auto 16px auto 24px;
+			}
+			p {
+				font-family: Inter;
+				font-style: normal;
+				font-weight: normal;
+				font-size: 10px;
+				line-height: 16px;
+				letter-spacing: 0.5px;
+				color: #8997b1;
+				mix-blend-mode: normal;
+				opacity: 0.9;
+				margin: 0;
+				text-align: start;
+				padding-left: 108px;
+			}
+			.Ballon__Box {
+				display: flex;
+				align-items: flex-end;
+				> div {
+					width: 0;
+					height: 0;
+					border-style: solid;
+					border-width: 0 0 12px 12px;
+					border-color: transparent transparent #56657f transparent;
+					width: 0;
+					height: 0;
+					border-bottom: 12px solid #56657f;
+					border-left: 12px solid transparent;
+				}
+				p {
+					padding: 13px;
+					background: #56657f;
+					font-family: Roboto;
+					font-style: normal;
+					font-weight: normal;
+					font-size: 14px;
+					line-height: 21px;
+					letter-spacing: 0.25px;
+					color: #ffffff;
+					border-radius: 4px 4px 4px 0;
+				}
+			}
 		}
 	}
 }

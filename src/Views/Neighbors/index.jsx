@@ -45,9 +45,29 @@ function Index(props) {
 						<img src={OptionsIcon} alt="Options" />
 					</button>
 				</div>
-				Conversation__Active--Neighbors
+				<div className="Current__Chat--Displaying">
+					<div className="Single__Message--Balloon">
+						<div>
+							<img
+								src="https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"
+								alt="Avatar"
+							/>
+							<div className="Ballon__Box">
+								<div></div>
+								<p>aassjdasd</p>
+							</div>
+						</div>
+						<p>21:30</p>
+					</div>
+				</div>
 				<div className="Message__Input--Neighbors">
 					<input />
+					<button>
+						<img
+							src="https://image.flaticon.com/icons/svg/833/833397.svg"
+							alt="Send"
+						/>
+					</button>
 				</div>
 			</div>
 		</div>
