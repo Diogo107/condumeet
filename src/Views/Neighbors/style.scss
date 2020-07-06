@@ -226,32 +226,104 @@
 				text-align: start;
 				padding-left: 108px;
 			}
-			.Ballon__Box {
+			@import url('https://fonts.googleapis.com/css?family=Roboto:300,400');
+
+			$chat-bubble-bg: #dedede;
+			$chat-bubble-bg-mine: #3888ea;
+
+			.container {
+				border: 1px solid #000;
+				border-radius: 3px;
+				margin-left: auto;
+				margin-right: auto;
+				max-width: 600px;
 				display: flex;
-				align-items: flex-end;
-				> div {
-					width: 0;
-					height: 0;
-					border-style: solid;
-					border-width: 0 0 12px 12px;
-					border-color: transparent transparent #56657f transparent;
-					width: 0;
-					height: 0;
-					border-bottom: 12px solid #56657f;
-					border-left: 12px solid transparent;
+				flex-direction: column;
+				padding-bottom: 12px;
+				padding-top: 12px;
+			}
+
+			.chat-bubble {
+				background: $chat-bubble-bg;
+				border-radius: 10px;
+				font-size: 14px;
+				line-height: 1.4em;
+				margin: 12px 24px;
+				max-width: 60%;
+				padding: 12px;
+				position: relative;
+
+				// tail
+				&::before,
+				&::after {
+					content: '';
+					bottom: 0;
+					height: 20px;
+					left: -10px;
+					position: absolute;
 				}
-				p {
-					padding: 13px;
-					background: #56657f;
-					font-family: Roboto;
-					font-style: normal;
-					font-weight: normal;
-					font-size: 14px;
-					line-height: 21px;
-					letter-spacing: 0.25px;
-					color: #ffffff;
-					border-radius: 4px 4px 4px 0;
+
+				&:before {
+					border-color: $chat-bubble-bg;
+					border-left-style: solid;
+					border-left-width: 20px;
+					border-radius: 18px 18px 0px 18px;
+					//z-index: -1;
 				}
+				&::after {
+					background: #ffffff;
+					border-bottom-right-radius: 50%;
+					width: 10px;
+					z-index: 1;
+				}
+
+				&.mine {
+					background: $chat-bubble-bg-mine;
+					color: #fff;
+					margin-left: auto;
+
+					&::before,
+					&::after {
+						left: auto;
+						right: -10px;
+					}
+
+					&::before {
+						border: none;
+						border-color: $chat-bubble-bg-mine;
+						border-right-style: solid;
+						border-right-width: 20px;
+						border-bottom-left-radius: 50%;
+					}
+					&:after {
+						border-bottom-left-radius: 50%;
+					}
+				}
+			}
+
+			test::before {
+				border-color: #f3f3f3;
+				border-left-style: solid;
+				border-left-width: 20px;
+				border-bottom-right-radius: 16px 14px;
+				left: -7px;
+				z-index: -1;
+			}
+
+			.test::after {
+				content: '';
+				background: #ffffff;
+				left: -9px;
+				width: 9px;
+				z-index: 1;
+			}
+
+			.test::before,
+			.test::after {
+				content: '';
+				bottom: 0px;
+				height: 20px;
+				position: absolute;
 			}
 		}
 	}

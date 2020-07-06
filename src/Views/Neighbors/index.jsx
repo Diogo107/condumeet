@@ -52,9 +52,32 @@ function Index(props) {
 								src="https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"
 								alt="Avatar"
 							/>
-							<div className="Ballon__Box">
-								<div></div>
-								<p>aassjdasd</p>
+							<div class="chat-bubble">
+								<span class="chat-message">
+									Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+									Nisi, soluta dolorem. Officia temporibus ipsam consectetur
+									quibusdam in totam recusandae voluptatem. Impedit, sapiente
+									delectus quaerat eius perspiciatis repudiandae facere dicta
+									sed?
+								</span>
+							</div>
+						</div>
+						<p>21:30</p>
+					</div>
+					<div className="Single__Message--Balloon">
+						<div>
+							<img
+								src="https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"
+								alt="Avatar"
+							/>
+							<div class="chat-bubble mine">
+								<span class="chat-message">
+									Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+									Nisi, soluta dolorem. Officia temporibus ipsam consectetur
+									quibusdam in totam recusandae voluptatem. Impedit, sapiente
+									delectus quaerat eius perspiciatis repudiandae facere dicta
+									sed?
+								</span>
 							</div>
 						</div>
 						<p>21:30</p>
