@@ -13,6 +13,8 @@ import ExpensesDoughnut from '../../Components/Charts/ExpensesDoughnut';
 import BankChart from '../../Components/Charts/BankChart';
 import IncomeChart from '../../Components/Charts/IncomeChart';
 import ExpensesChart from '../../Components/Charts/ExpensesChart';
+//Import Services => test
+import { validateEmail } from './../../Sevices/APIs.js';
 
 function Index(props) {
 	return (
