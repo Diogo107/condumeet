@@ -10,46 +10,6 @@ const router = new Router();
 
 router.post('/sign-up', async (req, res, next) => {
 	console.log('This is on the server', req.body);
-	const {
-		name,
-		email,
-		phoneNumber,
-		code,
-		passwordHash,
-		admin,
-		slot,
-		payment,
-		buildingId,
-		createdAt,
-		blocked,
-		paymentMethods,
-	} = req.body;
-	let BuildingId;
-	if (req.body.buildingId) BuildingId = req.body.buildingId;
-	try {
-		const customer = await stripe.customers.create();
-		const hash = await bcryptjs.hash(passwordHash, 10);
-		const user = await User.create({
-			name,
-			email,
-			phoneNumber,
-			code,
-			passwordHash: hash,
-			admin,
-			slot,
-			buildingId,
-			stripeCustomerId: customer.id,
-			...(BuildingId ? { BuildingId } : {}),
-			payment,
-			createdAt,
-			paymentMethods,
-			blocked,
-		});
-		req.session.user = user._id;
-		res.json({ user });
-	} catch (error) {
-		next(error);
-	}
 });
 
 router.post('/sign-in', (req, res, next) => {

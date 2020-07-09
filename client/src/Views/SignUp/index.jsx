@@ -7,6 +7,8 @@ import FacebookWhiteIcon from './../../assets/images/FacebookWhiteIcon.png';
 import GoogleWhiteIcon from './../../assets/images/GoogleWhiteIcon.png';
 //Import Services
 import { validateEmail } from './../../Sevices/APIs.js';
+import { signUp } from './../../Sevices/Authenticathion.js';
+import { Link } from 'react-router-dom';
 
 function Index(props) {
 	const [name, setName] = useState();
@@ -18,10 +20,12 @@ function Index(props) {
 	const createAccount = async (e) => {
 		e.preventDefault();
 		const checkEmail = await validateEmail(email);
-		const checkPassword = password.includes('');
+		const checkPassword = '';
 		if (terms && checkEmail == 'valid' && checkPassword == true) {
 		}
-		console.log(name, username, email, password, terms);
+		const result = await signUp({ name, username, email, password, terms });
+		console.log('result');
+		props.history.push('/signup/welcome');
 	};
 
 	return (
@@ -133,7 +137,7 @@ function Index(props) {
 					<button>CREATE ACCOUNT</button>
 				</form>
 				<h5>
-					Already have account? <a href="#">Sign In</a>.
+					Already have account? <Link to="/sign-in">Sign In</Link>.
 				</h5>
 			</div>
 			<div className="right-side">
