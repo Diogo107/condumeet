@@ -62,7 +62,7 @@ class index extends Component {
 					<Switch>
 						<Route
 							path="/signup/welcome/created"
-							render={(props) => <FinishCreatingCondominium />}
+							render={(props) => <FinishCreatingCondominium {...this.props} />}
 						/>
 						<Route
 							path="/signup/welcome/create"

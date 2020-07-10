@@ -17,6 +17,11 @@ import ExpensesChart from '../../Components/Charts/ExpensesChart';
 import { validateEmail } from './../../Sevices/APIs.js';
 
 function Index(props) {
+	setTimeout(() => {
+		var x = document.getElementsByClassName('Boxes__Section');
+		let final = (x[0].offsetWidth - 4 * 247) / 3;
+		document.getElementById('Pie__Chart').style.marginRight = `${final}px`;
+	}, 5);
 	return (
 		<div className="Overview__View">
 			<section className="Comunication__Overview">
@@ -57,7 +62,7 @@ function Index(props) {
 				</div>
 			</section>
 			<section className="PieChartAndNeighbors__Section">
-				<div>
+				<div id="Pie__Chart">
 					<div id="Title__Card--Overview">
 						<h5>Expenses by Category</h5>
 						<p>This Month</p>

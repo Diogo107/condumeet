@@ -25,9 +25,9 @@ function Index(props) {
 				<p>Condominium code</p>
 				<h5>1234</h5>
 				<button
-					onClick={() => {
+					onClick={async () => {
 						console.log(signUpForm);
-						condominiumCreated(signUpForm);
+						await condominiumCreated(signUpForm);
 						props.history.push('/dashboard/overview');
 					}}
 				>
