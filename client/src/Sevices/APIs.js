@@ -8,7 +8,7 @@ export const validateEmail = async (data) => {
 	console.log(data);
 	const result = await instance.post('/email-validation', { data });
 	console.log('result', result);
-	return result.data.result;
+	return result.data.response;
 };
 
 export const other = async (data) => {

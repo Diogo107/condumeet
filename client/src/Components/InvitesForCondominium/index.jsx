@@ -8,6 +8,7 @@ import CloseButton from './../../assets/images/CloseButton.png';
 import ShareIcon from './../../assets/images/ShareIcon.png';
 //Import Services
 import { validateEmail } from './../../Sevices/APIs.js';
+import { inviteAllNeighbors } from './../../Sevices/Authenticathion.js';
 //Import Context
 import { SignUpContext } from './../../Context/SignUpContext.js';
 
@@ -21,7 +22,7 @@ function Index(props) {
 		<div>
 			<button
 				onClick={() => {
-					this.props.history.push('/signup/welcome/create/feactures');
+					props.history.push('/signup/welcome/create/feactures');
 				}}
 			>
 				<img src={Arrow} alt="Arrow" />
@@ -83,8 +84,8 @@ function Index(props) {
 					<form
 						onSubmit={async (event) => {
 							event.preventDefault();
-							console.log(neighbor);
 							const result = await validateEmail(neighbor);
+							console.log(result);
 							if (result == 'valid') {
 								console.log('inside');
 								setSignUpForm((previousState) => ({
@@ -113,41 +114,44 @@ function Index(props) {
 						</button>
 					</form>
 				</div>
-				{signUpForm.condominiumNeighbors.map((single) => (
-					<div className="neighbor-email">
-						<img
-							src={FacePurple}
-							alt="Face"
-							style={{ width: '25px', height: '25px' }}
-						/>
-						<div>
-							<p>{single}</p>
-							<button
-								onClick={() => {
-									let list = signUpForm.condominiumNeighbors.filter(
-										(selected) => {
-											return selected !== single;
-										}
-									);
-									setSignUpForm((previousState) => ({
-										...signUpForm,
-										condominiumNeighbors: list,
-									}));
-								}}
-							>
-								<img
-									src={CloseButton}
-									alt="Face"
-									style={{ width: '16px', height: '16px' }}
-								/>
-							</button>
+				{signUpForm.condominiumNeighbors &&
+					signUpForm.condominiumNeighbors.map((single) => (
+						<div className="neighbor-email">
+							<img
+								src={FacePurple}
+								alt="Face"
+								style={{ width: '25px', height: '25px' }}
+							/>
+							<div>
+								<p>{single}</p>
+								<button
+									onClick={() => {
+										let list = signUpForm.condominiumNeighbors.filter(
+											(selected) => {
+												return selected !== single;
+											}
+										);
+										setSignUpForm((previousState) => ({
+											...signUpForm,
+											condominiumNeighbors: list,
+										}));
+									}}
+								>
+									<img
+										src={CloseButton}
+										alt="Face"
+										style={{ width: '16px', height: '16px' }}
+									/>
+								</button>
+							</div>
 						</div>
-					</div>
-				))}
+					))}
 				<button
 					id="button__invite-all"
 					className="background-lightpurple"
-					onClick={() => {}}
+					onClick={() => {
+						inviteAllNeighbors(signUpForm.condominiumNeighbors);
+					}}
 				>
 					Invite All
 				</button>

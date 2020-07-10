@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './style.scss';
 // Import Images
 import BuildingCircleIcon from './../../assets/images/BuildingCircleIcon.png';
+//Import Services
+import { searchForCondominium } from './../../Sevices/Authenticathion';
 
-function index(props) {
+function Index(props) {
+	const [condominiumCode, setCondominiumCode] = useState();
 	return (
 		<div className="first-time-visit">
 			<h1>Welcome</h1>
@@ -25,12 +28,25 @@ function index(props) {
 				<div className="card">
 					<h1>Find your condominium</h1>
 					<p>Enter the Condominium Code</p>
-					<input />
-					<button>Access</button>
+					<input
+						type="text"
+						placeholder="Enter code here..."
+						onChange={(e) => {
+							setCondominiumCode(e.target.value);
+						}}
+					/>
+					<button
+						onClick={() => {
+							searchForCondominium(condominiumCode);
+							console.log(condominiumCode);
+						}}
+					>
+						Access
+					</button>
 				</div>
 			</div>
 		</div>
 	);
 }
 
-export default index;
+export default Index;

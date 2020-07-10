@@ -1,13 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './style.scss';
 //Import Images
 import Arrow from './../../assets/images/Arrow.png';
 import CheckGreen from './../../assets/images/CheckGreen.png';
+//Import Context
+import { SignUpContext } from './../../Context/SignUpContext.js';
+//Import Services
+import { condominiumCreated } from './../../Sevices/Authenticathion.js';
 
-function index(props) {
+function Index(props) {
+	const [signUpForm, setSignUpForm] = useContext(SignUpContext);
 	return (
 		<div>
-			<button>
+			<button
+				onClick={() => {
+					props.history.push('/signup/welcome/create/invites');
+				}}
+			>
 				<img src={Arrow} alt="Arrow" />
 			</button>
 			<div className="welcome__finish">
@@ -17,6 +26,8 @@ function index(props) {
 				<h5>1234</h5>
 				<button
 					onClick={() => {
+						console.log(signUpForm);
+						condominiumCreated(signUpForm);
 						props.history.push('/dashboard/overview');
 					}}
 				>
@@ -27,4 +38,4 @@ function index(props) {
 	);
 }
 
-export default index;
+export default Index;

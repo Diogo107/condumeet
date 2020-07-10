@@ -12,6 +12,19 @@ router.post('/sign-up', async (req, res, next) => {
 	console.log('This is on the server', req.body);
 });
 
+router.post('/searchForCondominium', async (req, res, next) => {
+	console.log('This is on searchForCondominium', req.body);
+});
+
+router.post('/inviteAllNeighbors', async (req, res, next) => {
+	console.log('This is on inviteAllNeighbors', req.body);
+});
+
+router.post('/condominiumCreated', async (req, res, next) => {
+	console.log('This is on condominiumCreated', req.body);
+});
+
+//Bellow is not important for now
 router.post('/sign-in', (req, res, next) => {
 	let user;
 	const { email, passwordHash } = req.body;
@@ -41,6 +54,11 @@ router.post('/sign-in', (req, res, next) => {
 router.post('/sign-out', (req, res, next) => {
 	req.session.destroy();
 	res.json({});
+});
+
+router.get('/user-information', (req, res, next) => {
+	console.log('Hello from the server');
+	res.json({ user: req.user || null });
 });
 
 router.get('/user-information', (req, res, next) => {
