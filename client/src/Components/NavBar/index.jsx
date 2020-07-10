@@ -41,9 +41,13 @@ const Index = (props) => {
 					</div>
 					<div>
 						<div>
-							<img src={NotificationIcon} alt="Notification Icon" />
+							<img
+								src={NotificationIcon}
+								alt="Notification Icon"
+								className="Phone__Hide"
+							/>
 						</div>
-						<div>
+						<div className="Phone__Hide">
 							<p>{user.name}</p>
 							<img src={user.avatar} alt="User Avatar" />
 							<button>
