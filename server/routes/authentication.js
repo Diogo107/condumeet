@@ -25,8 +25,10 @@ router.post('/login', async (req, res, next) => {
 		password: req.body.data.password,
 	};
 	const result = await instance.post('/login', data);
-	console.log('This is on result', result);
-	req.session.user = result.data._id;
+	console.log('This is on result', req);
+	res.cookie('conduMeet', 'cookieValue');
+	const user = result.data;
+	res.json({ user });
 });
 
 router.post('/searchForCondominium', async (req, res, next) => {
@@ -89,7 +91,7 @@ router.patch(
 	async (req, res, next) => {
 		const { buildingId } = req.body;
 
-		if (req.file) picture = req.file.url;
+		//if (req.file) picture = req.file.url;
 		try {
 			const user = await User.findByIdAndUpdate(req.user._id, {
 				buildingId,
