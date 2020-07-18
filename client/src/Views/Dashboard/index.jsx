@@ -13,7 +13,7 @@ import Neighbors from './../Neighbors';
 function Index(props) {
 	return (
 		<div className="Dashboard__Overall">
-			<div className="User__Sidebar">
+			<div className="User__Sidebar Phone__Hide">
 				<Sidebar />
 			</div>
 			<div className="User__Dashboard">

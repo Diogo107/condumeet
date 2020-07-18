@@ -5,11 +5,28 @@ const bcryptjs = require('bcryptjs');
 const User = require('./../models/user');
 const stripe = require('./../stripe-configure');
 const uploader = require('./../multer-configure.js');
+const axios = require('axios');
+const instance = axios.create({
+	baseURL: 'http://ec2-54-229-6-244.eu-west-1.compute.amazonaws.com/api/auth',
+});
 
 const router = new Router();
 
 router.post('/sign-up', async (req, res, next) => {
-	console.log('This is on the server', req.body);
+	const result = await instance.post('/register', req.body.data);
+	const final = result.status;
+	res.json({ final });
+});
+
+router.post('/login', async (req, res, next) => {
+	console.log('.......................................');
+	const data = {
+		login: req.body.data.email,
+		password: req.body.data.password,
+	};
+	const result = await instance.post('/login', data);
+	console.log('This is on result', result);
+	req.session.user = result.data._id;
 });
 
 router.post('/searchForCondominium', async (req, res, next) => {

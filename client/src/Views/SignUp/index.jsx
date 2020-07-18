@@ -23,9 +23,15 @@ function Index(props) {
 		const checkPassword = '';
 		if (terms && checkEmail == 'valid' && checkPassword == true) {
 		}
-		const result = await signUp({ name, username, email, password, terms });
-		console.log('result');
-		props.history.push('/signup/welcome');
+		const result = await signUp({
+			name,
+			username,
+			email,
+			password,
+			password_confirmation: password,
+			terms,
+		});
+		//props.history.push('/signup/welcome');
 	};
 
 	return (

@@ -5,9 +5,12 @@ const instance = axios.create({
 });
 
 export const signUp = async (data) => {
-	console.log(data);
+	console.log('signup', data);
 	const result = await instance.post('/sign-up', { data });
 	console.log('result', result);
+	if (result.status == 201 || result.status == 200) {
+		const login = await instance.post('/login', { data });
+	}
 	return result.data.result;
 };
 

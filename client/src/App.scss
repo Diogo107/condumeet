@@ -2,6 +2,7 @@
 	text-align: center;
 	box-sizing: border-box;
 	min-width: 100vw;
+	width: 100vw;
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
@@ -57,8 +58,32 @@ button {
 	color: #42e097;
 }
 
+@media only screen and (min-width: 768px) {
+	/* For desktop: */
+	.Just__Phone {
+		display: none;
+	}
+}
+
 @media only screen and (max-width: 767px) {
+	/* For phones: */
 	.Phone__Hide {
-		display: none !important;
+		display: none;
+	}
+
+	.NavBar__Logged {
+		> div:first-child {
+			width: 207px !important;
+			min-width: 207px !important;
+			border-right: none !important;
+		}
+		> div:nth-child(2) {
+			> :first-child {
+				border: none !important;
+			}
+		}
+	}
+	.User__Dashboard {
+		width: calc(100% - 88px);
 	}
 }

@@ -5,6 +5,7 @@ import './style.scss';
 import Logo from '../../assets/images/Logo.png';
 import ArrowDown from '../../assets/images/ArrowDown.svg';
 import NotificationIcon from '../../assets/images/NotificationIcon.png';
+import HamburgerMenuIcon from '../../assets/images/HamburgerMenuIcon.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 //Import Context
@@ -12,6 +13,11 @@ import { UserContext } from './../../Context/UserContext.js';
 
 const Index = (props) => {
 	const [user, setUser] = useContext(UserContext);
+	const hamburguerMenu = () => {
+		const sidebar = document.getElementsByClassName('User__Sidebar');
+		//sidebar[0].style.display = 'flex';
+		console.log(sidebar[0].style.display);
+	};
 	return (
 		<div className="NavBar">
 			{(!user && (
@@ -41,11 +47,15 @@ const Index = (props) => {
 					</div>
 					<div>
 						<div>
-							<img
-								src={NotificationIcon}
-								alt="Notification Icon"
-								className="Phone__Hide"
-							/>
+							<img src={NotificationIcon} alt="Notification Icon" />
+							<button
+								className="Just__Phone"
+								onClick={() => {
+									hamburguerMenu();
+								}}
+							>
+								<img src={HamburgerMenuIcon} alt="Menu" />
+							</button>
 						</div>
 						<div className="Phone__Hide">
 							<p>{user.name}</p>

@@ -1,7 +1,28 @@
-@media only screen and (max-width: 767px) {
-    /* phones */
-}
 
 @media only screen and (max-width: 767px) and (orientation: portrait) {
     /* portrait phones */
 }
+
+Quartas feiras => 18h às 20h (para os projectos de impacto social)
+
+Mapear o modelo de negócio
+- testar funcionalidades
+- testar o que o usuário quer ver e em que página
+
+
+Detectar ameaças
+Pôr por risco
+Testar (validar ou invalidar)
+
+reflora
+e-cart
+condumeet
+
+Desafio:
+Quais foram os príncipios mais dificeis de manter desde o inicio do Acredita Portugal.
+
+
+Perguntas a fazer ao cliente:
+Quais é o problema de desenvolver uma tarefa?
+Como gostaria de resolver o problema?
+
