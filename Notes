@@ -56,7 +56,7 @@ Buddy:
 
 Testas Ideias de Negócios
 1 - Identificar hipóteses;
-2 - Priotritizar
+2 - Priorizar
 3 - Testar
 4 - Aprender
 5 - Interar
@@ -65,3 +65,46 @@ Hipótese:
 - Começar com "Nós acreditamos que..."
 - Gerar hipóteses e contra hipóteses (a hipótese contrária para perceber qual delas é válida)
 - Tem de ser testável, precisa (mensurável) e discreta (conseguir corresponder os testes a um único factor)
+
+Priorizar:
+- Diminuir risco
+- Começar pelo mais arriscado até chegar ao mais fácil
+- Como escolher o mais arriscado:
+--- Intuição
+--- Opinião de especialistas
+
+Testar:
+É importante perceber o que queremos medir para depois percebermos quais a ferramentas a usar para fazer essa medição.
+- Entrevista de empatia
+- MVP
+- Inquéritos
+(estes são os principais mas existem muitos outros)
+Testar server para diminuir o risco.
+
+Aprender:
+- São as conclusões tiradas dos testes
+- Existem evidências fracas (crenças) e evidências fortes (podendo até ser factos)
+- Dizer vs fazer
+- Laboratório vs mundo real
+- Quanto maior o investimento do cliente maior o a evidência
+- Se as evidências validam a hipótese:
+--- Continuar a testar
+
+- Se as evidências invalidam a hipótese:
+--- Matar
+--- Pivotar
+--- Reformular Modelo de negócio
+
+- Se existem novos insights:
+--- Matar
+--- Pivotar
+--- Reformular Modelo de negócio
+
+- Se existem não ficou claro:
+--- Continuar a testar
+
+
+Integrar:
+
+
+MVP não é focado no produto, é focado na proposta de valor.

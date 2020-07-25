@@ -15,7 +15,8 @@ export const signUp = async (data) => {
 	if (result.status == 201 || result.status == 200) {
 		const login = await instance.post('/login', { data });
 		console.log(login);
-		cookies.set('Token', login.data.user.token, { path: '/' });
+		//cookies.set('Token', login.data.user.token, { path: '/' });
+		console.log(cookies.get());
 		return login.data.user.user;
 	}
 
