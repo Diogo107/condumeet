@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Cookies from 'universal-cookie';
 
 const instance = axios.create({
 	baseURL: 'http://localhost:3020/api/authentication',
@@ -9,9 +10,13 @@ export const signUp = async (data) => {
 	const result = await instance.post('/sign-up', { data });
 	console.log('result', result);
 
+	const cookies = new Cookies();
+
 	if (result.status == 201 || result.status == 200) {
 		const login = await instance.post('/login', { data });
 		console.log(login);
+		cookies.set('Token', login.data.user.token, { path: '/' });
+		return login.data.user.user;
 	}
 
 	return result.data.result;

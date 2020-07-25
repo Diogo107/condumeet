@@ -19,15 +19,15 @@ router.post('/sign-up', async (req, res, next) => {
 });
 
 router.post('/login', async (req, res, next) => {
-	console.log('.......................................');
 	const data = {
 		login: req.body.data.email,
 		password: req.body.data.password,
 	};
+	console.log(req);
 	const result = await instance.post('/login', data);
-	console.log('This is on result', req);
-	res.cookie('conduMeet', 'cookieValue');
 	const user = result.data;
+	console.log(user);
+	res.session.user = user;
 	res.json({ user });
 });
 

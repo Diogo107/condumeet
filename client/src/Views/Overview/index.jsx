@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './style.scss';
 //Import Images
 import NeighborsIcon from './../../assets/images/overview__cads/NeighborsIcon.png';
@@ -15,8 +15,10 @@ import IncomeChart from '../../Components/Charts/IncomeChart';
 import ExpensesChart from '../../Components/Charts/ExpensesChart';
 //Import Services => test
 import { validateEmail } from './../../Sevices/APIs.js';
+import { UserContext } from '../../Context/UserContext';
 
 function Index(props) {
+	const [user, setUser] = useContext(UserContext);
 	setTimeout(() => {
 		var x = document.getElementsByClassName('Boxes__Section');
 		let final = (x[0].offsetWidth - 4 * 247) / 3;
@@ -25,6 +27,13 @@ function Index(props) {
 	return (
 		<div className="Overview__View">
 			<section className="Comunication__Overview">
+				<button
+					onClick={() => {
+						console.log(user);
+					}}
+				>
+					User?
+				</button>
 				<div>
 					<h2>Comunication</h2>
 					<p>

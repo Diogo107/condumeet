@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import './style.scss';
 //Import Images
 import GroupTalking from './../../assets/images/GroupTalking.png';
@@ -9,8 +9,10 @@ import GoogleWhiteIcon from './../../assets/images/GoogleWhiteIcon.png';
 import { validateEmail } from './../../Sevices/APIs.js';
 import { signUp } from './../../Sevices/Authenticathion.js';
 import { Link } from 'react-router-dom';
+import { UserContext } from '../../Context/UserContext';
 
 function Index(props) {
+	const [user, setUser] = useContext(UserContext);
 	const [name, setName] = useState();
 	const [username, setUsername] = useState();
 	const [email, setEmail] = useState();
@@ -31,6 +33,10 @@ function Index(props) {
 			password_confirmation: password,
 			terms,
 		});
+		console.log('result', result);
+		const userLogging = result.result;
+		setUser(result);
+		props.history.push('/dashboard/overview');
 		//props.history.push('/signup/welcome');
 	};
 
