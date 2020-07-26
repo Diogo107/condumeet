@@ -6,7 +6,7 @@ import CheckGreen from './../../assets/images/CheckGreen.png';
 //Import Context
 import { SignUpContext } from './../../Context/SignUpContext.js';
 //Import Services
-import { condominiumCreated } from './../../Sevices/Authenticathion.js';
+//import { condominiumCreated } from './../../Sevices/Authenticathion.js';
 
 function Index(props) {
 	const [signUpForm, setSignUpForm] = useContext(SignUpContext);
@@ -27,7 +27,7 @@ function Index(props) {
 				<button
 					onClick={async () => {
 						console.log(signUpForm);
-						await condominiumCreated(signUpForm);
+						//await condominiumCreated(signUpForm);
 						props.history.push('/dashboard/overview');
 					}}
 				>

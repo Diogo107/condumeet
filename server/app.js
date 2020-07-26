@@ -7,10 +7,22 @@ const logger = require('morgan');
 const cors = require('cors');
 const serveFavicon = require('serve-favicon');
 const cookieParser = require('cookie-parser');
+const session = require('express-session');
 const authenticathionRouter = require('./routes/authenticathion');
 const externalsRouter = require('./routes/externals');
 
 const app = express();
+
+//Configuring cookie
+app.set('trust proxy', 1);
+app.use(
+	session({
+		secret: 'keyboard cat',
+		resave: false,
+		saveUninitialized: true,
+		cookie: { secure: true },
+	})
+);
 
 //Middleware
 app.use(cors());

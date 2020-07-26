@@ -15,7 +15,7 @@ export const signUp = async (data) => {
 	if (result.status == 201 || result.status == 200) {
 		const login = await instance.post('/login', { data });
 		console.log(login);
-		//cookies.set('Token', login.data.user.token, { path: '/' });
+		cookies.set('Token', login.data.user.token, { path: '/' });
 		console.log(cookies.get());
 		return login.data.user.user;
 	}
@@ -33,13 +33,6 @@ export const searchForCondominium = async (data) => {
 export const inviteAllNeighbors = async (data) => {
 	console.log(data);
 	const result = await instance.post('/inviteAllNeighbors', { data });
-	console.log('result', result);
-	return result.data.result;
-};
-
-export const condominiumCreated = async (data) => {
-	console.log(data);
-	const result = await instance.post('/condominiumCreated', { data });
 	console.log('result', result);
 	return result.data.result;
 };

@@ -19,19 +19,12 @@ router.post('/login', async (req, res, next) => {
 		login: req.body.data.email,
 		password: req.body.data.password,
 	};
+
 	console.log('Before post to api');
 	const result = await instance.post('/login', data);
 	console.log('After post to api', result.data);
 	const user = result.data;
-	console.log('Cookies: ', req.cookies);
-	req.cookies.user = user;
-	console.log('Cookies: ', req.cookies);
-	let users = {
-		name: 'Ritik',
-		Age: '18',
-	};
-	res.cookie('userData', users);
-	res.send(req.cookies);
+	req.session.user = user.user.id;
 	res.json({ user });
 });
 

@@ -36,8 +36,8 @@ function Index(props) {
 		console.log('result', result);
 		const userLogging = result.result;
 		setUser(result);
-		props.history.push('/dashboard/overview');
-		//props.history.push('/signup/welcome');
+		//props.history.push('/dashboard/overview');
+		props.history.push('/signup/welcome');
 	};
 
 	return (
