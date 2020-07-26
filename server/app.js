@@ -42,6 +42,11 @@ app.use(express.json());
 app.use('/api/externals', externalsRouter);
 app.use('/api/authentication', authenticathionRouter);
 
+//This line of code was put here to deployment
+app.get('*', (req, res, next) => {
+	res.sendFile(join(__dirname, './../client/build/index.html'));
+});
+
 // Catch missing routes and forward to error handler
 app.use((req, res, next) => {
 	next(createError(404));
