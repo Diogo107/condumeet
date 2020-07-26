@@ -43,6 +43,9 @@ app.use('/api/externals', externalsRouter);
 app.use('/api/authentication', authenticathionRouter);
 
 //This line of code was put here to deployment
+app.use(express.static(join(__dirname, './../client/build')));
+
+//This line of code was put here to deployment
 app.get('*', (req, res, next) => {
 	res.sendFile(join(__dirname, './../client/build/index.html'));
 });
