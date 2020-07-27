@@ -30,7 +30,7 @@ function index(props) {
 					</li>
 					<li className="progress__bar"></li>
 					<li className="progress__circle">
-						<p>Feactures</p>
+						<p>Features</p>
 					</li>
 					<li className="progress__bar"></li>
 					<li className="progress__circle">

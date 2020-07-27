@@ -1,4 +1,4 @@
-import React, { Component, useState, useContext } from 'react';
+import React, { Component, useState, useContext, createContext } from 'react';
 import './style.scss';
 //Import Images
 import Arrow from './../../assets/images/Arrow.png';
@@ -9,6 +9,7 @@ import ShareIcon from './../../assets/images/ShareIcon.png';
 //Import Services
 import { validateEmail } from './../../Sevices/APIs.js';
 import { inviteAllNeighbors } from './../../Sevices/Authenticathion.js';
+import { createCondominium } from './../../Sevices/Condominiums';
 //Import Context
 import { SignUpContext } from './../../Context/SignUpContext.js';
 
@@ -16,6 +17,10 @@ function Index(props) {
 	const [neighborsList, setNeighborsList] = useState([]);
 	const [neighbor, setNeighbor] = useState();
 	const [signUpForm, setSignUpForm] = useContext(SignUpContext);
+	const createFirstCondominium = () => {
+		createCondominium(signUpForm);
+	};
+	createFirstCondominium();
 	console.log(signUpForm);
 
 	return (
@@ -56,14 +61,10 @@ function Index(props) {
 				</ul>
 			</div>
 			<div className="welcome__invites">
-				<h1>Call your Neightbors</h1>
-				<button
-					onClick={() => {
-						console.log(signUpForm);
-					}}
-				>
-					Information
-				</button>
+				<h1>
+					Welcome to {signUpForm.condominiumName} <br />
+					Now, call your Neightbors
+				</h1>
 				<h4>Your condominium code.</h4>
 				<p>Share the code with your neighbours or send them a invite.</p>
 				<div className="condomium-code">

@@ -17,10 +17,15 @@ const app = express();
 app.set('trust proxy', 1);
 app.use(
 	session({
-		secret: 'keyboard cat',
-		resave: false,
-		saveUninitialized: true,
-		cookie: { secure: true },
+		secret: process.env.SESSION_SECRET,
+		resave: true,
+		saveUninitialized: false,
+		cookie: {
+			maxAge: 60 * 60 * 24 * 15 * 1000,
+			sameSite: 'lax',
+			httpOnly: true,
+			//secure: process.env.NODE_ENV === 'production'
+		},
 	})
 );
 

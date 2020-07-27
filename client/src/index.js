@@ -5,14 +5,17 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { UserProvider } from './Context/UserContext.js';
 import { SignUpProvider } from './Context/SignUpContext.js';
+import { CookiesProvider } from 'react-cookie';
 
 ReactDOM.render(
 	<React.StrictMode>
-		<SignUpProvider>
-			<UserProvider>
-				<App />
-			</UserProvider>
-		</SignUpProvider>
+		<CookiesProvider>
+			<SignUpProvider>
+				<UserProvider>
+					<App />
+				</UserProvider>
+			</SignUpProvider>
+		</CookiesProvider>
 	</React.StrictMode>,
 	document.getElementById('root')
 );

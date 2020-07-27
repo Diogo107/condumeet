@@ -10,6 +10,7 @@ import { validateEmail } from './../../Sevices/APIs.js';
 import { signUp } from './../../Sevices/Authenticathion.js';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../Context/UserContext';
+import { useCookies } from 'react-cookie';
 
 function Index(props) {
 	const [user, setUser] = useContext(UserContext);
@@ -18,13 +19,13 @@ function Index(props) {
 	const [email, setEmail] = useState();
 	const [password, setPassword] = useState();
 	const [terms, setTerms] = useState(false);
-
+	const [cookies, setCookie] = useCookies(['name']);
 	const createAccount = async (e) => {
 		e.preventDefault();
-		const checkEmail = await validateEmail(email);
+		/* const checkEmail = await validateEmail(email);
 		const checkPassword = '';
 		if (terms && checkEmail == 'valid' && checkPassword == true) {
-		}
+		} */
 		const result = await signUp({
 			name,
 			username,
@@ -33,7 +34,9 @@ function Index(props) {
 			password_confirmation: password,
 			terms,
 		});
-		console.log('result', result);
+		let newName = 'This is a test';
+		setCookie('name', newName, { path: '/' });
+		//console.log('result', result);
 		const userLogging = result.result;
 		setUser(result);
 		//props.history.push('/dashboard/overview');

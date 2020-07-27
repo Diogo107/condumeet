@@ -2,21 +2,21 @@ import axios from 'axios';
 import Cookies from 'universal-cookie';
 
 const instance = axios.create({
-	baseURL: 'http://localhost:3020/api/authentication',
+	baseURL: 'http://ec2-54-229-6-244.eu-west-1.compute.amazonaws.com/api/auth',
 });
 
 export const signUp = async (data) => {
 	console.log('signup', data);
-	const result = await instance.post('/sign-up', { data });
-	console.log('result', result);
+	const result = await instance.post('/register', data);
 
-	const cookies = new Cookies();
+	return result;
+	//const cookies = new Cookies();
 
 	if (result.status == 201 || result.status == 200) {
-		const login = await instance.post('/login', { data });
+		const login = await instance.post('/login', data);
 		console.log(login);
-		cookies.set('Token', login.data.user.token, { path: '/' });
-		console.log(cookies.get());
+		//cookies.set('Token', login.data.user.token, { path: '/' });
+		//console.log(cookies.get());
 		return login.data.user.user;
 	}
 
