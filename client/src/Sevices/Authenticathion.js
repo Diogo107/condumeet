@@ -23,6 +23,11 @@ export const signUp = async (data) => {
 	return result.data.result;
 };
 
+export const login = async (data) => {
+	const result = await instance.post('/login', data);
+	return result;
+};
+
 export const searchForCondominium = async (data) => {
 	console.log(data);
 	const result = await instance.post('/searchForCondominium', { data });

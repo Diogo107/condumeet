@@ -7,7 +7,7 @@ import FacebookWhiteIcon from './../../assets/images/FacebookWhiteIcon.png';
 import GoogleWhiteIcon from './../../assets/images/GoogleWhiteIcon.png';
 //Import Services
 import { validateEmail } from './../../Sevices/APIs.js';
-import { signUp } from './../../Sevices/Authenticathion.js';
+import { signUp, login } from './../../Sevices/Authenticathion.js';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../Context/UserContext';
 import { useCookies } from 'react-cookie';
@@ -20,13 +20,14 @@ function Index(props) {
 	const [password, setPassword] = useState();
 	const [terms, setTerms] = useState(false);
 	const [cookies, setCookie] = useCookies(['name']);
+
 	const createAccount = async (e) => {
 		e.preventDefault();
 		/* const checkEmail = await validateEmail(email);
 		const checkPassword = '';
 		if (terms && checkEmail == 'valid' && checkPassword == true) {
 		} */
-		const result = await signUp({
+		const resultSignUp = await signUp({
 			name,
 			username,
 			email,
@@ -34,25 +35,30 @@ function Index(props) {
 			password_confirmation: password,
 			terms,
 		});
-		let newName = 'This is a test';
-		setCookie('name', newName, { path: '/' });
-		//console.log('result', result);
-		const userLogging = result.result;
-		setUser(result);
-		//props.history.push('/dashboard/overview');
+		console.log(resultSignUp);
+		if (resultSignUp.status == 201 || resultSignUp.status == 200) {
+			const resultLogin = await login({ login: email, password });
+			const user = resultLogin.data.user;
+			const token = resultLogin.data.token;
+			setCookie('user', user, { path: '/', maxAge: 60 * 15 });
+			setCookie('token', token, { path: '/', maxAge: 60 * 15 });
+			setUser(resultLogin.data.user);
+		}
+
 		props.history.push('/signup/welcome');
 	};
 
 	return (
 		<div className="Sign-Up">
 			<div className="left-side">
-				{/* <button
+				<button
 					onClick={() => {
-						console.log(name, username, email, password, terms);
+						console.log(cookies.user);
+						console.log(cookies.token);
 					}}
 				>
 					Test
-				</button> */}
+				</button>
 				<img src={Logo} alt="Logo" />
 				<h1>Create Account</h1>
 				<div>
