@@ -1,11 +1,10 @@
 import axios from 'axios';
-
+let token;
 const instance = axios.create({
-	baseURL: 'http://ec2-54-229-6-244.eu-west-1.compute.amazonaws.com/api/auth',
+	baseURL: 'http://ec2-54-229-6-244.eu-west-1.compute.amazonaws.com/api/v1',
 });
 
-export const createCondominium = async (data) => {
-	console.log('create condominium: ', data);
+export const createCondominium = async (data, token) => {
 	let subscription;
 	if (data.features == 'Premium') {
 		subscription = 1;
@@ -29,9 +28,12 @@ export const createCondominium = async (data) => {
 			name: 'Casinha',
 		},
 	};
-	const result = await instance.post('/condominiums', condomimium);
+	console.log('create condominium: ', data, token);
+	const result = await instance.post('/condominiums', condomimium, {
+		headers: { Authorization: `Bearer ${token}` },
+	});
+	console.log('result', result);
 
 	/* const result = await instance.post('/condominiumCreated', { data });
-	console.log('result', result);
 	return result.data.result; */
 };

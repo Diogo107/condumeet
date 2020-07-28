@@ -10,6 +10,7 @@ import ShareIcon from './../../assets/images/ShareIcon.png';
 import { validateEmail } from './../../Sevices/APIs.js';
 import { inviteAllNeighbors } from './../../Sevices/Authenticathion.js';
 import { createCondominium } from './../../Sevices/Condominiums';
+import { useCookies } from 'react-cookie';
 //Import Context
 import { SignUpContext } from './../../Context/SignUpContext.js';
 
@@ -17,8 +18,10 @@ function Index(props) {
 	const [neighborsList, setNeighborsList] = useState([]);
 	const [neighbor, setNeighbor] = useState();
 	const [signUpForm, setSignUpForm] = useContext(SignUpContext);
+	const [cookies, setCookie] = useCookies(['user']);
 	const createFirstCondominium = () => {
-		createCondominium(signUpForm);
+		const token = cookies.token;
+		createCondominium(signUpForm, token);
 	};
 	createFirstCondominium();
 	console.log(signUpForm);

@@ -40,8 +40,8 @@ function Index(props) {
 			const resultLogin = await login({ login: email, password });
 			const user = resultLogin.data.user;
 			const token = resultLogin.data.token;
-			setCookie('user', user, { path: '/', maxAge: 60 * 15 });
-			setCookie('token', token, { path: '/', maxAge: 60 * 15 });
+			setCookie('user', user, { path: '/' /* maxAge: 60 * 15 */ });
+			setCookie('token', token, { path: '/' /* maxAge: 60 * 15 */ });
 			setUser(resultLogin.data.user);
 		}
 
