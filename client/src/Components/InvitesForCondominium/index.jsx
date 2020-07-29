@@ -28,8 +28,16 @@ function Index(props) {
 	const [cookies, setCookie] = useCookies(['user']);
 	const createFirstCondominium = async () => {
 		const token = cookies.user.token;
-		const result = await createCondominium(signUpForm, token);
-		setCondominiumCode(result.data.id);
+		if (
+			signUpForm.condominiumName !== '' &&
+			signUpForm.address !== '' &&
+			signUpForm.place_id !== '' &&
+			signUpForm.postal_code !== '' &&
+			signUpForm.condominiumFeatures !== ''
+		) {
+			const result = await createCondominium(signUpForm, token);
+			setCondominiumCode(result.data.id);
+		}
 	};
 	useEffect(() => {
 		createFirstCondominium();
@@ -39,7 +47,7 @@ function Index(props) {
 		<div>
 			<button
 				onClick={() => {
-					props.history.push('/signup/welcome/create/feactures');
+					props.history.push('/signup/welcome/create/features');
 				}}
 			>
 				<img src={Arrow} alt="Arrow" />
@@ -167,7 +175,7 @@ function Index(props) {
 				<button
 					id="button__continue"
 					onClick={() => {
-						props.history.push('/signup/welcome/created');
+						props.history.push(`/dashboard/overview/${condominiumCode}`);
 					}}
 				>
 					Continue

@@ -9,7 +9,7 @@ import FirstTimeVisit from './../../Components/FirstTimeVisit';
 import NameOfCondominium from './../../Components/NameOfCondominium';
 import LocationOfCondominium from './../../Components/LocationOfCondominium';
 import CaracterizationOfCondominium from './../../Components/CaracterizationOfCondominium';
-import FeacturesOfCondominium from './../../Components/FeacturesOfCondominium';
+import FeaturesOfCondominium from './../../Components/FeaturesOfCondominium';
 import InvitesForCondominium from './../../Components/InvitesForCondominium';
 import FinishCreatingCondominium from './../../Components/FinishCreatingCondominium';
 
@@ -25,7 +25,7 @@ class index extends Component {
 			country: '',
 			map: {},
 			condominiumNeighbors: [],
-			condominiumPaidFeactures: '',
+			condominiumPaidFeatures: '',
 		};
 	}
 
@@ -98,9 +98,9 @@ class index extends Component {
 											)}
 										/>
 										<Route
-											path="/signup/welcome/create/feactures"
+											path="/signup/welcome/create/features"
 											render={(props) => (
-												<FeacturesOfCondominium
+												<FeaturesOfCondominium
 													selectPremiumVersion={this.selectPremiumVersion}
 													{...this.props}
 												/>

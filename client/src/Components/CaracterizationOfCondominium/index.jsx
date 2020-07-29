@@ -40,7 +40,7 @@ function index(props) {
 			<h1>CaracterizationOfCondominium</h1>
 			<button
 				onClick={() => {
-					props.history.push('/signup/welcome/create/feactures');
+					props.history.push('/signup/welcome/create/features');
 				}}
 			>
 				Continue
