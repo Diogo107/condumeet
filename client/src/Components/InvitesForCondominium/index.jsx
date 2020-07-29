@@ -21,6 +21,8 @@ function Index(props) {
 	const [cookies, setCookie] = useCookies(['user']);
 	const createFirstCondominium = () => {
 		const token = cookies.token;
+		console.log('...', token, '...');
+		console.log(cookies.user);
 		createCondominium(signUpForm, token);
 	};
 	createFirstCondominium();

@@ -29,11 +29,13 @@ export const createCondominium = async (data, token) => {
 		},
 	};
 	console.log('create condominium: ', data, token);
+	token =
+		'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9lYzItNTQtMjI5LTYtMjQ0LmV1LXdlc3QtMS5jb21wdXRlLmFtYXpvbmF3cy5jb21cL2FwaVwvYXV0aFwvbG9naW4iLCJpYXQiOjE1OTYwMTMyNzMsImV4cCI6MTU5NjAxNjg3MywibmJmIjoxNTk2MDEzMjczLCJqdGkiOiJIQkZmdVFJVmJPU0Y2ZHlQIiwic3ViIjoyLCJwcnYiOiI0MTFjOTE3YTBmYjUxZTBhNDI3YTdlM2RlYWE1YTQ5ZTI5MmRkYjliIn0._vKYRjqUBo4o-RSjPIQznydYGdTZMG4QWVQOV0_i5OU';
 	const result = await instance.post('/condominiums', condomimium, {
-		headers: { Authorization: `Bearer ${token}` },
+		headers: {
+			Authorization: `Bearer ${token}`,
+		},
 	});
 	console.log('result', result);
-
-	/* const result = await instance.post('/condominiumCreated', { data });
-	return result.data.result; */
+	return result.data.result;
 };
