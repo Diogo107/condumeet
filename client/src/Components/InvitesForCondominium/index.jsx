@@ -1,4 +1,10 @@
-import React, { Component, useState, useContext, createContext } from 'react';
+import React, {
+	Component,
+	useState,
+	useContext,
+	createContext,
+	useEffect,
+} from 'react';
 import './style.scss';
 //Import Images
 import Arrow from './../../assets/images/Arrow.png';
@@ -17,16 +23,19 @@ import { SignUpContext } from './../../Context/SignUpContext.js';
 function Index(props) {
 	const [neighborsList, setNeighborsList] = useState([]);
 	const [neighbor, setNeighbor] = useState();
+	const [condominiumCode, setCondominiumCode] = useState();
 	const [signUpForm, setSignUpForm] = useContext(SignUpContext);
 	const [cookies, setCookie] = useCookies(['user']);
-	const createFirstCondominium = () => {
+	const createFirstCondominium = async () => {
 		const token = cookies.user.token;
 		console.log('...', token, '...');
 		console.log(cookies.user);
-		createCondominium(signUpForm, token);
+		const result = await createCondominium(signUpForm, token);
+		setCondominiumCode(result.data.id);
 	};
-	createFirstCondominium();
-	console.log(signUpForm);
+	useEffect(() => {
+		createFirstCondominium();
+	}, []);
 
 	return (
 		<div>
@@ -73,7 +82,7 @@ function Index(props) {
 				<h4>Your condominium code.</h4>
 				<p>Share the code with your neighbours or send them a invite.</p>
 				<div className="condomium-code">
-					<h5>1234</h5>
+					<h5>{condominiumCode}</h5>
 					{/* Clicar na imagem partilhar para copiar para o clipboard */}
 					<img
 						src={ShareIcon}

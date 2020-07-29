@@ -28,12 +28,10 @@ export const createCondominium = async (data, token) => {
 			name: 'Casinha',
 		},
 	};
-	console.log('create condominium: ', data, token);
 	const result = await instance.post('/condominiums', condomimium, {
 		headers: {
 			Authorization: `Bearer ${token}`,
 		},
 	});
-	console.log('result', result);
-	return result.data.result;
+	return result;
 };

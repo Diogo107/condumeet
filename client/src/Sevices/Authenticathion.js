@@ -8,15 +8,11 @@ const instance = axios.create({
 export const signUp = async (data) => {
 	console.log('signup', data);
 	const result = await instance.post('/register', data);
-
 	return result;
-	//const cookies = new Cookies();
 
 	if (result.status == 201 || result.status == 200) {
 		const login = await instance.post('/login', data);
 		console.log(login);
-		//cookies.set('Token', login.data.user.token, { path: '/' });
-		//console.log(cookies.get());
 		return login.data.user.user;
 	}
 
@@ -24,9 +20,7 @@ export const signUp = async (data) => {
 };
 
 export const login = async (data) => {
-	console.log({ data });
 	const result = await instance.post('/login', data);
-	console.log(result);
 	return result;
 };
 
