@@ -24,7 +24,9 @@ export const signUp = async (data) => {
 };
 
 export const login = async (data) => {
+	console.log({ data });
 	const result = await instance.post('/login', data);
+	console.log(result);
 	return result;
 };
 

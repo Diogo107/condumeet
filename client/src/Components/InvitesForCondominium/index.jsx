@@ -20,7 +20,7 @@ function Index(props) {
 	const [signUpForm, setSignUpForm] = useContext(SignUpContext);
 	const [cookies, setCookie] = useCookies(['user']);
 	const createFirstCondominium = () => {
-		const token = cookies.token;
+		const token = cookies.user.token;
 		console.log('...', token, '...');
 		console.log(cookies.user);
 		createCondominium(signUpForm, token);

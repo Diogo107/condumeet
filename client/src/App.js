@@ -5,6 +5,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import NavBar from './Components/NavBar';
 import LandingPage from './Views/LandingPage';
 import SignUp from './Views/SignUp';
+import Login from './Views/Login';
 import Welcome from './Views/Welcome';
 import Dashboard from './Views/Dashboard';
 
@@ -18,6 +19,7 @@ function App(props) {
 						render={(props) => <Welcome {...props} />}
 					/>
 					<Route path="/signup" render={(props) => <SignUp {...props} />} />
+					<Route path="/login" render={(props) => <Login {...props} />} />
 					<Route path="*" render={(props) => <NavBar {...props} />} />
 				</Switch>
 				<Route path="/dashboard" render={(props) => <Dashboard {...props} />} />

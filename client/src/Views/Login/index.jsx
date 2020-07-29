@@ -6,8 +6,8 @@ import Logo from './../../assets/images/Logo.png';
 import FacebookWhiteIcon from './../../assets/images/FacebookWhiteIcon.png';
 import GoogleWhiteIcon from './../../assets/images/GoogleWhiteIcon.png';
 //Import Services
-import { validateEmail } from './../../Sevices/APIs.js';
-import { signUp, login } from './../../Sevices/Authenticathion.js';
+import { validateEmail } from '../../Sevices/APIs.js';
+import { login } from '../../Sevices/Authenticathion.js';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../Context/UserContext';
 import { useCookies } from 'react-cookie';
@@ -23,26 +23,13 @@ function Index(props) {
 
 	const createAccount = async (e) => {
 		e.preventDefault();
-		/* const checkEmail = await validateEmail(email);
-		const checkPassword = '';
-		if (terms && checkEmail == 'valid' && checkPassword == true) {
-		} */
-		const resultSignUp = await signUp({
-			name,
-			username,
-			email,
+		const resultLogin = await login({
+			login: email,
 			password,
-			password_confirmation: password,
-			terms,
 		});
-		console.log(resultSignUp);
-		if (resultSignUp.status == 201 || resultSignUp.status == 200) {
-			const resultLogin = await login({ login: email, password });
-			setCookie('user', resultLogin.data, { path: '/' /* maxAge: 60 * 15 */ });
-			setUser(resultLogin.data.user);
-		}
-
-		props.history.push('/signup/welcome');
+		console.log(resultLogin);
+		setCookie('user', resultLogin.data, { path: '/' /* maxAge: 60 * 15 */ });
+		props.history.push('/overview/dashboard');
 	};
 
 	return (
@@ -51,7 +38,6 @@ function Index(props) {
 				<button
 					onClick={() => {
 						console.log(cookies.user);
-						console.log(cookies.token);
 					}}
 				>
 					Test
@@ -74,32 +60,6 @@ function Index(props) {
 					<p></p>
 				</span>
 				<form onSubmit={createAccount}>
-					<div className="form-group">
-						<div>
-							<label>
-								NAME
-								<input
-									name="name"
-									type="text"
-									onChange={(e) => {
-										setName(e.target.value);
-									}}
-								/>
-							</label>
-						</div>
-						<div>
-							<label>
-								USER NAME
-								<input
-									name="username"
-									type="text"
-									onChange={(e) => {
-										setUsername(e.target.value);
-									}}
-								/>
-							</label>
-						</div>
-					</div>
 					<div className="form-group">
 						<label>
 							EMAIL
@@ -135,28 +95,9 @@ function Index(props) {
 							<span>Password is too weak</span>
 						</label>
 					</div>
-					<div className="checkbox">
-						<input
-							type="checkbox"
-							name="terms"
-							required
-							value={terms}
-							onChange={(e) => {
-								console.log(e.target.value);
-								setTerms(!terms);
-							}}
-						/>
-						<label for="terms">
-							Creating an account means you’re okay with our{' '}
-							<a href="#">Terms of Service, Privacy Policy</a>, and our
-							<a href="#">default Notification Settings</a>.
-						</label>
-					</div>
-					<button>CREATE ACCOUNT</button>
+
+					<button>Login</button>
 				</form>
-				<h5>
-					Already have account? <Link to="/sign-in">Sign In</Link>.
-				</h5>
 			</div>
 			<div className="right-side">
 				<img src={GroupTalking} alt="People Talking" />
