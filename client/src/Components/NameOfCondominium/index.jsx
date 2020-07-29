@@ -39,10 +39,6 @@ function Index(props) {
 					</li>
 					<li className="progress__bar"></li>
 					<li className="progress__circle">
-						<p>Invites</p>
-					</li>
-					<li className="progress__bar"></li>
-					<li className="progress__circle">
 						<p>Finish</p>
 					</li>
 				</ul>

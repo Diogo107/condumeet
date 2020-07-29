@@ -28,8 +28,6 @@ function Index(props) {
 	const [cookies, setCookie] = useCookies(['user']);
 	const createFirstCondominium = async () => {
 		const token = cookies.user.token;
-		console.log('...', token, '...');
-		console.log(cookies.user);
 		const result = await createCondominium(signUpForm, token);
 		setCondominiumCode(result.data.id);
 	};
@@ -66,10 +64,6 @@ function Index(props) {
 					</li>
 					<li className="progress__bar progress--done"></li>
 					<li className="progress__circle progress--active">
-						<p>Invites</p>
-					</li>
-					<li className="progress__bar"></li>
-					<li className="progress__circle">
 						<p>Finish</p>
 					</li>
 				</ul>

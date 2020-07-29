@@ -30,7 +30,6 @@ function Index(props) {
 		anyReactComponentCoordinates,
 		setAnyReactComponentCoordinates,
 	] = useState({ lat: '', lng: '' });
-	console.log(signUpForm);
 
 	useEffect(() => {
 		if (signUpForm.map.zoom == 18) {
@@ -100,10 +99,6 @@ function Index(props) {
 					</li>
 					<li className="progress__bar"></li>
 					<li className="progress__circle">
-						<p>Invites</p>
-					</li>
-					<li className="progress__bar"></li>
-					<li className="progress__circle">
 						<p>Finish</p>
 					</li>
 				</ul>
@@ -115,7 +110,6 @@ function Index(props) {
 					<PlacesAutocomplete
 						value={signUpForm.address}
 						onChange={(e) => {
-							console.log(e);
 							setSignUpForm({ ...signUpForm, address: e });
 						}}
 						onSelect={handleSelect}

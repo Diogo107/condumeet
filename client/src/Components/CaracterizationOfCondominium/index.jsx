@@ -8,7 +8,6 @@ function index(props) {
 		<div>
 			<button
 				onClick={() => {
-					console.log(props);
 					props.history.push('/signup/welcome/create/location');
 				}}
 			>
@@ -31,10 +30,6 @@ function index(props) {
 					<li className="progress__bar"></li>
 					<li className="progress__circle">
 						<p>Features</p>
-					</li>
-					<li className="progress__bar"></li>
-					<li className="progress__circle">
-						<p>Invites</p>
 					</li>
 					<li className="progress__bar"></li>
 					<li className="progress__circle">

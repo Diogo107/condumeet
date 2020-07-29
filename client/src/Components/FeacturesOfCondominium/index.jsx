@@ -12,7 +12,6 @@ function Index(props) {
 		<div>
 			<button
 				onClick={() => {
-					console.log(props);
 					props.history.push('/signup/welcome/create/caracterization');
 				}}
 			>
@@ -35,10 +34,6 @@ function Index(props) {
 					<li className="progress__bar progress--done"></li>
 					<li className="progress__circle progress--active">
 						<p>Feactures</p>
-					</li>
-					<li className="progress__bar"></li>
-					<li className="progress__circle">
-						<p>Invites</p>
 					</li>
 					<li className="progress__bar"></li>
 					<li className="progress__circle">
@@ -88,7 +83,6 @@ function Index(props) {
 					<button
 						className="background-lightpurple"
 						onClick={() => {
-							console.log(signUpForm);
 							setSignUpForm((previousState) => ({
 								...previousState,
 								condominiumFeactures: 'Premium',
@@ -106,7 +100,6 @@ function Index(props) {
 				<button
 					className="background-lightpurple"
 					onClick={() => {
-						console.log(signUpForm);
 						props.history.push('/signup/welcome/create/invites');
 						props.selectPremiumVersion(option);
 					}}
