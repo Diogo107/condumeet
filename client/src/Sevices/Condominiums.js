@@ -35,3 +35,14 @@ export const createCondominium = async (data, token) => {
 	});
 	return result;
 };
+
+export const getCondominium = async (data, token) => {
+	console.log(data, '|', token, '|');
+	const result = await instance.get(`/condominiums/${data}`, {
+		headers: {
+			Authorization: `Bearer ${token}`,
+		},
+	});
+	console.log(result);
+	return;
+};

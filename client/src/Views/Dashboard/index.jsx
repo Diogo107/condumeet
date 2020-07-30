@@ -14,12 +14,12 @@ function Index(props) {
 	return (
 		<div className="Dashboard__Overall">
 			<div className="User__Sidebar Phone__Hide">
-				<Sidebar />
+				<Sidebar {...props} />
 			</div>
 			<div className="User__Dashboard">
 				<Switch>
 					<Route
-						path="/dashboard/overview"
+						path="/dashboard/overview/:id"
 						render={(props) => <Overview {...props} />}
 					/>
 					<Route

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import './style.scss';
 //Import Images
 import NeighborsIcon from './../../assets/images/overview__cads/NeighborsIcon.png';
@@ -13,17 +13,27 @@ import ExpensesDoughnut from '../../Components/Charts/ExpensesDoughnut';
 import BankChart from '../../Components/Charts/BankChart';
 import IncomeChart from '../../Components/Charts/IncomeChart';
 import ExpensesChart from '../../Components/Charts/ExpensesChart';
-//Import Services => test
+//Import Services
+import { useCookies } from 'react-cookie';
 import { validateEmail } from './../../Sevices/APIs.js';
 import { UserContext } from '../../Context/UserContext';
+import { getCondominium } from './../../Sevices/Condominiums';
 
 function Index(props) {
 	const [user, setUser] = useContext(UserContext);
+	const [cookies, setCookie] = useCookies(['user']);
 	setTimeout(() => {
 		var x = document.getElementsByClassName('Boxes__Section');
 		let final = (x[0].offsetWidth - 4 * 247) / 3;
 		document.getElementById('Pie__Chart').style.marginRight = `${final}px`;
 	}, 5);
+	useEffect(async () => {
+		const result = await getCondominium(
+			props.match.params.id,
+			cookies.user.token
+		);
+	}, []);
+	console.log(props.match.params.id);
 	return (
 		<div className="Overview__View">
 			<section className="Comunication__Overview">
