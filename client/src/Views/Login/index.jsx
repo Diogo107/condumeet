@@ -19,7 +19,7 @@ function Index(props) {
 	const [email, setEmail] = useState();
 	const [password, setPassword] = useState();
 	const [terms, setTerms] = useState(false);
-	const [cookies, setCookie] = useCookies(['name']);
+	const [cookies, setCookie] = useCookies();
 
 	const createAccount = async (e) => {
 		e.preventDefault();

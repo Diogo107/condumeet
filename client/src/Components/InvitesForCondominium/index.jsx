@@ -14,7 +14,7 @@ import CloseButton from './../../assets/images/CloseButton.png';
 import ShareIcon from './../../assets/images/ShareIcon.png';
 //Import Services
 import { validateEmail } from './../../Sevices/APIs.js';
-import { inviteAllNeighbors } from './../../Sevices/Authenticathion.js';
+import { inviteAllNeighbors } from './../../Sevices/Condominiums';
 import { createCondominium } from './../../Sevices/Condominiums';
 import { useCookies } from 'react-cookie';
 //Import Context
@@ -25,7 +25,7 @@ function Index(props) {
 	const [neighbor, setNeighbor] = useState();
 	const [condominiumCode, setCondominiumCode] = useState();
 	const [signUpForm, setSignUpForm] = useContext(SignUpContext);
-	const [cookies, setCookie] = useCookies(['user']);
+	const [cookies, setCookie] = useCookies();
 	const createFirstCondominium = async () => {
 		const token = cookies.user.token;
 		if (
@@ -101,20 +101,14 @@ function Index(props) {
 					<form
 						onSubmit={async (event) => {
 							event.preventDefault();
-							const result = await validateEmail(neighbor);
-							console.log(result);
-							if (result == 'valid') {
-								console.log('inside');
-								setSignUpForm((previousState) => ({
-									...signUpForm,
-									condominiumNeighbors: [
-										...signUpForm.condominiumNeighbors,
-										neighbor,
-									],
-								}));
-
-								setNeighbor('');
-							}
+							await setSignUpForm((previousState) => ({
+								...signUpForm,
+								condominiumNeighbors: [
+									...signUpForm.condominiumNeighbors,
+									neighbor,
+								],
+							}));
+							setNeighbor('');
 						}}
 					>
 						<input
@@ -122,7 +116,6 @@ function Index(props) {
 							type="email"
 							value={neighbor}
 							onChange={(event) => {
-								console.log(event.target.value);
 								setNeighbor(event.target.value);
 							}}
 						/>
@@ -167,7 +160,12 @@ function Index(props) {
 					id="button__invite-all"
 					className="background-lightpurple"
 					onClick={() => {
-						inviteAllNeighbors(signUpForm.condominiumNeighbors);
+						const data = {
+							token: cookies.user.token,
+							emails: signUpForm.condominiumNeighbors,
+							id: condominiumCode,
+						};
+						inviteAllNeighbors(data);
 					}}
 				>
 					Invite All

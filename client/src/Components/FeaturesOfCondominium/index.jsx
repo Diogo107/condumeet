@@ -33,7 +33,7 @@ function Index(props) {
 					</li>
 					<li className="progress__bar progress--done"></li>
 					<li className="progress__circle progress--active">
-						<p>Feactures</p>
+						<p>Features</p>
 					</li>
 					<li className="progress__bar"></li>
 					<li className="progress__circle">
@@ -41,7 +41,7 @@ function Index(props) {
 					</li>
 				</ul>
 			</div>
-			<div className="welcome__feactures">
+			<div className="welcome__features">
 				<div id="freemium__card">
 					<h1>Free</h1>
 					<h1 className="color-lightgreen">0 €</h1>
@@ -56,7 +56,7 @@ function Index(props) {
 						onClick={() => {
 							setSignUpForm({
 								...setSignUpForm,
-								condominiumFeactures: 'Freemium',
+								condominiumFeatures: 'Freemium',
 							});
 							document.getElementById('freemium__card').style.opacity = '1';
 							document.getElementById('premium__card').style.opacity = '0.5';
@@ -85,7 +85,7 @@ function Index(props) {
 						onClick={() => {
 							setSignUpForm((previousState) => ({
 								...previousState,
-								condominiumFeactures: 'Premium',
+								condominiumFeatures: 'Premium',
 							}));
 							document.getElementById('freemium__card').style.opacity = '0.5';
 							document.getElementById('premium__card').style.opacity = '1';
@@ -96,7 +96,7 @@ function Index(props) {
 					</button>
 				</div>
 			</div>
-			{signUpForm.condominiumFeactures && (
+			{signUpForm.condominiumFeatures && (
 				<button
 					className="background-lightpurple"
 					onClick={() => {

@@ -30,10 +30,3 @@ export const searchForCondominium = async (data) => {
 	console.log('result', result);
 	return result.data.result;
 };
-
-export const inviteAllNeighbors = async (data) => {
-	console.log(data);
-	const result = await instance.post('/inviteAllNeighbors', { data });
-	console.log('result', result);
-	return result.data.result;
-};

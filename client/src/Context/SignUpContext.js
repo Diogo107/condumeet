@@ -19,7 +19,7 @@ export const SignUpProvider = (props) => {
 			loaded: true,
 		},
 		condominiumNeighbors: [],
-		condominiumFeactures: '',
+		condominiumFeatures: '',
 	});
 	return (
 		<SignUpContext.Provider value={[signUpForm, setSignUpForm]}>
