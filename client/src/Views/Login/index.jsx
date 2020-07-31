@@ -28,8 +28,8 @@ function Index(props) {
 			password,
 		});
 		console.log(resultLogin);
-		setCookie('user', resultLogin.data, { path: '/' /* maxAge: 60 * 15 */ });
-		props.history.push('/overview/dashboard');
+		setCookie('user', resultLogin.data, { path: '/', maxAge: 60 * 15 });
+		props.history.push('/dashboard/overview');
 	};
 
 	return (

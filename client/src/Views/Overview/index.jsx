@@ -33,7 +33,6 @@ function Index(props) {
 			cookies.user.token
 		);
 	}, []);
-	console.log(props.match.params.id);
 	return (
 		<div className="Overview__View">
 			<section className="Comunication__Overview">
