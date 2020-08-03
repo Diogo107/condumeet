@@ -1,0 +1,126 @@
+
+@media only screen and (max-width: 767px) and (orientation: portrait) {
+    /* portrait phones */
+}
+
+Quartas feiras => 18h às 20h (para os projectos de impacto social)
+
+Mapear o modelo de negócio
+- testar funcionalidades
+- testar o que o usuário quer ver e em que página
+
+
+Detectar ameaças
+Pôr por risco
+Testar (validar ou invalidar)
+
+reflora
+e-cart
+condumeet
+
+Desafio:
+Quais foram os príncipios mais dificeis de manter desde o inicio do Acredita Portugal.
+
+
+Perguntas a fazer ao cliente:
+Quais é o problema de desenvolver uma tarefa?
+Como gostaria de resolver o problema?
+
+Ryanair:
+- Divulgação paga dentro dos aviões (produtos genéricos)
+- Parcerias com catão de crédito/ compra de milhas
+- Parcerias com cidades
+- Venda de dados pessoais
+
+TPC
+- Pensar vários modelos de negócio para o nosso negócio;
+- Um deles original e apelar a algo que seja possivelmente impossível de acontecer (ryanair com voos grátis para o consumidor)
+ 
+2min:
+- expor desafio (aprender as boas práticas e práticas de segurança no front-end)
+8min:
+- ouvir soluções
+
+- Tercializar questões de segurança (vortex - segurança informática)
+- Verificações de segurança após o código estar feito (para ver se é falha)
+- Oferecer
+
+- Desenvolver o mais rápido possível para começar a testar
+
+- Parceria com contabilidade (cliente que vende a outro)
+
+Buddy:
+- Movél ao Quadrado
+- UaiNot
+- ConduMeet
+
+Testas Ideias de Negócios
+1 - Identificar hipóteses;
+2 - Priorizar
+3 - Testar
+4 - Aprender
+5 - Interar
+
+Hipótese:
+- Começar com "Nós acreditamos que..."
+- Gerar hipóteses e contra hipóteses (a hipótese contrária para perceber qual delas é válida)
+- Tem de ser testável, precisa (mensurável) e discreta (conseguir corresponder os testes a um único factor)
+
+Priorizar:
+- Diminuir risco
+- Começar pelo mais arriscado até chegar ao mais fácil
+- Como escolher o mais arriscado:
+--- Intuição
+--- Opinião de especialistas
+
+Testar:
+É importante perceber o que queremos medir para depois percebermos quais a ferramentas a usar para fazer essa medição.
+- Entrevista de empatia
+- MVP
+- Inquéritos
+(estes são os principais mas existem muitos outros)
+Testar server para diminuir o risco.
+
+Aprender:
+- São as conclusões tiradas dos testes
+- Existem evidências fracas (crenças) e evidências fortes (podendo até ser factos)
+- Dizer vs fazer
+- Laboratório vs mundo real
+- Quanto maior o investimento do cliente maior o a evidência
+- Se as evidências validam a hipótese:
+--- Continuar a testar
+
+- Se as evidências invalidam a hipótese:
+--- Matar
+--- Pivotar
+--- Reformular Modelo de negócio
+
+- Se existem novos insights:
+--- Matar
+--- Pivotar
+--- Reformular Modelo de negócio
+
+- Se existem não ficou claro:
+--- Continuar a testar
+
+
+Integrar:
+
+MVP não é focado no produto, é focado na proposta de valor.
+
+
+Dia 2 de Agosto:
+
+Focar em 2 tipos de problemas:
+- Problemas externos (pesquisa o Google)
+- Problemas internos (interar o nosso producto)
+-- São os problemas que não conseguimos pesquisar
+
+Quando os clientes pedem certas features devemos dar prioridade considerando 3 factores:
+- Dinheiro
+- Tempo
+- Reputação
+
+
+
+

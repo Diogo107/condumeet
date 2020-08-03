@@ -1,0 +1,110 @@
+.welcome__invites {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	h1,
+	h4 {
+		color: #2b3648;
+		margin-bottom: 0;
+	}
+	.invite-neighbor {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin: 1em auto 2em;
+		padding-bottom: 0.5em;
+	}
+	.neighbor-email {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 356px;
+		div {
+			display: flex;
+			justify-content: space-between;
+			margin-left: 5px;
+			width: 100%;
+			border-bottom: 1px solid #e0e0e0;
+			p {
+				width: 100%;
+				text-align: start;
+			}
+		}
+	}
+	.condomium-code {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 135px;
+		height: 36px;
+		font-size: 24px;
+		border: 1px solid #805fb3;
+		border-radius: 4px;
+		h5 {
+			font-family: Roboto;
+			font-style: normal;
+			font-weight: 500;
+			font-size: 14px;
+			line-height: 16px;
+			text-align: center;
+			letter-spacing: 1.25px;
+			text-transform: uppercase;
+			color: #b787ff;
+			width: 90px;
+			border-right: 1px solid #805fb3;
+			margin: auto 0;
+			height: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		img {
+			margin-right: 10px;
+		}
+	}
+	button,
+	input {
+		background-color: transparent;
+		border: none;
+	}
+	input {
+		width: 300px;
+		height: 40px;
+		font-size: 1em;
+		&:focus {
+			border: none;
+			outline: none;
+		}
+	}
+	form {
+		margin-left: 1em;
+		border-bottom: 1px solid #e0e0e0;
+	}
+	#button__invite-all {
+		background-color: #b787ff;
+		color: white;
+		width: 223px;
+		height: 36px;
+		border-radius: 4px;
+		border: none;
+		font-size: 16px;
+		letter-spacing: 3px;
+		outline: none;
+		margin: 2em auto 3em auto;
+	}
+	#button__continue {
+		background-color: transparent;
+		border: 1px solid #8997b1;
+		box-sizing: border-box;
+		border-radius: 4px;
+		padding: 1em;
+		font-family: Roboto;
+		font-style: normal;
+		font-weight: 500;
+		font-size: 14px;
+		line-height: 16px;
+		text-align: center;
+		letter-spacing: 1.25px;
+		text-transform: uppercase;
+	}
+}

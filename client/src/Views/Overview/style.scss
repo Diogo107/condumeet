@@ -1,0 +1,236 @@
+.Overview__View {
+	.Comunication__Overview {
+		height: 150px;
+		width: 100%;
+		background: linear-gradient(90deg, #b787ff 0%, #a387cc 67.19%);
+		border-radius: 4px;
+		display: flex;
+		margin-bottom: 34px;
+		h1,
+		h2,
+		p {
+			color: #ffffff;
+			margin: 0;
+		}
+		p {
+			font-family: Roboto;
+			font-style: normal;
+			font-weight: normal;
+			font-size: 14px;
+			line-height: 21px;
+			letter-spacing: 0.25px;
+		}
+		h1 {
+			font-family: Roboto;
+			font-style: normal;
+			font-weight: normal;
+			font-size: 34px;
+			line-height: 51px;
+			text-align: right;
+			letter-spacing: 0.25px;
+		}
+		> div:first-child {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			margin: 32px 16px;
+			min-width: 805px;
+			text-align: start;
+		}
+		> div:nth-child(2) {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			margin: 32px 16px;
+			width: 100%;
+			text-align: end;
+		}
+	}
+	.Boxes__Section {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 34px;
+		> div {
+			width: 245px;
+			height: 220px;
+			background-color: #ffffff;
+			border: 1px solid #e5e5e5;
+			border-radius: 4px;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-evenly;
+			align-items: center;
+			img {
+				width: 55px;
+				height: 55px;
+			}
+			h6 {
+				font-family: Roboto;
+				font-style: normal;
+				font-weight: 500;
+				font-size: 20px;
+				line-height: 30px;
+				text-align: center;
+				letter-spacing: 0.15px;
+				color: #2b3648;
+				mix-blend-mode: normal;
+			}
+			h5 {
+				font-family: Roboto;
+				font-style: normal;
+				font-weight: 500;
+				font-size: 34px;
+				line-height: 51px;
+				text-align: center;
+				letter-spacing: 0.25px;
+				color: #8997b1;
+			}
+			h5,
+			h6 {
+				margin: 0;
+			}
+		}
+	}
+	.PieChartAndNeighbors__Section {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 34px;
+		> div {
+			width: 530px;
+			height: 484px;
+			background: #ffffff;
+			border: 1px solid #e5e5e5;
+			box-sizing: border-box;
+			border-radius: 4px;
+			#Title__Card--Overview {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-evenly;
+				height: 116px;
+				top: 0;
+				h5,
+				p {
+					margin: 0;
+				}
+				h5 {
+					font-family: Roboto;
+					font-style: normal;
+					font-weight: 500;
+					font-size: 20px;
+					line-height: 30px;
+					text-align: center;
+					letter-spacing: 0.15px;
+					color: #2b3648;
+					mix-blend-mode: normal;
+				}
+				p {
+					font-family: Roboto;
+					font-style: normal;
+					font-weight: normal;
+					font-size: 14px;
+					line-height: 21px;
+					text-align: center;
+					letter-spacing: 0.25px;
+					color: #9e9e9e;
+					mix-blend-mode: normal;
+				}
+			}
+			canvas {
+				width: 315px;
+				height: 315px;
+			}
+			#Legend__Card--Overview {
+				display: flex;
+				ul,
+				li {
+					list-style: none;
+					text-align: start;
+				}
+				li {
+					display: flex;
+					align-items: center;
+				}
+				ul {
+					padding-left: 20px;
+				}
+				li > div {
+					border-radius: 4px;
+					width: 15px;
+					height: 15px;
+					margin-right: 10px;
+				}
+			}
+		}
+	}
+	.Change__Card--Overview {
+		display: flex;
+		justify-content: space-between;
+		> div {
+			display: flex;
+			width: 340.02px;
+			height: 163px;
+			background: #ffffff;
+			border: 1px solid #e5e5e5;
+			color: black;
+			h5,
+			h6,
+			h1,
+			p {
+				margin: 0;
+			}
+			h5 {
+				font-family: Roboto;
+				font-style: normal;
+				font-weight: 500;
+				font-size: 20px;
+				line-height: 30px;
+				letter-spacing: 0.15px;
+				color: #2b3648;
+				mix-blend-mode: normal;
+			}
+			h1 {
+				font-family: Roboto;
+				font-style: normal;
+				font-weight: 500;
+				font-size: 34px;
+				line-height: 51px;
+				letter-spacing: 0.25px;
+				color: #56657f;
+			}
+			h6 {
+				font-family: Roboto;
+				font-style: normal;
+				font-weight: normal;
+				font-size: 14px;
+				line-height: 21px;
+				letter-spacing: 0.25px;
+				color: #8997b1;
+				mix-blend-mode: normal;
+			}
+			> div:first-child {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-evenly;
+				width: 40%;
+				height: 100%;
+				> div {
+					display: flex;
+					justify-content: inherit;
+				}
+			}
+			> div:nth-child(2) {
+				width: 55%;
+				display: flex;
+				align-items: center;
+				-webkit-mask-image: -webkit-gradient(
+					linear,
+					left top,
+					left bottom,
+					from(rgba(64, 92, 177, 1)),
+					to(rgba(64, 92, 177, 0))
+				);
+			}
+			/* Next here */
+		}
+	}
+}

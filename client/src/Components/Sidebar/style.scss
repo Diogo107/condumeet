@@ -1,0 +1,43 @@
+.Sidebar__Component {
+	.Purple__Box--Sidebar {
+		width: 100%;
+		height: 151px;
+		background: linear-gradient(237.48deg, #d6baff -2.21%, #b787ff 100%);
+		border-bottom: 1px solid #5c4480;
+		top: 50px;
+		h3 {
+			font-family: Roboto;
+			font-style: normal;
+			font-weight: 500;
+			font-size: 20px;
+			line-height: 30px;
+			letter-spacing: 0.15px;
+			color: #ffffff;
+			text-align: start;
+			margin: auto;
+			margin-left: 16px;
+		}
+	}
+	ul,
+	li {
+		padding: 0;
+		list-style: none;
+	}
+	li {
+		height: 40px;
+		width: 240px;
+		display: flex;
+		align-items: center;
+		font-family: Roboto;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 16px;
+		line-height: 24px;
+		color: #56657f;
+		letter-spacing: 0.15px;
+		margin-bottom: 8px;
+		img {
+			margin: auto 20px;
+		}
+	}
+}
