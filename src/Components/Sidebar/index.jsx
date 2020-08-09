@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './style.scss';
 //Import Services
 import { Link } from 'react-router-dom';
+import { useCookies } from 'react-cookie';
 //Import Images
 import OverviewIcon from './../../assets/images/sidebar__icons/OverviewIcon.png';
 import ActivityIcon from './../../assets/images/sidebar__icons/ActivityIcon.png';
@@ -9,8 +10,17 @@ import ArchiveIcon from './../../assets/images/sidebar__icons/ArchiveIcon.png';
 import NeighborsIcon from './../../assets/images/sidebar__icons/NeighborsIcon.png';
 import ServicesIcon from './../../assets/images/sidebar__icons/ServicesIcon.png';
 import WalletIcon from './../../assets/images/sidebar__icons/WalletIcon.png';
+import { getCondominiums } from '../../Sevices/Condominiums';
 
 function Index(props) {
+	const [cookies, setCookie] = useCookies(['user']);
+	const [listOfApartments, setListOfApartments] = useState();
+	useEffect(async () => {
+		const token = cookies.user.token;
+		const result = await getCondominiums(token);
+		console.log(result.data);
+		setListOfApartments(result.data);
+	}, []);
 	return (
 		<div className="Sidebar__Component">
 			<div className="Purple__Box--Sidebar">

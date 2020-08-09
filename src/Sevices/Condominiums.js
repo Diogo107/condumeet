@@ -47,6 +47,15 @@ export const getCondominium = async (data, token) => {
 	return;
 };
 
+export const getCondominiums = async (token) => {
+	const result = await instance.get(`/condominiums`, {
+		headers: {
+			Authorization: `Bearer ${token}`,
+		},
+	});
+	return result;
+};
+
 //Condominium Actions
 
 export const inviteAllNeighbors = async (data) => {

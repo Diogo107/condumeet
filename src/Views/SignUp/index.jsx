@@ -48,14 +48,6 @@ function Index(props) {
 	return (
 		<div className="Sign-Up">
 			<div className="left-side">
-				<button
-					onClick={() => {
-						console.log(cookies.user);
-						console.log(cookies.token);
-					}}
-				>
-					Test
-				</button>
 				<img src={Logo} alt="Logo" />
 				<h1>Create Account</h1>
 				<div>

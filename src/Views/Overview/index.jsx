@@ -36,13 +36,6 @@ function Index(props) {
 	return (
 		<div className="Overview__View">
 			<section className="Comunication__Overview">
-				<button
-					onClick={() => {
-						console.log(user);
-					}}
-				>
-					User?
-				</button>
 				<div>
 					<h2>Comunication</h2>
 					<p>
