@@ -18,8 +18,12 @@ function index(props) {
 		var x = document.getElementsByClassName(
 			'BankIncomeExpenses__Cards--Wallet'
 		);
-		let final = x[0].offsetWidth - 340 - (x[0].offsetWidth - 340 * 3) / 2;
-		document.getElementById('Balance__Card--Width').style.width = `${final}px`;
+		if (x.length > 0) {
+			let final = x[0].offsetWidth - 340 - (x[0].offsetWidth - 340 * 3) / 2;
+			document.getElementById(
+				'Balance__Card--Width'
+			).style.width = `${final}px`;
+		}
 	}, 5);
 	return (
 		<div className="Wallet__View">

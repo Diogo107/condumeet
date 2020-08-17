@@ -24,8 +24,10 @@ function Index(props) {
 	const [cookies, setCookie] = useCookies(['user']);
 	setTimeout(() => {
 		var x = document.getElementsByClassName('Boxes__Section');
-		let final = (x[0].offsetWidth - 4 * 247) / 3;
-		document.getElementById('Pie__Chart').style.marginRight = `${final}px`;
+		if (x.length > 0) {
+			let final = (x[0].offsetWidth - 4 * 247) / 3;
+			document.getElementById('Pie__Chart').style.marginRight = `${final}px`;
+		}
 	}, 5);
 	useEffect(async () => {
 		const result = await getCondominium(
@@ -35,6 +37,13 @@ function Index(props) {
 	}, []);
 	return (
 		<div className="Overview__View">
+			{/* <button
+				onClick={() => {
+					props.history.push(`/dashboard/overview/14`);
+				}}
+			>
+				Teste
+			</button> */}
 			<section className="Comunication__Overview">
 				<div>
 					<h2>Comunication</h2>
