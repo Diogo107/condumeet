@@ -19,8 +19,6 @@ function Index(props) {
 	useEffect(async () => {
 		const token = cookies.user.token;
 		const result = await getCondominiums(token);
-		console.log(result.data[0]);
-		console.log(props);
 		props.history.push(`/dashboard/overview/${result.data[0].id}`);
 		setListOfApartments(result.data);
 	}, []);
@@ -36,10 +34,10 @@ function Index(props) {
 
 	const showSideOptions = () => {
 		const options = document.getElementsByClassName('Options');
-		if (options[0]) {
+		/* if (options[0]) {
 			console.log(options[0].id);
 			console.log(props.match.params.id);
-		}
+		} */
 		for (let i = 0; i < options.length; i++) {
 			if (options[i].id !== props.match.params.id) {
 				options[i].style.display = 'none';
@@ -75,12 +73,16 @@ function Index(props) {
 									<p>Activity</p>
 								</li>
 							</Link>
-							<Link to={{ pathname: `/dashboard/wallet/${single.id}` }}>
+							<button
+								onClick={() => {
+									props.history.push(`/dashboard/wallet/${single.id}`);
+								}}
+							>
 								<li>
 									<img src={WalletIcon} alt="Wallet" />
 									<p>Wallet</p>
 								</li>
-							</Link>
+							</button>
 							<Link to={{ pathname: `/dashboard/services/${single.id}` }}>
 								<li>
 									<img src={ServicesIcon} alt="Services" />

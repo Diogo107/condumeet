@@ -14,26 +14,25 @@ function Index(props) {
 	return (
 		<div className="Dashboard__Overall">
 			<div className="User__Sidebar Phone__Hide">
-				<Switch>
-					<Route
-						path="/dashboard/:view/:id"
-						render={(props) => <Sidebar {...props} />}
-					/>
-					<Route
-						path="/dashboard/:view"
-						render={(props) => <Sidebar {...props} />}
-					/>
-				</Switch>
+				<Route
+					path="/dashboard/:view/:id"
+					render={(props) => <Sidebar {...props} />}
+				/>
+				{/* <Route
+					path="/dashboard/:view"
+					exact
+					render={(props) => <Sidebar {...props} />}
+				/> */}
 			</div>
 			<div className="User__Dashboard">
 				<Switch>
 					<Route
-						path="/dashboard/overview/:id"
-						render={(props) => <Overview {...props} />}
-					/>
-					<Route
 						path="/dashboard/wallet/:id"
 						render={(props) => <Wallet {...props} />}
+					/>
+					<Route
+						path="/dashboard/overview/:id"
+						render={(props) => <Overview {...props} />}
 					/>
 					<Route
 						path="/dashboard/archive"
