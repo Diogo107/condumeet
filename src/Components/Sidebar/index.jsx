@@ -2,13 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './style.scss';
 //Import Services
 import { useCookies } from 'react-cookie';
-import {
-	BrowserRouter as Router,
-	Switch,
-	Route,
-	Link,
-	useParams,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 //Import Images
 import OverviewIcon from './../../assets/images/sidebar__icons/OverviewIcon.png';
 import ActivityIcon from './../../assets/images/sidebar__icons/ActivityIcon.png';
@@ -39,15 +33,20 @@ function Index(props) {
 		} else {
 		}
 	});
-	let { id } = useParams();
+
 	const showSideOptions = () => {
 		const options = document.getElementsByClassName('Options');
-		console.log(id);
-		/* for (let i = 0; i < options.length; i++) {
-			if (options[i].__reactInternalInstance$pmw8rie3cr.key == props.location) {
-				options[i].style.display = 'hide';
+		if (options[0]) {
+			console.log(options[0].id);
+			console.log(props.match.params.id);
+		}
+		for (let i = 0; i < options.length; i++) {
+			if (options[i].id !== props.match.params.id) {
+				options[i].style.display = 'none';
+			} else {
+				options[i].style.display = 'block';
 			}
-		} */
+		}
 		console.log(options);
 	};
 	return (
@@ -61,15 +60,15 @@ function Index(props) {
 								props.history.push(`/dashboard/overview/${single.id}`);
 							}}
 						>
-							<h3>Saint Bernardo</h3>
+							<h3>{single.name}Hello</h3>
 						</button>
-						<ul className="Options" key={single.id}>
-							<Link to={{ pathname: `/dashboard/overview/${single.id}` }}>
+						<ul className="Options" name={single.id} id={single.id}>
+							<button to={{ pathname: `/dashboard/overview/${single.id}` }}>
 								<li>
 									<img src={OverviewIcon} alt="Overview" />
 									<p>Overview</p>
 								</li>
-							</Link>
+							</button>
 							<Link to={{ pathname: `/dashboard/activity/${single.id}` }}>
 								<li>
 									<img src={ActivityIcon} alt="Activity" />
@@ -82,7 +81,7 @@ function Index(props) {
 									<p>Wallet</p>
 								</li>
 							</Link>
-							<Link to="/dashboard/services/${single.id}">
+							<Link to={{ pathname: `/dashboard/services/${single.id}` }}>
 								<li>
 									<img src={ServicesIcon} alt="Services" />
 									<p>Services</p>
@@ -94,7 +93,7 @@ function Index(props) {
 									<p>Neighbors</p>
 								</li>
 							</Link>
-							<Link to="/dashboard/archive/${single.id}">
+							<Link to={{ pathname: `/dashboard/archive/${single.id}` }}>
 								<li>
 									<img src={ArchiveIcon} alt="Archive" />
 									<p>Archive</p>
