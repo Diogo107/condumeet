@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './style.scss';
 //Import Services
+import { useCookies } from 'react-cookie';
+import { getCondominiums } from '../../Sevices/Condominiums';
 import { Switch, Route } from 'react-router-dom';
 //Import Components and Views
 import Sidebar from './../../Components/Sidebar';
@@ -11,18 +13,26 @@ import Activity from './../Activity';
 import Neighbors from './../Neighbors';
 
 function Index(props) {
+	const [cookies, setCookie] = useCookies(['user']);
+	const [listOfApartments, setListOfApartments] = useState();
+	useEffect(async () => {
+		const token = cookies.user.token;
+		const result = await getCondominiums(token);
+		props.history.push(`/dashboard/overview/${result.data[0].id}`);
+		setListOfApartments(result.data);
+	}, []);
 	return (
 		<div className="Dashboard__Overall">
 			<div className="User__Sidebar Phone__Hide">
-				<Route
-					path="/dashboard/:view/:id"
-					render={(props) => <Sidebar {...props} />}
-				/>
 				{/* <Route
 					path="/dashboard/:view"
 					exact
 					render={(props) => <Sidebar {...props} />}
 				/> */}
+				<Route
+					path="/dashboard/:view/:id"
+					render={(props) => <Sidebar {...props} />}
+				/>
 			</div>
 			<div className="User__Dashboard">
 				<Switch>

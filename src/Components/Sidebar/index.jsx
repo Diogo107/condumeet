@@ -3,6 +3,7 @@ import './style.scss';
 //Import Services
 import { useCookies } from 'react-cookie';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { getCondominiums } from '../../Sevices/Condominiums';
 //Import Images
 import OverviewIcon from './../../assets/images/sidebar__icons/OverviewIcon.png';
 import ActivityIcon from './../../assets/images/sidebar__icons/ActivityIcon.png';
@@ -10,7 +11,6 @@ import ArchiveIcon from './../../assets/images/sidebar__icons/ArchiveIcon.png';
 import NeighborsIcon from './../../assets/images/sidebar__icons/NeighborsIcon.png';
 import ServicesIcon from './../../assets/images/sidebar__icons/ServicesIcon.png';
 import WalletIcon from './../../assets/images/sidebar__icons/WalletIcon.png';
-import { getCondominiums } from '../../Sevices/Condominiums';
 
 function Index(props) {
 	const [cookies, setCookie] = useCookies(['user']);
