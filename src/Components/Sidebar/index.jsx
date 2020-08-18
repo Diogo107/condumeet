@@ -56,6 +56,7 @@ function Index(props) {
 							className="Purple__Box--Sidebar"
 							onClick={() => {
 								props.history.push(`/dashboard/overview/${single.id}`);
+								window.scrollTo(0, 0);
 							}}
 						>
 							<h3>{single.name}Hello</h3>
