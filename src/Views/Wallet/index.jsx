@@ -14,8 +14,8 @@ import ExpensesDoughnut from '../../Components/Charts/ExpensesDoughnut';
 import BalanceLineChart from './../../Components/Charts/BalanceLineChart';
 
 function index(props) {
-	console.log('.............................');
 	setTimeout(() => {
+		console.log('.............................');
 		var x = document.getElementsByClassName(
 			'BankIncomeExpenses__Cards--Wallet'
 		);

@@ -29,12 +29,10 @@ function Index(props) {
 			document.getElementById('Pie__Chart').style.marginRight = `${final}px`;
 		}
 	}, 5);
-	useEffect(async () => {
-		const result = await getCondominium(
-			props.match.params.id,
-			cookies.user.token
-		);
-	}, []);
+	useEffect(() => {
+		const result = getCondominium(props.match.params.id, cookies.user.token);
+	});
+
 	return (
 		<div className="Overview__View">
 			<button

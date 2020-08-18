@@ -31,7 +31,6 @@ function Index(props) {
 		} else {
 		}
 	});
-
 	const showSideOptions = () => {
 		const options = document.getElementsByClassName('Options');
 		/* if (options[0]) {
@@ -62,35 +61,31 @@ function Index(props) {
 							<h3>{single.name}Hello</h3>
 						</button>
 						<ul className="Options" name={single.id} id={single.id}>
-							<button to={{ pathname: `/dashboard/overview/${single.id}` }}>
+							<Link to={{ pathname: `/dashboard/overview/${single.id}` }}>
 								<li>
 									<img src={OverviewIcon} alt="Overview" />
 									<p>Overview</p>
 								</li>
-							</button>
+							</Link>
 							<Link to={{ pathname: `/dashboard/activity/${single.id}` }}>
 								<li>
 									<img src={ActivityIcon} alt="Activity" />
 									<p>Activity</p>
 								</li>
 							</Link>
-							<button
-								onClick={() => {
-									props.history.push(`/dashboard/wallet/${single.id}`);
-								}}
-							>
+							<Link to={{ pathname: `/dashboard/wallet/${single.id}` }}>
 								<li>
 									<img src={WalletIcon} alt="Wallet" />
 									<p>Wallet</p>
 								</li>
-							</button>
+							</Link>
 							<Link to={{ pathname: `/dashboard/services/${single.id}` }}>
 								<li>
 									<img src={ServicesIcon} alt="Services" />
 									<p>Services</p>
 								</li>
 							</Link>
-							<Link to="/dashboard/neighbors/${single.id}">
+							<Link to={{ pathname: `/dashboard/neighbors/${single.id}` }}>
 								<li>
 									<img src={NeighborsIcon} alt="Neighbors" />
 									<p>Neighbors</p>
