@@ -3,10 +3,7 @@ import './style.scss';
 //Import Images
 import GroupTalking from './../../assets/images/GroupTalking.png';
 import Logo from './../../assets/images/Logo.png';
-import FacebookWhiteIcon from './../../assets/images/FacebookWhiteIcon.png';
-import GoogleWhiteIcon from './../../assets/images/GoogleWhiteIcon.png';
 //Import Services
-import { validateEmail } from './../../Sevices/APIs.js';
 import { signUp, login } from './../../Sevices/Authenticathion.js';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../Context/UserContext';
@@ -38,7 +35,7 @@ function Index(props) {
 			terms,
 		});
 		console.log(resultSignUp);
-		if (resultSignUp.status == 201 || resultSignUp.status == 200) {
+		if (resultSignUp.status === 201 || resultSignUp.status === 200) {
 			const resultLogin = await login({ login: email, password });
 			setCookie('user', resultLogin.data, { path: '/' /* maxAge: 60 * 15 */ });
 			setUser(resultLogin.data.user);
@@ -136,7 +133,7 @@ function Index(props) {
 									let rule = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm;
 									let verify = rule.test(e.target.value);
 									console.log(verify);
-									if (verify == false) {
+									if (verify === false) {
 										document.getElementById('password').style.border =
 											'1px solid red';
 									}

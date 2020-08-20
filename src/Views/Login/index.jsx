@@ -3,12 +3,8 @@ import './style.scss';
 //Import Images
 import GroupTalking from './../../assets/images/GroupTalking.png';
 import Logo from './../../assets/images/Logo.png';
-import FacebookWhiteIcon from './../../assets/images/FacebookWhiteIcon.png';
-import GoogleWhiteIcon from './../../assets/images/GoogleWhiteIcon.png';
 //Import Services
-import { validateEmail } from '../../Sevices/APIs.js';
 import { login } from '../../Sevices/Authenticathion.js';
-import { Link } from 'react-router-dom';
 import { UserContext } from '../../Context/UserContext';
 import { useCookies } from 'react-cookie';
 import GoogleLogin from 'react-google-login';
@@ -17,10 +13,8 @@ import FacebookLogin from 'react-facebook-login';
 function Index(props) {
 	const [user, setUser] = useContext(UserContext);
 	const [name, setName] = useState();
-	const [username, setUsername] = useState();
 	const [email, setEmail] = useState();
 	const [password, setPassword] = useState();
-	const [terms, setTerms] = useState(false);
 	const [cookies, setCookie] = useCookies();
 
 	const createAccount = async (e) => {
@@ -31,15 +25,15 @@ function Index(props) {
 		});
 		console.log(resultLogin);
 		setCookie('user', resultLogin.data, { path: '/', maxAge: 60 * 15 });
+		setUser(resultLogin.data.user);
 		props.history.push('/dashboard/overview');
 	};
 
 	const responseGoogle = async (response) => {
-		await setName('response.profileObj.name');
+		await setName(response.profileObj.name);
 		await setEmail(response.profileObj.email);
 		await setPassword(response.profileObj.googleId);
 		console.log(name, email, password);
-		console.log(response);
 	};
 
 	const responseFacebook = (response) => {
@@ -101,7 +95,7 @@ function Index(props) {
 									let rule = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm;
 									let verify = rule.test(e.target.value);
 									console.log(verify);
-									if (verify == false) {
+									if (verify === false) {
 										document.getElementById('password').style.border =
 											'1px solid red';
 									}
