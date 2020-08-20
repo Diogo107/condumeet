@@ -35,6 +35,10 @@ function Index(props) {
 	};
 
 	const responseGoogle = (response) => {
+		setName(response.profileObj.name);
+		setEmail(response.profileObj.email);
+		setPassword(response.profileObj.googleId);
+		console.log(name, email, password);
 		console.log(response);
 	};
 
@@ -48,14 +52,6 @@ function Index(props) {
 				<img src={Logo} alt="Logo" />
 				<h1>Create Account</h1>
 				<div>
-					{/* <button>
-						<img src={FacebookWhiteIcon} alt="Facebook Icon" />
-						Sign up with Facebook
-					</button> */}
-					{/* <button>
-						<img src={GoogleWhiteIcon} alt="Facebook Icon" />
-						Sign up with Google
-					</button> */}
 					<FacebookLogin
 						appId="305464780546351"
 						autoLoad={true}

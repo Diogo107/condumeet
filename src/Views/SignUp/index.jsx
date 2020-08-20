@@ -48,6 +48,9 @@ function Index(props) {
 	};
 
 	const responseGoogle = (response) => {
+		setName(response.profileObj.name);
+		setEmail(response.profileObj.email);
+		setPassword(response.profileObj.googleId);
 		console.log(response);
 	};
 
