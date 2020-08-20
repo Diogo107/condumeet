@@ -36,10 +36,11 @@ function Index(props) {
 		console.log(name, email, password);
 	};
 
-	const responseFacebook = (response) => {
-		setName(response.name);
-		setEmail(response.email);
-		setPassword(response.id);
+	const responseFacebook = async (response) => {
+		await setName(response.name);
+		await setEmail(response.email);
+		await setPassword(response.id);
+		console.log(name, email, password);
 		console.log(response);
 	};
 

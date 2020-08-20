@@ -44,14 +44,18 @@ function Index(props) {
 		props.history.push('/signup/welcome');
 	};
 
-	const responseGoogle = (response) => {
+	const responseGoogle = async (response) => {
 		setName(response.profileObj.name);
 		setEmail(response.profileObj.email);
 		setPassword(response.profileObj.googleId);
 		console.log(response);
 	};
 
-	const responseFacebook = (response) => {
+	const responseFacebook = async (response) => {
+		await setName(response.name);
+		await setEmail(response.email);
+		await setPassword(response.id);
+		console.log(name, email, password);
 		console.log(response);
 	};
 
