@@ -61,13 +61,13 @@ function Index(props) {
 				<img src={Logo} alt="Logo" />
 				<h1>Create Account</h1>
 				<div>
-					<FacebookLogin
+					{/* <FacebookLogin
 						appId="1088597931155576"
 						autoLoad={true}
 						fields="name,email,picture"
 						onClick={componentClicked}
 						callback={responseFacebook}
-					/>
+					/> */}
 					<GoogleLogin
 						clientId="648268033854-0lt5o6nuocpvr37l69sgn96suf2okbkt.apps.googleusercontent.com"
 						buttonText="Login"
