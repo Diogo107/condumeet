@@ -34,15 +34,18 @@ function Index(props) {
 		props.history.push('/dashboard/overview');
 	};
 
-	const responseGoogle = (response) => {
-		setName(response.profileObj.name);
-		setEmail(response.profileObj.email);
-		setPassword(response.profileObj.googleId);
+	const responseGoogle = async (response) => {
+		await setName('response.profileObj.name');
+		await setEmail(response.profileObj.email);
+		await setPassword(response.profileObj.googleId);
 		console.log(name, email, password);
 		console.log(response);
 	};
 
 	const responseFacebook = (response) => {
+		setName(response.name);
+		setEmail(response.email);
+		setPassword(response.id);
 		console.log(response);
 	};
 
