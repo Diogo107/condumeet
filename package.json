@@ -25,6 +25,7 @@
     "react-google-login": "^5.1.21",
     "react-password-strength": "^2.4.0",
     "react-places-autocomplete": "^7.2.1",
+    "react-process-env": "^0.1.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "universal-cookie": "^4.0.3"

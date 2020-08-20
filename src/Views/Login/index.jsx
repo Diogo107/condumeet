@@ -33,6 +33,10 @@ function Index(props) {
 		props.history.push('/dashboard/overview');
 	};
 
+	const responseGoogle = (response) => {
+		console.log(response);
+	};
+	console.log(process.env.GOOGLE_OAUTH_ID);
 	return (
 		<div className="Sign-Up">
 			<div className="left-side">
@@ -47,13 +51,13 @@ function Index(props) {
 						<img src={GoogleWhiteIcon} alt="Facebook Icon" />
 						Sign up with Google
 					</button>
-					{/* <GoogleLogin
-						clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
+					<GoogleLogin
+						clientId="648268033854-0lt5o6nuocpvr37l69sgn96suf2okbkt.apps.googleusercontent.com"
 						buttonText="Login"
 						onSuccess={responseGoogle}
 						onFailure={responseGoogle}
 						cookiePolicy={'single_host_origin'}
-					/> */}
+					/>
 				</div>
 				<span>
 					<p></p>
