@@ -11,6 +11,8 @@ import { signUp, login } from './../../Sevices/Authenticathion.js';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../Context/UserContext';
 import { useCookies } from 'react-cookie';
+import GoogleLogin from 'react-google-login';
+import FacebookLogin from 'react-facebook-login';
 
 function Index(props) {
 	const [user, setUser] = useContext(UserContext);
@@ -45,20 +47,34 @@ function Index(props) {
 		props.history.push('/signup/welcome');
 	};
 
+	const responseGoogle = (response) => {
+		console.log(response);
+	};
+
+	const responseFacebook = (response) => {
+		console.log(response);
+	};
+
 	return (
 		<div className="Sign-Up">
 			<div className="left-side">
 				<img src={Logo} alt="Logo" />
 				<h1>Create Account</h1>
 				<div>
-					<button>
-						<img src={FacebookWhiteIcon} alt="Facebook Icon" />
-						Sign up with Facebook
-					</button>
-					<button>
-						<img src={GoogleWhiteIcon} alt="Facebook Icon" />
-						Sign up with Google
-					</button>
+					<FacebookLogin
+						appId="1088597931155576"
+						autoLoad={true}
+						fields="name,email,picture"
+						onClick={componentClicked}
+						callback={responseFacebook}
+					/>
+					<GoogleLogin
+						clientId="648268033854-0lt5o6nuocpvr37l69sgn96suf2okbkt.apps.googleusercontent.com"
+						buttonText="Login"
+						onSuccess={responseGoogle}
+						onFailure={responseGoogle}
+						cookiePolicy={'single_host_origin'}
+					/>
 				</div>
 				<span>
 					<p></p>

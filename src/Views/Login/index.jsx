@@ -12,6 +12,7 @@ import { Link } from 'react-router-dom';
 import { UserContext } from '../../Context/UserContext';
 import { useCookies } from 'react-cookie';
 import GoogleLogin from 'react-google-login';
+import FacebookLogin from 'react-facebook-login';
 
 function Index(props) {
 	const [user, setUser] = useContext(UserContext);
