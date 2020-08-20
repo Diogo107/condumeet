@@ -33,7 +33,6 @@ export const createCondominium = async (data, token) => {
 			Authorization: `Bearer ${token}`,
 		},
 	});
-	console.log(result);
 	return result;
 };
 
@@ -43,7 +42,6 @@ export const getCondominium = async (data, token) => {
 			Authorization: `Bearer ${token}`,
 		},
 	});
-	console.log(result);
 	return;
 };
 

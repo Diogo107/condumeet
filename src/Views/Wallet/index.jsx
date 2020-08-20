@@ -15,7 +15,6 @@ import BalanceLineChart from './../../Components/Charts/BalanceLineChart';
 
 function index(props) {
 	setTimeout(() => {
-		console.log('.............................');
 		var x = document.getElementsByClassName(
 			'BankIncomeExpenses__Cards--Wallet'
 		);

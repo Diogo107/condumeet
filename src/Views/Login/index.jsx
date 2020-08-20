@@ -11,6 +11,7 @@ import { login } from '../../Sevices/Authenticathion.js';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../Context/UserContext';
 import { useCookies } from 'react-cookie';
+import GoogleLogin from 'react-google-login';
 
 function Index(props) {
 	const [user, setUser] = useContext(UserContext);
@@ -46,6 +47,13 @@ function Index(props) {
 						<img src={GoogleWhiteIcon} alt="Facebook Icon" />
 						Sign up with Google
 					</button>
+					<GoogleLogin
+						clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
+						buttonText="Login"
+						onSuccess={responseGoogle}
+						onFailure={responseGoogle}
+						cookiePolicy={'single_host_origin'}
+					/>
 				</div>
 				<span>
 					<p></p>

@@ -23,9 +23,7 @@ function Index(props) {
 		setListOfApartments(result.data);
 	}, []);
 	useEffect(() => {
-		console.log(props);
 		if (props.location.pathname !== currentProps) {
-			console.log('Hello');
 			setCurrentProps(props.location);
 			showSideOptions();
 		} else {
@@ -44,7 +42,6 @@ function Index(props) {
 				options[i].style.display = 'block';
 			}
 		}
-		console.log(options);
 	};
 	return (
 		<div className="Sidebar__Component">
@@ -60,7 +57,7 @@ function Index(props) {
 						>
 							<h3>{single.name}Hello</h3>
 						</button>
-						<ul className="Options" name={single.id} id={single.id}>
+						<ul className="Options" id={single.id}>
 							<Link to={{ pathname: `/dashboard/overview/${single.id}` }}>
 								<li>
 									<img src={OverviewIcon} alt="Overview" />

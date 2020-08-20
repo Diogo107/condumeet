@@ -35,13 +35,13 @@ function Index(props) {
 
 	return (
 		<div className="Overview__View">
-			<button
+			{/* <button
 				onClick={() => {
 					props.history.push(`/dashboard/wallet/11`);
 				}}
 			>
 				Teste
-			</button>
+			</button> */}
 			<section className="Comunication__Overview">
 				<div>
 					<h2>Comunication</h2>
