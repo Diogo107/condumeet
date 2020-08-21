@@ -6,9 +6,10 @@ import Logo from './../../assets/images/Logo.png';
 //Import Services
 import { login } from '../../Sevices/Authenticathion.js';
 import { UserContext } from '../../Context/UserContext';
-import { useCookies } from 'react-cookie';
 import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
+import { useCookies } from 'react-cookie';
+import Cookies from './../../../node_modules/js-cookie';
 
 function Index(props) {
 	const [user, setUser] = useContext(UserContext);
@@ -24,7 +25,8 @@ function Index(props) {
 			password,
 		});
 		console.log(resultLogin);
-		setCookie('user', resultLogin.data, { path: '/', maxAge: 60 * 15 });
+		Cookies.set('user', resultLogin.data, { expires: 1 / 96 });
+		//setCookie('user', resultLogin.data, { path: '/', maxAge: 60 * 15 });
 		setUser(resultLogin.data.user);
 		props.history.push('/dashboard/overview');
 	};

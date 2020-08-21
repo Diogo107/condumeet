@@ -51,8 +51,11 @@ function Index(props) {
 						<>
 							<Form.Control type="text" value={name} placeholder="Name" />
 							<Form.Control type="text" value={email} placeholder="Email" />
-							<Form.Control type="password" placeholder="Password" />
-							<Form.Control type="password" placeholder="Confirm Password" />
+							<Form.Control type="password" placeholder="New Password" />
+							<Form.Control
+								type="password"
+								placeholder="Confirm New Password"
+							/>
 						</>
 					)}
 				</div>

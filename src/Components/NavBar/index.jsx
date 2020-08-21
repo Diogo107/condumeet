@@ -10,8 +10,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 //Import Context
 import { UserContext } from './../../Context/UserContext.js';
+//Import Services
+import Dropdown from 'react-bootstrap/Dropdown';
+import { useCookies } from 'react-cookie';
+import Cookies from './../../../node_modules/js-cookie';
 
 const Index = (props) => {
+	const [cookies, setCookie, removeCookies] = useCookies(['user']);
 	const [user, setUser] = useContext(UserContext);
 	const hamburguerMenu = () => {
 		const sidebar = document.getElementsByClassName('User__Sidebar');
@@ -48,21 +53,43 @@ const Index = (props) => {
 					<div>
 						<div>
 							<img src={NotificationIcon} alt="Notification Icon" />
-							<button
+							{/* <button
 								className="Just__Phone"
 								onClick={() => {
 									hamburguerMenu();
 								}}
 							>
 								<img src={HamburgerMenuIcon} alt="Menu" />
-							</button>
+							</button> */}
 						</div>
 						<div className="Phone__Hide">
-							<Link to="/dashboard/profile/edit">{user.name}</Link>
-							<img src={user.avatar} alt="User Avatar" />
-							<button>
+							<Dropdown flip navbar>
+								<Dropdown.Toggle id="dropdown-basic">
+									<Link to="#">{user.name}</Link>
+									<img src={user.avatar} alt="User Avatar" />
+								</Dropdown.Toggle>
+
+								<Dropdown.Menu>
+									<Dropdown.Item as="button">
+										<Link to="/dashboard/profile/edit">Profile</Link>
+									</Dropdown.Item>
+									<Dropdown.Divider />
+									<Dropdown.Item as="button">
+										<button
+											onClick={async () => {
+												await removeCookies();
+												console.log(Cookies.remove('user'));
+												console.log(cookies);
+											}}
+										>
+											Logout
+										</button>
+									</Dropdown.Item>
+								</Dropdown.Menu>
+							</Dropdown>
+							{/* <button>
 								<FontAwesomeIcon icon={faAngleDown} size="2x" />
-							</button>
+							</button> */}
 						</div>
 					</div>
 				</div>

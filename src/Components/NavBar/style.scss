@@ -1,6 +1,7 @@
 .NavBar {
 	height: 100px;
 	width: 100%;
+
 	.NavBar__NotLogged {
 		margin: auto 100px;
 		display: flex;
@@ -42,6 +43,7 @@
 			align-items: center;
 			color: #e5e5e5;
 		}
+
 		> div:first-child {
 			width: 257px;
 			min-width: 257px;
@@ -57,12 +59,7 @@
 			display: flex;
 			justify-content: flex-end;
 			align-items: center;
-			button {
-				width: 27px;
-				img {
-					width: 100%;
-				}
-			}
+
 			> div:first-child {
 				display: flex;
 				align-items: center;
@@ -82,6 +79,52 @@
 					width: 40px;
 					height: 40px;
 					border-radius: 50%;
+				}
+			}
+			.dropdown {
+				width: 100%;
+				height: 100%;
+				color: #56657f;
+			}
+			#dropdown-basic {
+				width: 100%;
+				height: 100%;
+				display: flex;
+				align-items: center;
+				justify-content: space-evenly;
+				color: #56657f;
+				> img {
+					width: 40px;
+					height: 40px;
+					border-radius: 50%;
+				}
+			}
+			button {
+				transform: none;
+			}
+			.dropdown-menu {
+				width: 240px;
+				box-sizing: border-box;
+				display: flex;
+				flex-direction: column;
+				background-color: white;
+				.dropdown-item {
+					padding-bottom: 8px;
+					color: #56657f;
+					line-height: 65px;
+					&:hover {
+						background: rgba(1, 1, 1, 0.2);
+					}
+					button {
+						line-height: 65px;
+						display: block;
+						width: 100%;
+						text-align: center;
+						color: #56657f;
+					}
+					a {
+						width: 100%;
+					}
 				}
 			}
 		}
