@@ -46,7 +46,6 @@ function Index(props) {
 		createAccount();
 		console.log(name, email, password);
 	};
-	console.log(process.env.REACT_APP_GOOGLE_API_KEY);
 	return (
 		<div className="Sign-Up">
 			<div className="left-side">
