@@ -8,6 +8,7 @@ import { useCookies } from 'react-cookie';
 import { getCondominiums } from '../../Sevices/Condominiums';
 //Import Stylling
 import { Table } from 'react-bootstrap';
+import Form from 'react-bootstrap/Form';
 
 function Index(props) {
 	const [cookies, setCookie] = useCookies(['user']);
@@ -42,13 +43,16 @@ function Index(props) {
 				<div>
 					{(!edit && (
 						<>
-							<p>{name}</p>
-							<p>{email}</p>
+							<p>--{name}--</p>
+							<p>--{email}--</p>
+							<p>Password ******** </p>
 						</>
 					)) || (
 						<>
-							<input value={name} />
-							<input value={email} />
+							<Form.Control type="text" value={name} placeholder="Name" />
+							<Form.Control type="text" value={email} placeholder="Email" />
+							<Form.Control type="password" placeholder="Password" />
+							<Form.Control type="password" placeholder="Confirm Password" />
 						</>
 					)}
 				</div>
@@ -90,6 +94,9 @@ function Index(props) {
 							checked={getMeetingsReminders}
 						/>
 					</label>
+					<button id="Delete__Account" onClick={}>
+						Delete Account
+					</button>
 				</div>
 				<div className="White__Box Apartments__List">
 					<h4>My Apartments</h4>

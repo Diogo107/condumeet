@@ -28,6 +28,15 @@
 			color: white;
 			border: none;
 		}
+		> div {
+			box-sizing: border-box;
+			width: 100%;
+			height: 200px;
+			padding: 10px;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-evenly;
+		}
 	}
 	.Second__Card {
 		width: 100%;
@@ -35,6 +44,9 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
+		#Delete__Account {
+			color: red;
+		}
 		table {
 			width: 100%;
 			height: 100%;
