@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './style.scss';
+//Import Default Componetnts
+import Switch from 'react-switch';
 
 function Index(props) {
+	const [getEmail, setGetEmail] = useState(false);
+	const [getSMS, setGetSMS] = useState(false);
+	const [getMeetingsReminders, setGetMeetingsReminders] = useState(false);
+
 	return (
 		<div className="Profile__View">
 			<div className="White__Box First__Card">
@@ -17,10 +23,34 @@ function Index(props) {
 			</div>
 			<div className="Second__Card">
 				<div className="White__Box">
-					<span>
-						<p>Escolhe</p>
-					</span>
-					Configurações (Emails, sms e tal)
+					<h4>Notifications</h4>
+					<label>
+						<span>Get Emails</span>
+						<Switch
+							onChange={() => {
+								setGetEmail(!getEmail);
+							}}
+							checked={getEmail}
+						/>
+					</label>
+					<label>
+						<span>Get SMS</span>
+						<Switch
+							onChange={() => {
+								setGetSMS(!getSMS);
+							}}
+							checked={getSMS}
+						/>
+					</label>
+					<label>
+						<span>Get Meeting Reminders</span>
+						<Switch
+							onChange={() => {
+								setGetMeetingsReminders(!getMeetingsReminders);
+							}}
+							checked={getMeetingsReminders}
+						/>
+					</label>
 				</div>
 				<div className="White__Box">List of houses</div>
 			</div>
