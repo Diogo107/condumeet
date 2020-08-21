@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import './style.scss';
 //import images
 import Logo from '../../assets/images/Logo.png';
@@ -78,8 +78,7 @@ const Index = (props) => {
 										<button
 											onClick={async () => {
 												await removeCookies();
-												console.log(Cookies.remove('user'));
-												console.log(cookies);
+												props.history.push(`/`);
 											}}
 										>
 											Logout
@@ -87,9 +86,6 @@ const Index = (props) => {
 									</Dropdown.Item>
 								</Dropdown.Menu>
 							</Dropdown>
-							{/* <button>
-								<FontAwesomeIcon icon={faAngleDown} size="2x" />
-							</button> */}
 						</div>
 					</div>
 				</div>
