@@ -58,7 +58,7 @@ const Index = (props) => {
 							</button>
 						</div>
 						<div className="Phone__Hide">
-							<p>{user.name}</p>
+							<Link to="/profile">{user.name}</Link>
 							<img src={user.avatar} alt="User Avatar" />
 							<button>
 								<FontAwesomeIcon icon={faAngleDown} size="2x" />

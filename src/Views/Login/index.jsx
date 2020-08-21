@@ -40,12 +40,15 @@ function Index(props) {
 
 	const responseGoogle = async (response) => {
 		console.log(response);
-		await setName(response.profileObj.name);
-		await setEmail(response.profileObj.email);
-		await setPassword(response.profileObj.googleId);
-		createAccount();
+		if (response.error == '') {
+			await setName(response.profileObj.name);
+			await setEmail(response.profileObj.email);
+			await setPassword(response.profileObj.googleId);
+			createAccount();
+		}
 		console.log(name, email, password);
 	};
+	console.log(process.env.REACT_APP_FACEBOOK_OAUTH_ID);
 	return (
 		<div className="Sign-Up">
 			<div className="left-side">
@@ -63,7 +66,8 @@ function Index(props) {
 					<GoogleLogin
 						clientId={process.env.REACT_APP_GOOGLE_OAUTH_ID}
 						buttonText="Login"
-						onClick={responseGoogle}
+						onSuccess={responseGoogle}
+						onFailure={responseGoogle}
 						cookiePolicy={'single_host_origin'}
 					/>
 				</div>
