@@ -11,15 +11,20 @@ import Wallet from './../Wallet';
 import Archive from './../Archive';
 import Activity from './../Activity';
 import Neighbors from './../Neighbors';
+import Profile from './../Profile';
 
 function Index(props) {
 	const [cookies, setCookie] = useCookies(['user']);
 	const [listOfApartments, setListOfApartments] = useState();
 	useEffect(async () => {
-		const token = cookies.user.token;
-		const result = await getCondominiums(token);
-		props.history.push(`/dashboard/overview/${result.data[0].id}`);
-		setListOfApartments(result.data);
+		if (cookies.user) {
+			const token = cookies.user.token;
+			const result = await getCondominiums(token);
+			props.history.push(`/dashboard/overview/${result.data[0].id}`);
+			setListOfApartments(result.data);
+		} else {
+			props.history.push(`/login`);
+		}
 	}, []);
 	return (
 		<div className="Dashboard__Overall">
@@ -34,6 +39,10 @@ function Index(props) {
 					<Route
 						path="/dashboard/overview/:id"
 						render={(props) => <Overview {...props} />}
+					/>
+					<Route
+						path="/dashboard/profile/:name"
+						render={(props) => <Profile {...props} />}
 					/>
 					<Route
 						path="/dashboard/wallet/:id"

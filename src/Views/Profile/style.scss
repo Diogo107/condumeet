@@ -1,0 +1,44 @@
+.Profile__View {
+	background-color: #805fb3;
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	padding: 5%;
+	display: flex;
+	justify-content: space-between;
+	.First__Card {
+		box-sizing: border-box;
+		padding: 5%;
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		justify-content: space-between;
+		width: 100%;
+		height: 100%;
+		margin-right: 5%;
+		img {
+			width: 150px;
+			height: 150px;
+			border-radius: 50%;
+		}
+	}
+	.Second__Card {
+		width: 100%;
+		height: 100%;
+		border: 1px solid black;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		> div {
+			height: 100%;
+			border: 1px solid black;
+		}
+		:first-child {
+			margin-bottom: 5%;
+		}
+	}
+	.White__Box {
+		background-color: white;
+		//Switch Button
+	}
+}

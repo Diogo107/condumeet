@@ -16,12 +16,20 @@ function Index(props) {
 	const [cookies, setCookie] = useCookies(['user']);
 	const [listOfApartments, setListOfApartments] = useState();
 	const [currentProps, setCurrentProps] = useState();
-	useEffect(async () => {
-		const token = cookies.user.token;
-		const result = await getCondominiums(token);
-		props.history.push(`/dashboard/overview/${result.data[0].id}`);
-		setListOfApartments(result.data);
+	useEffect(() => {
+		firstCondomínium();
 	}, []);
+	const firstCondomínium = async () => {
+		console.log(!cookies.user);
+		if (cookies.user) {
+			const token = cookies.user.token;
+			const result = await getCondominiums(token);
+			props.history.push(`/dashboard/overview/${result.data[0].id}`);
+			setListOfApartments(result.data);
+		} else {
+			props.history.push(`/login`);
+		}
+	};
 	useEffect(() => {
 		if (props.location.pathname !== currentProps) {
 			setCurrentProps(props.location);
