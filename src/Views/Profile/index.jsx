@@ -21,18 +21,17 @@ function Index(props) {
 	const [listOfApartments, setListOfApartments] = useState();
 	const [edit, setEdit] = useState(false);
 
-	/* useEffect(() => {
+	useEffect(() => {
 		getProfile();
 		console.log('.....................');
-	}); */
+	}, []);
 
 	const getProfile = async () => {
 		const profileResult = await getProfileSelf(cookies.user.token);
-		setName(profileResult.data.name);
-		setEmail(profileResult.data.email);
+		await setName(profileResult.data.name);
+		await setEmail(profileResult.data.email);
 		const apartmentsResult = await getCondominiums(cookies.user.token);
-		setListOfApartments(apartmentsResult.data);
-		console.log(apartmentsResult);
+		await setListOfApartments(apartmentsResult.data);
 	};
 	return (
 		<div className="Profile__View">
@@ -143,7 +142,6 @@ function Index(props) {
 							{listOfApartments &&
 								listOfApartments.map((single) => (
 									<tr>
-										{console.log(single)}
 										<td>{single.name}</td>
 										<td>{single.locality}</td>
 										<td>
