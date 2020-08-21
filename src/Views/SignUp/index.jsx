@@ -45,9 +45,10 @@ function Index(props) {
 	};
 
 	const responseGoogle = async (response) => {
-		setName(response.profileObj.name);
-		setEmail(response.profileObj.email);
-		setPassword(response.profileObj.googleId);
+		await setName(response.profileObj.name);
+		await setEmail(response.profileObj.email);
+		await setPassword(response.profileObj.googleId);
+		await setTerms(true);
 		console.log(response);
 	};
 
@@ -55,6 +56,7 @@ function Index(props) {
 		await setName(response.name);
 		await setEmail(response.email);
 		await setPassword(response.id);
+		await setTerms(true);
 		console.log(name, email, password);
 		console.log(response);
 	};

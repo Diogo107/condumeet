@@ -166,7 +166,7 @@ function Index(props) {
 					{signUpForm.map.loaded && (
 						<GoogleMapReact
 							bootstrapURLKeys={{
-								key: process.env.GOOGLE_API_KEY,
+								key: process.env.REACT_APP_GOOGLE_API_KEY,
 							}}
 							defaultCenter={signUpForm.map.center}
 							defaultZoom={signUpForm.map.zoom}

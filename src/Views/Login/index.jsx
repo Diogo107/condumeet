@@ -29,21 +29,24 @@ function Index(props) {
 		props.history.push('/dashboard/overview');
 	};
 
-	const responseGoogle = async (response) => {
-		await setName(response.profileObj.name);
-		await setEmail(response.profileObj.email);
-		await setPassword(response.profileObj.googleId);
-		console.log(name, email, password);
-	};
-
 	const responseFacebook = async (response) => {
 		await setName(response.name);
 		await setEmail(response.email);
 		await setPassword(response.id);
+		createAccount();
 		console.log(name, email, password);
 		console.log(response);
 	};
 
+	const responseGoogle = async (response) => {
+		console.log(response);
+		await setName(response.profileObj.name);
+		await setEmail(response.profileObj.email);
+		await setPassword(response.profileObj.googleId);
+		createAccount();
+		console.log(name, email, password);
+	};
+	console.log(process.env.REACT_APP_GOOGLE_API_KEY);
 	return (
 		<div className="Sign-Up">
 			<div className="left-side">
@@ -51,7 +54,7 @@ function Index(props) {
 				<h1>Create Account</h1>
 				<div>
 					<FacebookLogin
-						appId="305464780546351"
+						appId={process.env.REACT_APP_FACEBOOK_OAUTH_ID}
 						autoLoad={true}
 						fields="name,email,picture"
 						callback={responseFacebook}
@@ -59,10 +62,9 @@ function Index(props) {
 						icon="fa-facebook"
 					/>
 					<GoogleLogin
-						clientId="648268033854-0lt5o6nuocpvr37l69sgn96suf2okbkt.apps.googleusercontent.com"
+						clientId={process.env.REACT_APP_GOOGLE_OAUTH_ID}
 						buttonText="Login"
-						onSuccess={responseGoogle}
-						onFailure={responseGoogle}
+						onClick={responseGoogle}
 						cookiePolicy={'single_host_origin'}
 					/>
 				</div>
