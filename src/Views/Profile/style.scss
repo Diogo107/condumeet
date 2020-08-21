@@ -70,6 +70,24 @@
 			display: flex;
 			justify-content: space-between;
 		}
-		//Switch Button
+		h3 {
+			color: red;
+		}
+		li {
+			list-style: none;
+			text-align: start;
+			margin-bottom: 5px;
+			height: fit-content;
+		}
+		.actions {
+			:first-child {
+				background-color: red;
+				color: white;
+			}
+			button {
+				margin-left: 15px;
+				margin-right: 15px;
+			}
+		}
 	}
 }

@@ -6,6 +6,7 @@ import Switch from 'react-switch';
 import { getProfileSelf } from '../../Sevices/Profile';
 import { useCookies } from 'react-cookie';
 import { getCondominiums } from '../../Sevices/Condominiums';
+import Popup from 'reactjs-popup';
 //Import Stylling
 import { Table } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
@@ -94,9 +95,39 @@ function Index(props) {
 							checked={getMeetingsReminders}
 						/>
 					</label>
-					<button id="Delete__Account" onClick={}>
-						Delete Account
-					</button>
+					<Popup
+						trigger={<button id="Delete__Account">Delete Account</button>}
+						modal
+						closeOnDocumentClick
+					>
+						{(close) => (
+							<div className="modal">
+								<h3> Erasing account </h3>
+								<ul className="content">
+									<li>You can't regain access to your account.</li>
+									<li>
+										It doesn't affect the information other users have relating
+										to you, such as their copy of the messages you sent them.
+									</li>
+									<li>
+										Your personal information shared with other Facebook
+										Companies will also be deleted.
+									</li>
+								</ul>
+								<div className="actions">
+									<button>Confirm deletion</button>
+									<button
+										className="button"
+										onClick={() => {
+											close();
+										}}
+									>
+										Cancel
+									</button>
+								</div>
+							</div>
+						)}
+					</Popup>
 				</div>
 				<div className="White__Box Apartments__List">
 					<h4>My Apartments</h4>
