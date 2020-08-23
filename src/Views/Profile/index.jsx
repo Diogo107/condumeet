@@ -64,7 +64,7 @@ function Index(props) {
 						setEdit(!edit);
 					}}
 				>
-					Edit
+					{(!edit && <>Edit</>) || <>Confirm</>}
 				</button>
 			</div>
 			<div className="Second__Card">
