@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import './style.scss';
 //Import Images
 import GroupTalking from './../../assets/images/GroupTalking.png';
@@ -17,6 +17,20 @@ function Index(props) {
 	const [email, setEmail] = useState();
 	const [password, setPassword] = useState();
 	const [cookies, setCookie] = useCookies();
+
+	useEffect(() => {
+		checkUserCookies();
+	}, []);
+	const checkUserCookies = async () => {
+		const result = await Cookies.get('user');
+		if (result) {
+			setUser(JSON.parse(result).user);
+			props.history.push('/dashboard/overview');
+			console.log('There was a user token already');
+		} else {
+			console.log('No user token');
+		}
+	};
 
 	const createAccount = async (e) => {
 		e.preventDefault();

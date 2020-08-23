@@ -16,7 +16,10 @@ import Profile from './../Profile';
 function Index(props) {
 	const [cookies, setCookie] = useCookies(['user']);
 	const [listOfApartments, setListOfApartments] = useState();
-	useEffect(async () => {
+	useEffect(() => {
+		firstCondominium();
+	}, []);
+	const firstCondominium = async () => {
 		if (cookies.user) {
 			const token = cookies.user.token;
 			const result = await getCondominiums(token);
@@ -25,7 +28,7 @@ function Index(props) {
 		} else {
 			props.history.push(`/login`);
 		}
-	}, []);
+	};
 	return (
 		<div className="Dashboard__Overall">
 			<div className="User__Sidebar Phone__Hide">

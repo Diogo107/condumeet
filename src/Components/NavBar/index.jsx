@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import './style.scss';
-//import images
+//Import Images
 import Logo from '../../assets/images/Logo.png';
 import ArrowDown from '../../assets/images/ArrowDown.svg';
 import NotificationIcon from '../../assets/images/NotificationIcon.png';
