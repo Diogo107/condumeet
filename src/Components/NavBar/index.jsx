@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import './style.scss';
 //Import Images
@@ -18,6 +18,14 @@ import Cookies from './../../../node_modules/js-cookie';
 const Index = (props) => {
 	const [cookies, setCookie, removeCookies] = useCookies(['user']);
 	const [user, setUser] = useContext(UserContext);
+	useEffect(() => {
+		readToken();
+	}, []);
+
+	const readToken = () => {
+		setUser(JSON.parse(Cookies.get().user).user);
+	};
+
 	const hamburguerMenu = () => {
 		const sidebar = document.getElementsByClassName('User__Sidebar');
 		//sidebar[0].style.display = 'flex';

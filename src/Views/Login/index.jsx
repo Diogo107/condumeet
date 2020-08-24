@@ -73,7 +73,7 @@ function Index(props) {
 				<div>
 					<FacebookLogin
 						appId={process.env.REACT_APP_FACEBOOK_OAUTH_ID}
-						autoLoad={true}
+						autoLoad={false}
 						fields="name,email,picture"
 						callback={responseFacebook}
 						cssClass="my-facebook-button-class"

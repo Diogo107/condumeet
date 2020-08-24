@@ -6,6 +6,7 @@ import { getCondominiums } from '../../Sevices/Condominiums';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 //Import Components and Views
 import Sidebar from './../../Components/Sidebar';
+import Transactions from './../../Components/Transactions';
 import Overview from './../Overview';
 import Wallet from './../Wallet';
 import Archive from './../Archive';
@@ -23,8 +24,13 @@ function Index(props) {
 		if (cookies.user) {
 			const token = cookies.user.token;
 			const result = await getCondominiums(token);
-			props.history.push(`/dashboard/overview/${result.data[0].id}`);
-			setListOfApartments(result.data);
+			console.log(result);
+			if (result.data.length == 0) {
+				props.history.push(`/signup/welcome`);
+			} else {
+				props.history.push(`/dashboard/overview/${result.data[0].id}`);
+				setListOfApartments(result.data);
+			}
 		} else {
 			props.history.push(`/login`);
 		}
@@ -46,6 +52,10 @@ function Index(props) {
 					<Route
 						path="/dashboard/profile/:name"
 						render={(props) => <Profile {...props} />}
+					/>
+					<Route
+						path="/dashboard/transactions/:id"
+						render={(props) => <Transactions {...props} />}
 					/>
 					<Route
 						path="/dashboard/wallet/:id"

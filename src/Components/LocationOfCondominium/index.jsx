@@ -44,7 +44,6 @@ function Index(props) {
 		let results = await geocodeByAddress(address);
 		let latLng = await getLatLng(results[0]);
 		let center = { lat: latLng.lat, lng: latLng.lng };
-		console.log(results[0]);
 		await setSignUpForm({
 			...signUpForm,
 			address: results[0].formatted_address,
@@ -62,10 +61,6 @@ function Index(props) {
 			...previousState,
 			map: { ...previousState.map, loaded: true },
 		}));
-		/* setSignUpForm({
-			...signUpForm,
-			map: { ...signUpForm.map, loaded: true },
-		}); */
 
 		setAnyReactComponentCoordinates({ lat: latLng.lat, lng: latLng.lng });
 	};

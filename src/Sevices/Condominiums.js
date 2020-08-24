@@ -5,6 +5,7 @@ const instance = axios.create({
 });
 
 export const createCondominium = async (data, token) => {
+	console.log('data sent to the API', data);
 	let subscription;
 	if (data.features == 'Premium') {
 		subscription = 1;

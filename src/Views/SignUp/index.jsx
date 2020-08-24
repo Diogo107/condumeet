@@ -37,7 +37,7 @@ function Index(props) {
 		console.log(resultSignUp);
 		if (resultSignUp.status === 201 || resultSignUp.status === 200) {
 			const resultLogin = await login({ login: email, password });
-			setCookie('user', resultLogin.data, { path: '/' /* maxAge: 60 * 15 */ });
+			setCookie('user', resultLogin.data, { path: '/', maxAge: 60 * 15 });
 			setUser(resultLogin.data.user);
 		}
 
