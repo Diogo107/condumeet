@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-	baseURL: 'http://ec2-54-229-6-244.eu-west-1.compute.amazonaws.com/api/auth',
+	baseURL: 'https://ec2-54-229-6-244.eu-west-1.compute.amazonaws.com/api/auth',
 });
 
 export const signUp = async (data) => {
