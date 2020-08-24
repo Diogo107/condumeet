@@ -5,7 +5,7 @@ import Arrow from './../../assets/images/Arrow.png';
 
 function index(props) {
 	return (
-		<div>
+		<div className="welcome__caracterization">
 			<button
 				onClick={() => {
 					props.history.push('/signup/welcome/create/location');

@@ -60,8 +60,6 @@ function Index(props) {
 							});
 							document.getElementById('freemium__card').style.opacity = '1';
 							document.getElementById('premium__card').style.opacity = '0.5';
-
-							//props.history.push('/signup/welcome/create/invites');
 						}}
 					>
 						Choose
@@ -89,7 +87,6 @@ function Index(props) {
 							}));
 							document.getElementById('freemium__card').style.opacity = '0.5';
 							document.getElementById('premium__card').style.opacity = '1';
-							//props.history.push('/signup/welcome/create/invites');
 						}}
 					>
 						Choose
@@ -98,7 +95,7 @@ function Index(props) {
 			</div>
 			{signUpForm.condominiumFeatures && (
 				<button
-					className="background-lightpurple"
+					className="condominiumFeatures__button"
 					onClick={() => {
 						props.history.push('/signup/welcome/create/invites');
 						props.selectPremiumVersion(option);

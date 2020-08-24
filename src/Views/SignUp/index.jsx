@@ -44,21 +44,24 @@ function Index(props) {
 		props.history.push('/signup/welcome');
 	};
 
-	const responseGoogle = async (response) => {
-		await setName(response.profileObj.name);
-		await setEmail(response.profileObj.email);
-		await setPassword(response.profileObj.googleId);
-		await setTerms(true);
-		console.log(response);
+	const responseFacebook = async (response) => {
+		if (response.status !== 'unknown') {
+			await setName(response.name);
+			await setEmail(response.email);
+			await setPassword(response.id);
+			await setTerms(true);
+			createAccount();
+		}
 	};
 
-	const responseFacebook = async (response) => {
-		await setName(response.name);
-		await setEmail(response.email);
-		await setPassword(response.id);
-		await setTerms(true);
-		console.log(name, email, password);
-		console.log(response);
+	const responseGoogle = async (response) => {
+		if (!response.error) {
+			await setName(response.profileObj.name);
+			await setEmail(response.profileObj.email);
+			await setPassword(response.profileObj.googleId);
+			await setTerms(true);
+			createAccount();
+		}
 	};
 
 	return (
@@ -69,7 +72,7 @@ function Index(props) {
 				<div>
 					<FacebookLogin
 						appId="305464780546351"
-						autoLoad={true}
+						autoLoad={false}
 						fields="name,email,picture"
 						callback={responseFacebook}
 						cssClass="my-facebook-button-class"
@@ -170,7 +173,7 @@ function Index(props) {
 					<button>CREATE ACCOUNT</button>
 				</form>
 				<h5>
-					Already have account? <Link to="/sign-in">Sign In</Link>.
+					Already have account? <Link to="/login">Sign In</Link>.
 				</h5>
 			</div>
 			<div className="right-side">

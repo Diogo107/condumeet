@@ -29,6 +29,18 @@
 				width: 100%;
 				text-align: start;
 			}
+			button {
+				width: 20px;
+				height: 20px;
+				padding: 0;
+				&:hover {
+					background-color: inherit;
+					transform: rotate(180deg);
+				}
+				img {
+					margin: 0;
+				}
+			}
 		}
 	}
 	.condomium-code {
@@ -67,6 +79,30 @@
 		background-color: transparent;
 		border: none;
 	}
+	button {
+		color: white;
+		height: 40px;
+		width: 200px;
+		border-radius: 2px;
+		border: none;
+		margin: 1em;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 16px;
+		img {
+			margin-right: 1em;
+		}
+		p {
+			color: white;
+			height: 100%;
+			margin: auto;
+		}
+		&:hover {
+			transform: none;
+			background-color: #805fb3;
+		}
+	}
 	input {
 		width: 300px;
 		height: 40px;
@@ -77,8 +113,21 @@
 		}
 	}
 	form {
+		display: flex;
+		align-items: center;
 		margin-left: 1em;
 		border-bottom: 1px solid #e0e0e0;
+		button {
+			width: 40px;
+			padding: 0;
+			&:hover {
+				background-color: inherit;
+				border: 0.5px solid #b787ff;
+			}
+			img {
+				margin: 0;
+			}
+		}
 	}
 	#button__invite-all {
 		background-color: #b787ff;
@@ -91,6 +140,9 @@
 		letter-spacing: 3px;
 		outline: none;
 		margin: 2em auto 3em auto;
+		&:hover {
+			background-color: #805fb3;
+		}
 	}
 	#button__continue {
 		background-color: transparent;
@@ -106,5 +158,8 @@
 		text-align: center;
 		letter-spacing: 1.25px;
 		text-transform: uppercase;
+		margin: auto;
+		margin-top: 2em;
+		color: #8997b1;
 	}
 }

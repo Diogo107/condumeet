@@ -16,6 +16,12 @@ export const login = async (data) => {
 	return result;
 };
 
+export const forgotPassword = async (data) => {
+	console.log(data);
+	const result = await instance.post('/forgot-password', data);
+	console.log('result', result);
+};
+
 export const searchForCondominium = async (data) => {
 	console.log(data);
 	const result = await instance.post('/searchForCondominium', { data });

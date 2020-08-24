@@ -1,6 +1,14 @@
 .Sign-Up {
 	display: flex;
 	height: 100vh;
+	#Forgot__Password {
+		color: #b787ff;
+		&:hover {
+			cursor: pointer;
+			color: #805fb3;
+		}
+	}
+
 	.left-side {
 		padding-top: 5%;
 		width: 40vw;
@@ -46,6 +54,7 @@
 		}
 		&:hover {
 			transform: none;
+			background-color: #805fb3;
 		}
 	}
 	span {
