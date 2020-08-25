@@ -1,7 +1,7 @@
 import React from 'react';
 
 function index(props) {
-	return <div>Transactions</div>;
+	return <div className="transactions__view">Transactions</div>;
 }
 
 export default index;

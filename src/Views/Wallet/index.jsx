@@ -25,6 +25,7 @@ function index(props) {
 			).style.width = `${final}px`;
 		}
 	}, 5);
+
 	return (
 		<div className="Wallet__View">
 			<section className="BankIncomeExpenses__Cards--Wallet">
@@ -96,7 +97,14 @@ function index(props) {
 			<section className="List__Section--Wallet">
 				<div>
 					<h3>Transactions</h3>
-					<button>
+					<button
+						onClick={() => {
+							console.log('Hello');
+							props.history.push(
+								`/dashboard/wallet/transaction/${props.match.params.id}`
+							);
+						}}
+					>
 						<img src={AddIcon} alt="Add" />
 					</button>
 				</div>
