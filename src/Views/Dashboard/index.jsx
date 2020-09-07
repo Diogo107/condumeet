@@ -54,7 +54,7 @@ function Index(props) {
 						render={(props) => <Profile {...props} />}
 					/>
 					<Route
-						path="/dashboard/transactions/:id"
+						path="/dashboard/wallet/transaction/:id"
 						render={(props) => <Transactions {...props} />}
 					/>
 					<Route
