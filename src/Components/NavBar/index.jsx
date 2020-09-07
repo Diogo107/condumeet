@@ -23,7 +23,9 @@ const Index = (props) => {
 	}, []);
 
 	const readToken = () => {
-		setUser(JSON.parse(Cookies.get().user).user);
+		if (Object.keys(Cookies.get()).length !== 0) {
+			setUser(JSON.parse(Cookies.get().user).user);
+		}
 	};
 
 	const hamburguerMenu = () => {
@@ -61,14 +63,6 @@ const Index = (props) => {
 					<div>
 						<div>
 							<img src={NotificationIcon} alt="Notification Icon" />
-							{/* <button
-								className="Just__Phone"
-								onClick={() => {
-									hamburguerMenu();
-								}}
-							>
-								<img src={HamburgerMenuIcon} alt="Menu" />
-							</button> */}
 						</div>
 						<div className="Phone__Hide">
 							<Dropdown flip navbar>
