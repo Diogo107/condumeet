@@ -56,6 +56,7 @@ function Index(props) {
 										name="EMAIL"
 										className="required email"
 										id="mce-EMAIL"
+										placeholder="Write your email here..."
 										onChange={(e) => {
 											setEmail(e.target.value);
 										}}
