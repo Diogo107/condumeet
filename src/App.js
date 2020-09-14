@@ -34,15 +34,15 @@ function App(props) {
 		<div className="App">
 			<BrowserRouter>
 				<Switch>
-					<Route
+					{/* <Route
 						path="/signup/welcome"
 						render={(props) => <Welcome {...props} />}
 					/>
 					<Route path="/signup" render={(props) => <SignUp {...props} />} />
 					<Route path="/login" render={(props) => <Login {...props} />} />
-					<Route path="*" render={(props) => <NavBar {...props} />} />
+					<Route path="*" render={(props) => <NavBar {...props} />} /> */}
 				</Switch>
-				{/* <Route path="/dashboard" render={(props) => <Dashboard {...props} />} /> */}
+				<Route path="/dashboard" render={(props) => <Dashboard {...props} />} />
 				<Route path="/" exact render={(props) => <LandingPage {...props} />} />
 			</BrowserRouter>
 		</div>
