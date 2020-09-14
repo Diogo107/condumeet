@@ -18,9 +18,9 @@ import Cookies from './../../../node_modules/js-cookie';
 const Index = (props) => {
 	const [cookies, setCookie, removeCookies] = useCookies(['user']);
 	const [user, setUser] = useContext(UserContext);
-	useEffect(() => {
+	/* useEffect(() => {
 		readToken();
-	}, []);
+	}, []); */
 
 	const readToken = () => {
 		if (Object.keys(Cookies.get()).length !== 0) {
