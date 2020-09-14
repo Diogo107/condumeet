@@ -33,7 +33,8 @@ function App(props) {
 	return (
 		<div className="App">
 			<BrowserRouter>
-				<Switch>
+				hello
+				{/* <Switch>
 					<Route
 						path="/signup/welcome"
 						render={(props) => <Welcome {...props} />}
@@ -43,8 +44,7 @@ function App(props) {
 					<Route path="*" render={(props) => <NavBar {...props} />} />
 				</Switch>
 				<Route path="/dashboard" render={(props) => <Dashboard {...props} />} />
-
-				<Route path="/" exact render={(props) => <LandingPage {...props} />} />
+				<Route path="/" exact render={(props) => <LandingPage {...props} />} /> */}
 			</BrowserRouter>
 		</div>
 	);
