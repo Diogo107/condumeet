@@ -40,7 +40,7 @@ function App(props) {
 					/>
 					<Route path="/signup" render={(props) => <SignUp {...props} />} />
 					<Route path="/login" render={(props) => <Login {...props} />} />
-					{/* <Route path="*" render={(props) => <NavBar {...props} />} /> */}
+					<Route path="*" render={(props) => <NavBar {...props} />} />
 				</Switch>
 				<Route path="/dashboard" render={(props) => <Dashboard {...props} />} />
 				<Route path="/" exact render={(props) => <LandingPage {...props} />} />
