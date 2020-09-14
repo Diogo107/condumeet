@@ -2,16 +2,32 @@
 	section {
 		display: flex;
 		justify-content: space-between;
+		height: fit-content;
 	}
 	section:first-child > div {
 		width: 350px;
-		height: 500px;
+		//height: 500px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		height: auto;
 		text-align: left;
 		margin-top: 70px;
 		margin-left: 100px;
 		h1 {
 			font-size: 2.5em;
 		}
+		// Start MailChimp Style
+		h2 {
+			color: #805fb3;
+		}
+		label {
+			color: #56657f;
+		}
+		#mc-embedded-subscribe:hover {
+			background-color: #b787ff;
+		}
+		// End MailChimp Style
 		button {
 			color: white;
 			padding: 1em;

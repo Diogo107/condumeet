@@ -18,14 +18,14 @@ import Cookies from './../../../node_modules/js-cookie';
 const Index = (props) => {
 	const [cookies, setCookie, removeCookies] = useCookies(['user']);
 	const [user, setUser] = useContext(UserContext);
-	/* useEffect(() => {
+	useEffect(() => {
 		readToken();
-	}, []); */
+	}, []);
 
 	const readToken = () => {
-		if (Object.keys(Cookies.get()).length !== 0) {
+		/* if (Object.keys(Cookies.get()).length !== 0) {
 			setUser(JSON.parse(Cookies.get().user).user);
-		}
+		} */
 	};
 
 	const hamburguerMenu = () => {
@@ -41,8 +41,8 @@ const Index = (props) => {
 						<img src={Logo} alt="logo" />
 					</Link>
 					<ul>
-						<Link to="#feactures">
-							<li>Feactures</li>
+						<Link to="#features">
+							<li>Features</li>
 						</Link>
 						<Link to="#pricing">
 							<li>Pricing</li>
