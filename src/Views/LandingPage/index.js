@@ -2,9 +2,25 @@ import React, { useState } from 'react';
 import './style.scss';
 //import images
 import LandingPageBuilding from './../../assets/images/LandingPageBuilding.png';
+//Import Services
+import axios from 'axios';
 
 function Index(props) {
 	const [email, setEmail] = useState();
+	const [successful, setSucessful] = useState(false);
+
+	const handleForm = async (e) => {
+		e.preventDefault();
+		const result = await axios.post(
+			'https://gmail.us17.list-manage.com/subscribe/post?u=3629eb921ff4887f897adb5d0&amp;id=778e03d58c',
+			{ 'mce-EMAIL': email }
+		);
+		console.log(result);
+		if (result.status == 200) {
+			setSucessful(true);
+		}
+	};
+
 	return (
 		<div className="Landing-Page">
 			<section>
@@ -20,6 +36,7 @@ function Index(props) {
 					<div id="mc_embed_signup">
 						<form
 							action="https://gmail.us17.list-manage.com/subscribe/post?u=3629eb921ff4887f897adb5d0&amp;id=778e03d58c"
+							//onSubmit={handleForm}
 							method="post"
 							id="mc-embedded-subscribe-form"
 							name="mc-embedded-subscribe-form"
@@ -29,9 +46,6 @@ function Index(props) {
 						>
 							<div id="mc_embed_signup_scroll">
 								<h2>Subscribe to keep updated</h2>
-								{/* 	<div className="indicates-required">
-									<span className="asterisk">*</span> indicates required
-								</div> */}
 								<div className="mc-field-group">
 									<label for="mce-EMAIL">
 										Email Address <span className="asterisk">*</span>
@@ -46,6 +60,7 @@ function Index(props) {
 											setEmail(e.target.value);
 										}}
 									/>
+									{successful && <span>You were successfully subscribed!</span>}
 								</div>
 								<div id="mce-responses" className="clear">
 									<div
