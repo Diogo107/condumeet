@@ -5,6 +5,13 @@ const instance = axios.create({
 	baseURL: '/api/condumeet/auth',
 });
 
+export const checkForUser = async () => {
+	console.log('Check for User');
+	const result = await instance.get('/checkforuser');
+	console.log('auth result', result);
+	return result;
+};
+
 export const signUp = async (data) => {
 	console.log('signup', data);
 	const result = await instance.post('/register', data);

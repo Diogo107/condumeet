@@ -1,5 +1,6 @@
 const { Router } = require('express');
 const router = new Router();
+console.log('Api');
 
 router.get('/checkforuser', async (req, res, next) => {
 	console.log('Router Checkforuser');
@@ -10,18 +11,6 @@ router.get('/checkforuser', async (req, res, next) => {
 	} else {
 		res.json({ empty });
 	}
-});
-
-router.post('/register', async (req, res, next) => {
-	console.log('Router Sign Up');
-	const result = await instance.post('/register', req.body);
-	res.json(result.data);
-});
-
-router.post('/forgot-password', async (req, res, next) => {
-	console.log('Router forget Password');
-	const result = await instance.post('/register', req.body);
-	res.json(result.data);
 });
 
 module.exports = router;

@@ -5,6 +5,15 @@ const instance = axios.create({
 	baseURL: 'http://ec2-54-229-6-244.eu-west-1.compute.amazonaws.com/api/auth',
 });
 
+router.get('/checkforuser', async (req, res, next) => {
+	console.log('Router Checkforuser');
+	if (req.session.user !== undefined) {
+		res.json(req.session.user);
+	} else {
+		res.json();
+	}
+});
+
 router.post('/login', async (req, res, next) => {
 	console.log('Router Login');
 	const result = await instance.post('/login', req.body);
