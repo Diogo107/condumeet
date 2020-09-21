@@ -34,4 +34,10 @@ router.post('/forgot-password', async (req, res, next) => {
 	res.json(result.data);
 });
 
+router.delete('/destroyCookies', async (req, res, next) => {
+	console.log('Router destroyCookies');
+	req.session.destroy();
+	res.json({});
+});
+
 module.exports = router;

@@ -30,7 +30,9 @@ function Index(props) {
 		}
 	}, 5);
 	useEffect(() => {
-		const result = getCondominium(props.match.params.id, cookies.user.token);
+		if (cookies.user) {
+			const result = getCondominium(props.match.params.id, cookies.user.token);
+		}
 	});
 
 	return (

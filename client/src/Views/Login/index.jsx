@@ -4,7 +4,11 @@ import './style.scss';
 import GroupTalking from './../../assets/images/GroupTalking.png';
 import Logo from './../../assets/images/Logo.png';
 //Import Services
-import { login, forgotPassword } from '../../Sevices/Authenticathion.js';
+import {
+	login,
+	forgotPassword,
+	checkForUser,
+} from '../../Sevices/Authenticathion.js';
 import { UserContext } from '../../Context/UserContext';
 import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
@@ -23,10 +27,11 @@ function Index(props) {
 	useEffect(() => {
 		checkUserCookies();
 	}, []);
+
 	const checkUserCookies = async () => {
-		const result = await Cookies.get('user');
-		if (result) {
-			setUser(JSON.parse(result).user);
+		const result = await checkForUser();
+		if (result.data !== '') {
+			setUser(result.data);
 			props.history.push('/dashboard/overview');
 			console.log('There was a user token already');
 		} else {

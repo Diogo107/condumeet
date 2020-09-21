@@ -24,7 +24,6 @@ function Index(props) {
 		if (cookies.user) {
 			const token = cookies.user.token;
 			const result = await getCondominiums(token);
-			console.log(result);
 			if (result.data.length == 0) {
 				props.history.push(`/signup/welcome`);
 			} else {

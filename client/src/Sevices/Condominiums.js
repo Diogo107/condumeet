@@ -27,16 +27,14 @@ export const createCondominium = async (data, token) => {
 };
 
 export const getCondominium = async (data, token) => {
-	console.log(data, token);
 	const result = await instance.post(`/condominium`, {
 		data,
-		token,
 	});
 	return;
 };
 
 export const getCondominiums = async (token) => {
-	const result = await instance.post(`/condominiums`, { token });
+	const result = await instance.get(`/condominiums`);
 	return result;
 };
 

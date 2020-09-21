@@ -5,10 +5,6 @@ const instance = axios.create({
 });
 
 export const getProfileSelf = async (token) => {
-	const result = await instance.get('/self', {
-		headers: {
-			Authorization: `Bearer ${token}`,
-		},
-	});
+	const result = await instance.get('/self');
 	return result;
 };

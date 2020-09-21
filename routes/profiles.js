@@ -7,7 +7,7 @@ const instance = axios.create({
 });
 
 router.get('/self', async (req, res, next) => {
-	const result = await instance.post('/self', {
+	const result = await instance.get('/self', {
 		headers: {
 			Authorization: `Bearer ${req.session.token}`,
 		},

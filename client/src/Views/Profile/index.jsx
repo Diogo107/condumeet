@@ -27,10 +27,10 @@ function Index(props) {
 	}, []);
 
 	const getProfile = async () => {
-		const profileResult = await getProfileSelf(cookies.user.token);
+		const profileResult = await getProfileSelf();
 		await setName(profileResult.data.name);
 		await setEmail(profileResult.data.email);
-		const apartmentsResult = await getCondominiums(cookies.user.token);
+		const apartmentsResult = await getCondominiums();
 		await setListOfApartments(apartmentsResult.data);
 	};
 	return (
@@ -43,8 +43,8 @@ function Index(props) {
 				<div>
 					{(!edit && (
 						<>
-							<p>--{name}--</p>
-							<p>--{email}--</p>
+							<p>{name}</p>
+							<p>{email}</p>
 							<p>Password ******** </p>
 						</>
 					)) || (

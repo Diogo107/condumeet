@@ -8,7 +8,6 @@ const instance = axios.create({
 export const checkForUser = async () => {
 	console.log('Check for User');
 	const result = await instance.get('/checkforuser');
-	console.log('auth result', result);
 	return result;
 };
 
@@ -33,6 +32,12 @@ export const forgotPassword = async (data) => {
 	console.log(data);
 	const result = await instance.post('/forgot-password', data);
 	console.log('result', result);
+};
+
+export const destroyCookies = async () => {
+	const result = await instance.delete('/destroyCookies');
+	console.log('result', result);
+	return result.data;
 };
 
 export const searchForCondominium = async (data) => {

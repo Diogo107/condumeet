@@ -15,7 +15,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import { useCookies } from 'react-cookie';
 import Cookies from './../../../node_modules/js-cookie';
 import axios from 'axios';
-import { checkForUser } from '../../Sevices/Authenticathion';
+import { checkForUser, destroyCookies } from '../../Sevices/Authenticathion';
 
 const Index = (props) => {
 	const [cookies, setCookie, removeCookies] = useCookies(['user']);
@@ -25,13 +25,11 @@ const Index = (props) => {
 	}, []);
 
 	const readToken = async () => {
-		console.log('this is happening');
 		const result = await checkForUser();
 		if (result.data !== '') {
 			setUser(result.data);
 			props.history.push(`/dashboard/overview`);
 		}
-		console.log('this is cookie', props);
 	};
 
 	const hamburguerMenu = () => {
@@ -85,7 +83,8 @@ const Index = (props) => {
 									<Dropdown.Item as="button">
 										<button
 											onClick={async () => {
-												await removeCookies();
+												await destroyCookies();
+												setUser();
 												props.history.push(`/`);
 											}}
 										>
