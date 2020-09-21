@@ -1,7 +1,7 @@
 import axios from 'axios';
 let token;
 const instance = axios.create({
-	baseURL: 'http://ec2-54-229-6-244.eu-west-1.compute.amazonaws.com/api/v1',
+	baseURL: '/api/condumeet/condominiums',
 });
 
 export const createCondominium = async (data, token) => {
@@ -13,45 +13,30 @@ export const createCondominium = async (data, token) => {
 		subscription = null;
 	}
 	let condomimium = {
-		subscription_id: subscription,
+		subscription_id: null,
 		legal_identity_id: 1,
-		name: data.condominiumName,
 		type: 'building',
-		place_id: data.place_id,
-		geocode: data.geocode,
-		address: data.address,
 		locality: null,
-		postal_code: data.postal_code,
-		country: data.country,
-		house: {
-			floor_id: 1,
-			block_id: 1,
-			name: 'Casinha',
-		},
+		house: { floor_id: 1, block_id: 1, name: 'Casinha' },
 	};
-	const result = await instance.post('/condominiums', condomimium, {
-		headers: {
-			Authorization: `Bearer ${token}`,
-		},
+	const result = await instance.post('/createcondominiums', {
+		condomimium,
+		token,
 	});
 	return result;
 };
 
 export const getCondominium = async (data, token) => {
-	const result = await instance.get(`/condominiums/${data}`, {
-		headers: {
-			Authorization: `Bearer ${token}`,
-		},
+	console.log(data, token);
+	const result = await instance.post(`/condominium`, {
+		data,
+		token,
 	});
 	return;
 };
 
 export const getCondominiums = async (token) => {
-	const result = await instance.get(`/condominiums`, {
-		headers: {
-			Authorization: `Bearer ${token}`,
-		},
-	});
+	const result = await instance.post(`/condominiums`, { token });
 	return result;
 };
 

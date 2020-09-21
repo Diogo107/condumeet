@@ -1,16 +1,15 @@
 const { Router } = require('express');
 const router = new Router();
-const axios = require('axios');
-const instance = axios.create({
-	baseURL: 'http://ec2-54-229-6-244.eu-west-1.compute.amazonaws.com/api/auth',
-});
 
-router.post('/login', async (req, res, next) => {
-	console.log('Router Login');
-	const result = await instance.post('/login', req.body);
+router.get('/checkforuser', async (req, res, next) => {
+	console.log('Router Checkforuser');
 	req.session.token = result.data.token;
 	req.session.user = result.data.user;
-	res.json(result.data);
+	if (req.session.user !== undefined) {
+		res.json(req.session.user);
+	} else {
+		res.json({ empty });
+	}
 });
 
 router.post('/register', async (req, res, next) => {

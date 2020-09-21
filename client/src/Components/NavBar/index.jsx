@@ -14,6 +14,7 @@ import { UserContext } from './../../Context/UserContext.js';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { useCookies } from 'react-cookie';
 import Cookies from './../../../node_modules/js-cookie';
+import Axios from 'axios';
 
 const Index = (props) => {
 	const [cookies, setCookie, removeCookies] = useCookies(['user']);
@@ -22,7 +23,9 @@ const Index = (props) => {
 		readToken();
 	}, []);
 
-	const readToken = () => {
+	const readToken = async () => {
+		const result = await Axios.get('/api/condumeet/index/checkforuser');
+		console.log('this is cookie', result);
 		/* if (Object.keys(Cookies.get()).length !== 0) {
 			setUser(JSON.parse(Cookies.get().user).user);
 		} */

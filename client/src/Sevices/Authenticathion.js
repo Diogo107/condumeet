@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const instance = axios.create({
 	//baseURL: 'http://ec2-54-229-6-244.eu-west-1.compute.amazonaws.com/api/auth',
-	baseURL: '/api/condumeet',
+	baseURL: '/api/condumeet/auth',
 });
 
 export const signUp = async (data) => {
@@ -13,7 +13,11 @@ export const signUp = async (data) => {
 
 export const login = async (data) => {
 	console.log('Services - login', data);
-	const result = await instance.post('/login', data);
+	let temp = {
+		login: 'diogo.filipe.santos107@gmail.com',
+		password: '123456asdfgh',
+	};
+	const result = await instance.post('/login', temp);
 	console.log(result);
 	return result;
 };
