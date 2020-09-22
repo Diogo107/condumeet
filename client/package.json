@@ -36,7 +36,7 @@
     "reactjs-popup": "^1.5.0",
     "universal-cookie": "^4.0.3"
   },
-  "proxy": "https://condu.herokuapp.com/",
+  "proxy": "http://localhost:5000",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
