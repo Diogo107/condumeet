@@ -30,16 +30,16 @@ app.use(
 	})
 );
 //This line of code attach React files
-//app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.use('/api/condumeet/index', indexRouter);
 app.use('/api/condumeet/auth', authRouter);
 app.use('/api/condumeet/condominiums', condoRouter);
 app.use('/api/condumeet/profiles', profilesRouter);
-/* 
+
 app.get('*', (req, res) => {
 	res.sendFile(path.join(__dirname + '/client/build/index.html'));
-}); */
+});
 
 const port = process.env.PORT || 5000;
 app.listen(port);
