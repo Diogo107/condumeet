@@ -76,7 +76,7 @@ function Index(props) {
 				<img src={Logo} alt="Logo" />
 				<h1>Create Account</h1>
 				<div>
-					{/* <FacebookLogin
+					<FacebookLogin
 						appId={process.env.REACT_APP_FACEBOOK_OAUTH_ID}
 						autoLoad={false}
 						fields="name,email,picture"
@@ -90,7 +90,7 @@ function Index(props) {
 						onSuccess={responseGoogle}
 						onFailure={responseGoogle}
 						cookiePolicy={'single_host_origin'}
-					/> */}
+					/>
 				</div>
 				<span>
 					<p></p>
