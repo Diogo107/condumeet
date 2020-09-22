@@ -166,7 +166,7 @@ function Index(props) {
 					<button>Login</button>
 				</form>
 			</div>
-			<div className="right-side">
+			<div className="right-side Phone__Hide">
 				<img src={GroupTalking} alt="People Talking" />
 				<h2>Connect and manage with your neighbors!</h2>
 				<p>

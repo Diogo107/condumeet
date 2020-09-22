@@ -105,7 +105,7 @@ function Index(props) {
 								/>
 							</label>
 						</div>
-						<div>
+						<div className="Phone__Hide">
 							<label>
 								USER NAME
 								<input
@@ -176,7 +176,7 @@ function Index(props) {
 					Already have account? <Link to="/login">Sign In</Link>.
 				</h5>
 			</div>
-			<div className="right-side">
+			<div className="right-side Phone__Hide">
 				<img src={GroupTalking} alt="People Talking" />
 				<h2>Connect and manage with your neighbors!</h2>
 				<p>
