@@ -13,7 +13,7 @@ const profilesRouter = require('./routes/profiles');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-/* app.use(express.json());
+app.use(express.json());
 app.use(cookieParser());
 app.set('trust proxy', 1); // trust first proxy
 app.use(
@@ -28,18 +28,18 @@ app.use(
 			//secure: process.env.NODE_ENV === 'production'
 		},
 	})
-); */
+);
 //This line of code attach React files
-//app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.use('/api/condumeet/index', indexRouter);
 app.use('/api/condumeet/auth', authRouter);
 app.use('/api/condumeet/condominiums', condoRouter);
 app.use('/api/condumeet/profiles', profilesRouter);
 
-/* app.get('*', (req, res) => {
+app.get('*', (req, res) => {
 	res.sendFile(path.join(__dirname + '/client/build/index.html'));
-}); */
+});
 
 const port = process.env.PORT || 5000;
 app.listen(port);
