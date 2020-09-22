@@ -2,7 +2,7 @@ const { Router } = require('express');
 const router = new Router();
 const axios = require('axios');
 const instance = axios.create({
-	baseURL: 'https://ec2-54-229-6-244.eu-west-1.compute.amazonaws.com/api/auth',
+	baseURL: 'http://ec2-54-229-6-244.eu-west-1.compute.amazonaws.com/api/auth',
 });
 
 router.get('/checkforuser', async (req, res, next) => {
