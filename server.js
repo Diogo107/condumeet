@@ -31,7 +31,7 @@ app.use(
 	})
 );
 //This line of code attach React files
-app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static(path.join(__dirname, '/client/build')));
 
 app.use('/api/condumeet/index', indexRouter);
 app.use('/api/condumeet/auth', authRouter);
