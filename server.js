@@ -16,7 +16,6 @@ app.use(bodyParser.json());
 app.use(express.json());
 app.use(cookieParser());
 app.set('trust proxy', 1); // trust first proxy
-console.log('Api');
 app.use(
 	session({
 		secret: 'process.env.SESSION_SECRET',
@@ -31,7 +30,7 @@ app.use(
 	})
 );
 //This line of code attach React files
-app.use(express.static(path.join(__dirname, 'client/build')));
+//app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.use('/api/condumeet/index', indexRouter);
 app.use('/api/condumeet/auth', authRouter);
