@@ -1,6 +1,5 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import './style.scss';
 //Import Images
 import Logo from '../../assets/images/Logo.png';
 import ArrowDown from '../../assets/images/ArrowDown.svg';
@@ -16,10 +15,29 @@ import { useCookies } from 'react-cookie';
 import Cookies from './../../../node_modules/js-cookie';
 import axios from 'axios';
 import { checkForUser, destroyCookies } from '../../Sevices/Authenticathion';
+//Import Stylling
+import {
+	Collapse,
+	Navbar,
+	NavbarToggler,
+	NavbarBrand,
+	Nav,
+	NavItem,
+	NavLink,
+	UncontrolledDropdown,
+	DropdownToggle,
+	DropdownMenu,
+	DropdownItem,
+	NavbarText,
+} from 'reactstrap';
+import './style.scss';
 
 const Index = (props) => {
 	const [cookies, setCookie, removeCookies] = useCookies(['user']);
 	const [user, setUser] = useContext(UserContext);
+	const [isOpen, setIsOpen] = useState(false);
+	const toggle = () => setIsOpen(!isOpen);
+
 	useEffect(() => {
 		readToken();
 	}, []);
@@ -40,25 +58,49 @@ const Index = (props) => {
 	return (
 		<div className="NavBar">
 			{(!user && (
-				<nav className="NavBar__NotLogged">
-					<Link to="/">
+				<Navbar color="light" light expand="md" className="NavBar__NotLogged">
+					<NavbarBrand href="/">
 						<img src={Logo} alt="logo" />
-					</Link>
-					<ul>
-						<Link to="#features">
-							<li>Features</li>
-						</Link>
-						<Link to="#pricing">
-							<li>Pricing</li>
-						</Link>
-						<Link to="/login">
-							<li>Login</li>
-						</Link>
-						<Link to="/signup">
-							<li>Sign Up</li>
-						</Link>
-					</ul>
-				</nav>
+					</NavbarBrand>
+					<NavbarToggler onClick={toggle} />
+					<Collapse isOpen={isOpen} navbar>
+						{/* <Nav className="mr-auto" navbar>
+							<NavItem>
+								<NavLink href="/components/">Components</NavLink>
+							</NavItem>
+							<NavItem>
+								<NavLink href="https://github.com/reactstrap/reactstrap">
+									GitHub
+								</NavLink>
+							</NavItem>
+							<UncontrolledDropdown nav inNavbar>
+								<DropdownToggle nav caret>
+									Options
+								</DropdownToggle>
+								<DropdownMenu right>
+									<DropdownItem>Option 1</DropdownItem>
+									<DropdownItem>Option 2</DropdownItem>
+									<DropdownItem divider />
+									<DropdownItem>Reset</DropdownItem>
+								</DropdownMenu>
+							</UncontrolledDropdown>
+						</Nav> */}
+						<Nav className="mr-auto" navbar>
+							<Link to="#features">
+								<NavItem>Features</NavItem>
+							</Link>
+							<Link to="#pricing">
+								<NavItem>Pricing</NavItem>
+							</Link>
+							<Link to="/login">
+								<NavItem>Login</NavItem>
+							</Link>
+							<Link to="/signup">
+								<NavItem>Sign Up</NavItem>
+							</Link>
+						</Nav>
+					</Collapse>
+				</Navbar>
 			)) || (
 				<div className="NavBar__Logged">
 					<div>
