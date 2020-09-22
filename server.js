@@ -13,7 +13,7 @@ const profilesRouter = require('./routes/profiles');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(express.json());
+/* app.use(express.json());
 app.use(cookieParser());
 app.set('trust proxy', 1); // trust first proxy
 app.use(
@@ -28,7 +28,7 @@ app.use(
 			//secure: process.env.NODE_ENV === 'production'
 		},
 	})
-);
+); */
 //This line of code attach React files
 //app.use(express.static(path.join(__dirname, 'client/build')));
 
