@@ -276,4 +276,10 @@
 			}
 		}
 	}
+	.Change__Card--Overview {
+		flex-direction: column;
+		> div {
+			width: 100% !important;
+		}
+	}
 }
