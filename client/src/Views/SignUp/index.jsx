@@ -83,6 +83,14 @@ function Index(props) {
 					<GoogleLogin
 						clientId={process.env.REACT_APP_GOOGLE_OAUTH_ID}
 						buttonText="Login with Google"
+						render={(renderProps) => (
+							<button
+								onClick={renderProps.onClick}
+								disabled={renderProps.disabled}
+							>
+								This is my custom Google button
+							</button>
+						)}
 						onSuccess={responseGoogle}
 						//onFailure={responseGoogle}
 						autoLoad={false}
