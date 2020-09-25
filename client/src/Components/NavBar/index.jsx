@@ -49,7 +49,6 @@ const Index = (props) => {
 
 	const getWidth = () => {
 		const horizontal = window.innerWidth;
-		console.log(horizontal, '.....');
 		if (horizontal < 768) {
 			setPhone(true);
 		} else {
@@ -67,7 +66,6 @@ const Index = (props) => {
 
 	const hamburguerMenu = () => {
 		const sidebar = document.getElementsByClassName('User__Sidebar');
-		console.log('hellooooo', sidebar[0].style.display);
 		if (sidebar[0].style.display == '' || sidebar[0].style.display == 'none') {
 			sidebar[0].style.display = 'flex';
 		} else {

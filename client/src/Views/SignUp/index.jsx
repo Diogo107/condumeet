@@ -21,30 +21,31 @@ function Index(props) {
 	const [cookies, setCookie] = useCookies(['name']);
 
 	const createAccount = async (e) => {
-		e.preventDefault();
+		//e.preventDefault();
 		/* const checkEmail = await validateEmail(email);
 		const checkPassword = '';
 		if (terms && checkEmail == 'valid' && checkPassword == true) {
 		} */
-		const resultSignUp = await signUp({
+		/* const resultSignUp = await signUp({
 			name,
 			username,
 			email,
 			password,
 			password_confirmation: password,
 			terms,
-		});
-		console.log(resultSignUp);
-		if (resultSignUp.status === 201 || resultSignUp.status === 200) {
+		}); */
+		console.log('Isto é o forulário a tentar enviar');
+		/* if (resultSignUp.status === 201 || resultSignUp.status === 200) {
 			const resultLogin = await login({ login: email, password });
 			setCookie('user', resultLogin.data, { path: '/', maxAge: 60 * 15 });
 			setUser(resultLogin.data.user);
-		}
+		} */
 
-		props.history.push('/signup/welcome');
+		//props.history.push('/signup/welcome');
 	};
 
 	const responseFacebook = async (response) => {
+		console.log('Isto aqui é o Facebook');
 		if (response.status !== 'unknown') {
 			await setName(response.name);
 			await setEmail(response.email);
@@ -55,6 +56,7 @@ function Index(props) {
 	};
 
 	const responseGoogle = async (response) => {
+		console.log('Isto aqui é o Google', response);
 		if (!response.error) {
 			await setName(response.profileObj.name);
 			await setEmail(response.profileObj.email);
@@ -80,9 +82,18 @@ function Index(props) {
 					/>
 					<GoogleLogin
 						clientId="648268033854-0lt5o6nuocpvr37l69sgn96suf2okbkt.apps.googleusercontent.com"
-						buttonText="Login"
+						buttonText="Login with Google"
+						render={(renderProps) => (
+							<button
+								onClick={renderProps.onClick}
+								disabled={renderProps.disabled}
+							>
+								This is my custom Google button
+							</button>
+						)}
 						onSuccess={responseGoogle}
-						onFailure={responseGoogle}
+						//onFailure={responseGoogle}
+						autoLoad={false}
 						cookiePolicy={'single_host_origin'}
 					/>
 				</div>
