@@ -7,7 +7,6 @@
 	}
 
 	.NavBar__NotLogged {
-		background-color: #fff !important;
 		margin: auto 100px;
 		display: flex;
 		justify-content: space-between;
@@ -39,18 +38,26 @@
 		}
 	}
 	.NavBar__Logged {
-		height: 100px;
-		width: 100%;
+		margin: auto 100px;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		margin: 0;
-		button {
+		height: 100%;
+		ul,
+		li {
+			list-style: none;
+		}
+		/* button {
 			background-color: transparent;
 			border: none;
 			display: flex;
 			align-items: center;
 			color: #e5e5e5;
+		} */
+		.dropdown-toggle {
+			width: 100%;
+			display: flex;
+			justify-content: space-evenly;
 		}
 
 		> div:first-child {
@@ -69,7 +76,7 @@
 			justify-content: flex-end;
 			align-items: center;
 
-			> div:first-child {
+			> :first-child {
 				display: flex;
 				align-items: center;
 				justify-content: space-evenly;
@@ -78,18 +85,25 @@
 				border-left: 1px solid #e5e5e5;
 				border-right: 1px solid #e5e5e5;
 			}
-			> div:nth-child(2) {
+			> :nth-child(2) {
 				width: 270px;
 				height: 100%;
-				display: flex;
-				align-items: center;
-				justify-content: space-evenly;
-				> img {
-					width: 40px;
-					height: 40px;
-					border-radius: 50%;
+				a {
+					display: flex;
+					align-items: center;
+					justify-content: space-evenly;
 				}
 			}
+			.dropdown-toggle > img {
+				width: 40px;
+				height: 40px;
+				border-radius: 50%;
+			}
+
+			.dropdown-menu {
+				width: inherit;
+			}
+
 			.dropdown {
 				width: 100%;
 				height: 100%;
@@ -111,30 +125,19 @@
 			button {
 				transform: none;
 			}
-			.dropdown-menu {
-				width: 240px;
-				box-sizing: border-box;
+
+			.dropdown-item {
 				display: flex;
-				flex-direction: column;
-				background-color: white;
-				.dropdown-item {
-					padding-bottom: 8px;
-					color: #56657f;
-					line-height: 65px;
-					&:hover {
-						background: rgba(1, 1, 1, 0.2);
-					}
-					button {
-						line-height: 65px;
-						display: block;
-						width: 100%;
-						text-align: center;
-						color: #56657f;
-					}
-					a {
-						width: 100%;
-					}
-				}
+				justify-content: center;
+			}
+
+			.dropdown {
+				display: flex;
+				align-items: center;
+			}
+
+			.dropdown-menu {
+				width: 100%;
 			}
 		}
 	}
