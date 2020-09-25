@@ -34,7 +34,6 @@
 			flex-direction: column;
 			justify-content: space-between;
 			margin: 32px 16px;
-			min-width: 805px;
 			text-align: start;
 		}
 		> div:nth-child(2) {
@@ -42,7 +41,6 @@
 			flex-direction: column;
 			justify-content: space-between;
 			margin: 32px 16px;
-			width: 100%;
 			text-align: end;
 		}
 	}
@@ -231,6 +229,51 @@
 				);
 			}
 			/* Next here */
+		}
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	.Comunication__Overview {
+		flex-direction: column-reverse;
+		height: auto !important;
+		h2 {
+			font-size: 20px;
+			margin-bottom: 5px !important;
+		}
+		p {
+			font-size: 16px !important;
+			text-align: justify;
+			text-justify: inter-word;
+		}
+		> :first-child {
+			margin: 10px !important;
+		}
+		> :nth-child(2) {
+			h1 {
+				margin-left: 10px;
+				text-align: left;
+			}
+
+			margin: 10px !important;
+		}
+	}
+	.Boxes__Section {
+		flex-direction: column;
+		align-items: center;
+		> div {
+			margin-bottom: 5px;
+		}
+	}
+	.PieChartAndNeighbors__Section {
+		flex-direction: column;
+		> div {
+			width: 100% !important;
+			height: auto !important;
+			canvas {
+				width: 100% !important;
+				height: auto !important;
+			}
 		}
 	}
 }
