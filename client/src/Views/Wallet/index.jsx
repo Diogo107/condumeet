@@ -126,8 +126,8 @@ function index(props) {
 							<th>Type</th>
 							<th>Amount</th>
 							<th>Status</th>
-							<th>File</th>
-							<th></th>
+							<th className="Phone__Hide">File</th>
+							<th className="Phone__Hide"></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -137,10 +137,10 @@ function index(props) {
 							<td>Lorem Ipsum</td>
 							<td>Lorem Ipsum</td>
 							<td>Lorem Ipsum</td>
-							<td>
+							<td className="Phone__Hide">
 								<img src={DownloadIconDontExist} alt="No Atachment" />
 							</td>
-							<td>
+							<td className="Phone__Hide">
 								<img src={OptionsIcon} alt="Options" />
 							</td>
 						</tr>
@@ -150,10 +150,10 @@ function index(props) {
 							<td>Lorem Ipsum</td>
 							<td>Lorem Ipsum</td>
 							<td>Lorem Ipsum</td>
-							<td>
+							<td className="Phone__Hide">
 								<img src={DownloadIconDontExist} alt="No Atachment" />
 							</td>
-							<td>
+							<td className="Phone__Hide">
 								<img src={OptionsIcon} alt="Options" />
 							</td>
 						</tr>
@@ -163,10 +163,10 @@ function index(props) {
 							<td>Lorem Ipsum</td>
 							<td>Lorem Ipsum</td>
 							<td>Lorem Ipsum</td>
-							<td>
+							<td className="Phone__Hide">
 								<img src={DownloadIconExist} alt="No Atachment" />
 							</td>
-							<td>
+							<td className="Phone__Hide">
 								<img src={OptionsIcon} alt="Options" />
 							</td>
 						</tr>

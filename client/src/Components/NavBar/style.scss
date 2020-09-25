@@ -142,3 +142,38 @@
 		}
 	}
 }
+
+@media only screen and (max-width: 767px) {
+	.NavBar__NotLogged,
+	.NavBar__Logged {
+		margin: auto 15px !important;
+		.nav-item {
+			width: 70px !important;
+		}
+		.Toggler__Width {
+			width: fit-content !important;
+		}
+		.navbar {
+			flex-wrap: inherit;
+		}
+	}
+
+	.NavBar__Logged {
+		display: flex;
+		flex-direction: column;
+		justify-content: center !important;
+		> div:first-child {
+			width: 207px !important;
+			min-width: 207px !important;
+			border-right: none !important;
+		}
+		> div:nth-child(2) {
+			> :first-child {
+				border: none !important;
+			}
+		}
+	}
+	.navbar-brand img {
+		width: 111px;
+	}
+}

@@ -14,3 +14,9 @@
 		padding: 44px;
 	}
 }
+
+@media only screen and (max-width: 767px) {
+	.User__Dashboard {
+		padding: 13px !important;
+	}
+}

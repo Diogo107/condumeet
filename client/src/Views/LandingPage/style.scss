@@ -105,3 +105,16 @@
 		}
 	}
 }
+
+@media only screen and (max-width: 767px) {
+	.Landing-Page {
+		> section > div {
+			margin: auto 0 auto 15px !important;
+			padding-top: 200px;
+		}
+		> section img {
+			position: absolute;
+			width: 100vw;
+		}
+	}
+}

@@ -218,3 +218,38 @@
 		}
 	}
 }
+@media only screen and (max-width: 767px) {
+	.BankIncomeExpenses__Cards--Wallet {
+		display: flex;
+		flex-direction: column;
+		> div {
+			width: inherit !important;
+			margin-bottom: 5px;
+		}
+	}
+	.Charts__Balance--Wallet {
+		flex-direction: column;
+		#Balance__Card--Width,
+		.Title__Card--Overview {
+			height: auto;
+			width: 100% !important;
+			margin-bottom: 5px;
+		}
+		:nth-child(2) {
+			width: 100% !important;
+		}
+	}
+	.List__Section--Wallet {
+		padding: 13px !important;
+		:first-child {
+			margin-bottom: 5px;
+		}
+	}
+
+	form {
+		flex-direction: column;
+		input {
+			margin-bottom: 5px;
+		}
+	}
+}
