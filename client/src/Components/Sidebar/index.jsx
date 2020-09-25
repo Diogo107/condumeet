@@ -51,6 +51,14 @@ function Index(props) {
 			}
 		}
 	};
+
+	const hide = () => {
+		if (window.innerWidth < 768) {
+			document.getElementsByClassName('User__Sidebar')[0].style.display =
+				'none';
+		}
+	};
+
 	return (
 		<div className="Sidebar__Component">
 			{listOfApartments &&
@@ -65,7 +73,13 @@ function Index(props) {
 						>
 							<h3>{single.name}Hello</h3>
 						</button>
-						<ul className="Options" id={single.id}>
+						<ul
+							className="Options"
+							id={single.id}
+							onClick={() => {
+								hide();
+							}}
+						>
 							<Link to={{ pathname: `/dashboard/overview/${single.id}` }}>
 								<li>
 									<img src={OverviewIcon} alt="Overview" />
