@@ -4,7 +4,7 @@ import './style.scss';
 import GroupTalking from './../../assets/images/GroupTalking.png';
 import Logo from './../../assets/images/Logo.png';
 //Import Services
-import { signUp, login } from './../../Sevices/Authenticathion.js';
+import { signUp, login, googleAuth } from './../../Sevices/Authenticathion.js';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../Context/UserContext';
 import { useCookies } from 'react-cookie';
@@ -21,20 +21,20 @@ function Index(props) {
 	const [cookies, setCookie] = useCookies(['name']);
 
 	const createAccount = async (e) => {
-		//e.preventDefault();
+		e.preventDefault();
 		/* const checkEmail = await validateEmail(email);
 		const checkPassword = '';
 		if (terms && checkEmail == 'valid' && checkPassword == true) {
 		} */
-		/* const resultSignUp = await signUp({
+		const resultSignUp = await signUp({
 			name,
 			username,
 			email,
 			password,
 			password_confirmation: password,
 			terms,
-		}); */
-		console.log('Isto é o forulário a tentar enviar');
+		});
+		console.log('Isto é o forulário a tentar enviar', resultSignUp);
 		/* if (resultSignUp.status === 201 || resultSignUp.status === 200) {
 			const resultLogin = await login({ login: email, password });
 			setCookie('user', resultLogin.data, { path: '/', maxAge: 60 * 15 });
@@ -72,6 +72,9 @@ function Index(props) {
 				<img src={Logo} alt="Logo" />
 				<h1>Create Account</h1>
 				<div>
+					<a href="http://localhost:5000/api/condumeet/auth/social-auth/google">
+						Log with social
+					</a>
 					<FacebookLogin
 						appId="305464780546351"
 						autoLoad={false}

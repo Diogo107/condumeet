@@ -23,8 +23,9 @@ router.post('/login', async (req, res, next) => {
 });
 
 router.post('/register', async (req, res, next) => {
-	console.log('Router Sign Up');
+	console.log('Router Sign Up', req.body);
 	const result = await instance.post('/register', req.body);
+	console.log('result', result);
 	res.json(result.data);
 });
 

@@ -46,3 +46,13 @@ export const searchForCondominium = async (data) => {
 	console.log('result', result);
 	return result.data.result;
 };
+
+//Social Login
+
+export const googleAuth = async (data) => {
+	console.log('Google Auth');
+	//const result = await instance.get('/social-auth/google');
+	const result = await instance.get('/social-auth/google');
+	console.log(result);
+	return result;
+};

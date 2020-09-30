@@ -27,6 +27,30 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
 	-->
+		<!-- Anti-flicker snippet  -->
+		<style>
+			.async-hide {
+				opacity: 0 !important;
+			}
+		</style>
+		<script>
+			(function (a, s, y, n, c, h, i, d, e) {
+				s.className += ' ' + y;
+				h.start = 1 * new Date();
+				h.end = i = function () {
+					s.className = s.className.replace(RegExp(' ?' + y), '');
+				};
+				(a[n] = a[n] || []).hide = h;
+				setTimeout(function () {
+					i();
+					h.end = null;
+				}, c);
+				h.timeout = c;
+			})(window, document.documentElement, 'async-hide', 'dataLayer', 4000, {
+				'GTM-M8ZP3R9': true,
+			});
+		</script>
+		<!-- End Anti-flicker snippet -->
 		<!-- MailChimp Style -->
 		<link
 			href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css"
@@ -44,6 +68,16 @@
 		<title>Condumeet</title>
 	</head>
 	<body>
+		<!-- Google Tag Manager (noscript) -->
+		<noscript
+			><iframe
+				src="https://www.googletagmanager.com/ns.html?id=GTM-M8ZP3R9"
+				height="0"
+				width="0"
+				style="display: none; visibility: hidden"
+			></iframe
+		></noscript>
+		<!-- End Google Tag Manager (noscript) -->
 		<noscript>You need to enable JavaScript to run this app.</noscript>
 		<div id="root"></div>
 		<!--
@@ -81,6 +115,24 @@
 			})(jQuery);
 			var $mcj = jQuery.noConflict(true);
 		</script>
+		<!-- Start Google Optimize -->
+		<script src="https://www.googleoptimize.com/optimize.js?id=OPT-WM6D3HV"></script>
+		<!-- End Google Optimize -->
+		<!-- Google Tag Manager -->
+		<script>
+			(function (w, d, s, l, i) {
+				w[l] = w[l] || [];
+				w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+				var f = d.getElementsByTagName(s)[0],
+					j = d.createElement(s),
+					dl = l != 'dataLayer' ? '&l=' + l : '';
+				j.async = true;
+				j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+				f.parentNode.insertBefore(j, f);
+			})(window, document, 'script', 'dataLayer', 'GTM-M8ZP3R9');
+		</script>
+		<!-- End Google Tag Manager -->
+
 		<!-- End Mailchimp Script -->
 		<script
 			type="text/javascript"
