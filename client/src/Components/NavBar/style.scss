@@ -1,4 +1,7 @@
 .NavBar {
+	//temporário
+	position: absolute;
+	//fim do temporário
 	height: 100px;
 	width: 100%;
 	a:hover {
@@ -144,6 +147,9 @@
 }
 
 @media only screen and (max-width: 767px) {
+	.NavBar {
+		position: inherit !important;
+	}
 	.NavBar__NotLogged,
 	.NavBar__Logged {
 		margin: auto 15px !important;

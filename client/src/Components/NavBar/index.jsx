@@ -79,7 +79,7 @@ const Index = (props) => {
 					<NavbarBrand href="/">
 						<img src={Logo} alt="logo" />
 					</NavbarBrand>
-					<NavbarToggler onClick={toggle} />
+					{/* <NavbarToggler onClick={toggle} />
 					<Collapse isOpen={isOpen} navbar>
 						<Nav className="mr-auto" navbar>
 							<Link to="#features">
@@ -95,7 +95,7 @@ const Index = (props) => {
 								<NavItem>Sign Up</NavItem>
 							</Link>
 						</Nav>
-					</Collapse>
+					</Collapse> */}
 				</Navbar>
 			)) || (
 				<Navbar light expand="md" className="NavBar__Logged">
