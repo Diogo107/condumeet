@@ -33,63 +33,70 @@ function Index(props) {
 						and collaborative neighborhood while reducing costs.
 					</p>
 					<button className="background-lightgreen">JOIN FOR FREE</button> */}
+
 					<div id="mc_embed_signup">
 						<form
-							action="https://gmail.us17.list-manage.com/subscribe/post?u=3629eb921ff4887f897adb5d0&amp;id=778e03d58c"
-							//onSubmit={handleForm}
+							action="https://herokuapp.us17.list-manage.com/subscribe/post?u=3629eb921ff4887f897adb5d0&amp;id=778e03d58c"
 							method="post"
 							id="mc-embedded-subscribe-form"
 							name="mc-embedded-subscribe-form"
-							className="validate"
+							class="validate"
 							target="_blank"
 							novalidate
 						>
 							<div id="mc_embed_signup_scroll">
-								<h2>Subscribe to keep updated</h2>
-								<div className="mc-field-group">
-									<label for="mce-EMAIL">
-										Email Address <span className="asterisk">*</span>
-									</label>
+								<h2
+									style={{ textAlign: 'justify', margin: '10px 10px 10px 0' }}
+								>
+									Inscreve-te no programa piloto e testa o ConduMeet
+									gratuitamente
+								</h2>
+								{/* <div class="indicates-required">
+									<span class="asterisk">*</span> indicates required
+								</div> */}
+								<div class="mc-field-group">
+									{/* <label for="mce-EMAIL">
+										Email Address <span class="asterisk">*</span>
+									</label> */}
 									<input
 										type="email"
 										value={email}
 										name="EMAIL"
-										className="required email"
+										class="required email"
 										id="mce-EMAIL"
-										placeholder="Write your email here..."
+										placeholder="Email..."
 										onChange={(e) => {
 											setEmail(e.target.value);
 										}}
 									/>
-									{successful && <span>You were successfully subscribed!</span>}
 								</div>
-								<div id="mce-responses" className="clear">
+								<div id="mce-responses" class="clear">
 									<div
-										className="response"
+										class="response"
 										id="mce-error-response"
 										style={{ display: 'none' }}
 									></div>
 									<div
-										className="response"
+										class="response"
 										id="mce-success-response"
 										style={{ display: 'none' }}
 									></div>
-								</div>
-								<div
-									style={{ position: 'absolute', left: '-5000px' }}
-									aria-hidden="true"
-								>
-									<input
-										type="text"
-										name="b_3629eb921ff4887f897adb5d0_778e03d58c"
-										tabindex="-1"
-										value=""
-									/>
+									<div
+										style={{ position: 'absolute', left: '-5000px' }}
+										aria-hidden="true"
+									>
+										<input
+											type="text"
+											name="b_3629eb921ff4887f897adb5d0_778e03d58c"
+											tabindex="-1"
+											value=""
+										/>
+									</div>
 								</div>
 								<div className="clear">
 									<input
 										type="submit"
-										value="Subscribe"
+										value="Inscrever"
 										name="subscribe"
 										id="mc-embedded-subscribe"
 										className="button"
