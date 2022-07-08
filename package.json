@@ -30,7 +30,7 @@
     "gfinance": "0.0.5",
     "google-stocks": "^2.0.1",
     "google-stocks-watch": "^1.0.0",
-    "moment": "^2.28.0",
+    "moment": "^2.29.4",
     "passport": "^0.4.1",
     "passport-google-oauth": "^2.0.0",
     "passport-google-oauth20": "^2.0.0",
